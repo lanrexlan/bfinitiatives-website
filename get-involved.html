@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Involved | Bold Footprint Initiatives</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ---- PATHWAYS GRID ---- */
+    .pathways { padding: var(--section-padding); }
+    .pathways-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .pathway-card {
+      background: var(--white);
+      border-radius: 14px;
+      border: 1px solid var(--gray-200);
+      padding: 40px 28px;
+      text-align: center;
+      transition: all var(--transition-base);
+    }
+    .pathway-card:hover {
+      border-color: var(--gold-200);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+    .pathway-card__icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--gold-400);
+      font-size: 22px;
+    }
+    .pathway-card__for {
+      font-family: var(--font-display);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-600);
+      margin-bottom: 8px;
+    }
+    .pathway-card__title {
+      font-family: var(--font-display);
+      font-size: 20px; font-weight: 700;
+      color: var(--navy-800);
+      margin-bottom: 10px;
+    }
+    .pathway-card__text {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .pathway-card__features {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .pathway-card__feature {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--gray-700); font-weight: 500;
+    }
+    .pathway-card__feature i { color: var(--gold-500); font-size: 11px; }
+
+    /* ---- DONATE SECTION ---- */
+    .donate-section {
+      padding: var(--section-padding);
+      background: var(--gray-50);
+    }
+    .donate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: flex-start;
+    }
+    .donate-content .section-title { font-size: 34px; }
+    .donate-text {
+      font-size: 16px;
+      color: var(--gray-700);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .donate-amounts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .donate-amount {
+      font-family: var(--font-display);
+      font-size: 15px; font-weight: 700;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 2px solid var(--gray-200);
+      background: var(--white);
+      color: var(--navy-800);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-align: center;
+    }
+    .donate-amount:hover, .donate-amount--active {
+      border-color: var(--gold-500);
+      background: var(--gold-50);
+      color: var(--gold-700);
+    }
+    .donate-custom {
+      display: flex; gap: 12px;
+      margin-bottom: 20px;
+    }
+    .donate-custom input {
+      flex: 1;
+      font-family: var(--font-body);
+      font-size: 15px;
+      padding: 14px 18px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      outline: none;
+      transition: border-color var(--transition-fast);
+    }
+    .donate-custom input:focus { border-color: var(--gold-500); }
+
+    /* ---- CONTACT SECTION ---- */
+    .contact-section {
+      padding: var(--section-padding);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: flex-start;
+    }
+    .contact-info__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .contact-info__icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--navy-50);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--navy-600);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .contact-info__label {
+      font-family: var(--font-display);
+      font-size: 14px; font-weight: 700;
+      color: var(--navy-800);
+      margin-bottom: 2px;
+    }
+    .contact-info__value {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+    .contact-form {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px 36px;
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-sm);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group--full { grid-column: span 2; }
+    .form-label {
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 600;
+      color: var(--navy-800);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 15px;
+      padding: 12px 16px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color var(--transition-fast);
+      background: var(--white);
+      color: var(--gray-800);
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--gold-500);
+    }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236C757D' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+
+    /* ---- IMPACT NUMBERS ---- */
+    .impact-numbers {
+      padding: 60px 0;
+      background: linear-gradient(160deg, var(--navy-950), var(--navy-800));
+    }
+    .impact-numbers__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .impact-num__value {
+      font-family: var(--font-display);
+      font-size: 40px; font-weight: 800;
+      color: var(--gold-400);
+      line-height: 1;
+    }
+    .impact-num__label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 8px;
+    }
+
+    @media (max-width: 1024px) {
+      .pathways-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
+      .donate-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .form-row { grid-template-columns: 1fr; }
+      .form-group--full { grid-column: span 1; }
+      .donate-amounts { grid-template-columns: repeat(2, 1fr); }
+      .impact-numbers__grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo"><span class="nav__logo-text">Bold <span>Footprint</span></span></a>
+      <div class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="scholar-stories.html" class="nav__link">Scholar Stories</a>
+        <a href="programs.html" class="nav__link">Programs</a>
+        <a href="mentor-impact.html" class="nav__link">Mentor Impact</a>
+        <a href="talent-of-the-year.html" class="nav__link">Talent of the Year</a>
+      </div>
+      <a href="get-involved.html" class="nav__cta">Get Involved</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero__breadcrumb"><a href="index.html">Home</a> <span>/</span> Get Involved</div>
+      <h1 class="page-hero__title">Your Bold <em>Footprint</em> Starts Here</h1>
+      <p class="page-hero__subtitle">Apply, mentor, donate, or connect. Multiple ways to help Nigerian scholars reach global institutions.</p>
+    </div>
+  </section>
+
+  <!-- PATHWAYS -->
+  <section class="pathways">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <div class="section-label section-label--center">Ways to Contribute</div>
+        <h2 class="section-title" style="font-size:34px;">Choose Your Path</h2>
+      </div>
+      <div class="pathways-grid">
+        <div class="pathway-card reveal reveal--delay-1">
+          <div class="pathway-card__icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="pathway-card__for">For Students</div>
+          <h3 class="pathway-card__title">Apply for Scholarship</h3>
+          <p class="pathway-card__text">Take the first step toward your educational goals with our scholarship and mentorship programs.</p>
+          <div class="pathway-card__features">
+            <div class="pathway-card__feature"><i class="fa-solid fa-check"></i> Full tuition coverage</div>
+            <div class="pathway-card__feature"><i class="fa-solid fa-check"></i> Mentorship &amp; guidance</div>
+            <div class="pathway-card__feature"><i class="fa-solid fa-check"></i> Community support</div>
+          </div>
+          <a href="#" class="btn btn--gold btn--full">Apply Now</a>
+        </div>
+        <div class="pathway-card reveal reveal--delay-2" id="mentor">
+          <div class="pathway-card__icon"><i class="fa-solid fa-compass"></i></div>
+          <div class="pathway-card__for">For Professionals</div>
+          <h3 class="pathway-card__title">Become a Mentor</h3>
+          <p class="pathway-card__text">Share your expertise with scholars who need strategic guidance to reach their full potential.</p>
+          <div class="pathway-card__features">
+            <div class="pathway-card__feature"><i class="fa-solid fa-check"></i> 1–2 hours/week commitment</div>
+            <div class="pathway-card__feature"><i class="fa-solid fa-check"></i> Remote-friendly</div>
+            <div class="pathway-card__feature"><i class="fa-solid fa-check"></i> Application review &amp; strategy</div>
+          </div>
+          <a href="#" class="btn btn--navy btn--full">Join as Mentor</a>
+        </div>
+        <div class="pathway-card reveal reveal--delay-3" id="donate">
+          <div class="pathway-card__icon"><i class="fa-solid fa-heart"></i></div>
+          <div class="pathway-card__for">For Supporters</div>
+          <h3 class="pathway-card__title">Fund a Scholar</h3>
+          <p class="pathway-card__text">Your contribution directly funds scholarships and resources that launch the next generation of leaders.</p>
+          <div class="pathway-card__features">
+            <div class="pathway-card__feature"><i class="fa-solid fa-check"></i> One-time or monthly giving</div>
+            <div class="pathway-card__feature"><i class="fa-solid fa-check"></i> Corporate sponsorship</div>
+            <div class="pathway-card__feature"><i class="fa-solid fa-check"></i> Full transparency</div>
+          </div>
+          <a href="#donate-section" class="btn btn--outline-gold btn--full">Donate Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT NUMBERS -->
+  <section class="impact-numbers">
+    <div class="container">
+      <div class="impact-numbers__grid">
+        <div class="reveal"><div class="impact-num__value">80+</div><div class="impact-num__label">Students Supported</div></div>
+        <div class="reveal reveal--delay-1"><div class="impact-num__value">15+</div><div class="impact-num__label">Partner Schools</div></div>
+        <div class="reveal reveal--delay-2"><div class="impact-num__value">₦5M+</div><div class="impact-num__label">Scholarships Awarded</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE SECTION -->
+  <section class="donate-section" id="donate-section">
+    <div class="container">
+      <div class="donate-grid">
+        <div class="donate-content reveal">
+          <div class="section-label">Support Our Mission</div>
+          <h2 class="section-title" style="font-size:34px;">Fund the Next Breakthrough</h2>
+          <p class="donate-text">Every naira directly supports a scholar's journey — from WASSCE prep to PhD placement. No overhead padding. No bureaucratic waste. Just direct impact.</p>
+          <p class="donate-text">Choose a one-time gift or become a monthly supporter to help us plan long-term scholar pathways with confidence.</p>
+          <div class="donate-amounts">
+            <button class="donate-amount">₦5,000</button>
+            <button class="donate-amount donate-amount--active">₦10,000</button>
+            <button class="donate-amount">₦25,000</button>
+            <button class="donate-amount">₦50,000</button>
+            <button class="donate-amount">₦100,000</button>
+            <button class="donate-amount">Custom</button>
+          </div>
+          <div class="donate-custom">
+            <input type="text" placeholder="Enter custom amount (₦)" class="form-input">
+          </div>
+          <a href="#" class="btn btn--gold">Proceed to Payment <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="reveal reveal--delay-2" style="background:linear-gradient(160deg,var(--navy-800),var(--navy-700));border-radius:16px;padding:48px 36px;color:var(--white);">
+          <h3 style="font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--white);margin-bottom:24px;">Other Ways to Give</h3>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:flex-start;gap:14px;padding:16px;background:rgba(255,255,255,0.06);border-radius:10px;border:1px solid rgba(255,255,255,0.08);">
+              <div style="width:36px;height:36px;border-radius:8px;background:rgba(200,155,60,0.15);display:flex;align-items:center;justify-content:center;color:var(--gold-400);flex-shrink:0;"><i class="fa-solid fa-building"></i></div>
+              <div><div style="font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--white);margin-bottom:2px;">Corporate Sponsorship</div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Partner with us for CSR impact. Tax-deductible.</div></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:14px;padding:16px;background:rgba(255,255,255,0.06);border-radius:10px;border:1px solid rgba(255,255,255,0.08);">
+              <div style="width:36px;height:36px;border-radius:8px;background:rgba(200,155,60,0.15);display:flex;align-items:center;justify-content:center;color:var(--gold-400);flex-shrink:0;"><i class="fa-solid fa-handshake"></i></div>
+              <div><div style="font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--white);margin-bottom:2px;">NGO Collaboration</div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Joint programs, shared resources, co-funded scholars.</div></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:14px;padding:16px;background:rgba(255,255,255,0.06);border-radius:10px;border:1px solid rgba(255,255,255,0.08);">
+              <div style="width:36px;height:36px;border-radius:8px;background:rgba(200,155,60,0.15);display:flex;align-items:center;justify-content:center;color:var(--gold-400);flex-shrink:0;"><i class="fa-solid fa-gift"></i></div>
+              <div><div style="font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--white);margin-bottom:2px;">Legacy Giving</div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Create lasting impact that outlives a single cohort.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="section-label">Get in Touch</div>
+          <h2 class="section-title" style="font-size:34px;">Contact Us</h2>
+          <p style="font-size:16px;color:var(--gray-600);line-height:1.8;margin-bottom:36px;">Have questions about our programs, partnerships, or how to apply? We're here to help.</p>
+          <div class="contact-info__item">
+            <div class="contact-info__icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div><div class="contact-info__label">Location</div><div class="contact-info__value">Ibadan, Nigeria</div></div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__icon"><i class="fa-solid fa-phone"></i></div>
+            <div><div class="contact-info__label">Phone</div><div class="contact-info__value">(+234) 816 501 1291<br>(+234) 810 237 7511</div></div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__icon"><i class="fa-solid fa-envelope"></i></div>
+            <div><div class="contact-info__label">Email</div><div class="contact-info__value">info@bfinitiatives.com</div></div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__icon"><i class="fa-solid fa-clock"></i></div>
+            <div><div class="contact-info__label">Office Hours</div><div class="contact-info__value">Mon–Fri: 9:00 AM – 5:00 PM<br>Sat: 10:00 AM – 2:00 PM</div></div>
+          </div>
+        </div>
+        <div class="contact-form reveal reveal--delay-2">
+          <h3 style="font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--navy-800);margin-bottom:24px;">Send a Message</h3>
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Full Name *</label>
+                <input type="text" class="form-input" placeholder="Your full name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address *</label>
+                <input type="email" class="form-input" placeholder="you@example.com" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-input" placeholder="+234">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Subject *</label>
+                <select class="form-select" required>
+                  <option value="" disabled selected>Select a subject</option>
+                  <option>General Inquiry</option>
+                  <option>Scholarship Information</option>
+                  <option>Application Assistance</option>
+                  <option>Mentorship Program</option>
+                  <option>Partnership Opportunity</option>
+                  <option>Donation Inquiry</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Message *</label>
+              <textarea class="form-textarea" placeholder="How can we help you?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--gold btn--full">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div><div class="footer__brand-name">Bold <span>Footprint</span> Initiatives</div><p class="footer__brand-text">Equipping high-potential Nigerian scholars with scholarships, mentorship, and global pathways since 2016.</p></div>
+        <div><div class="footer__heading">Quick Links</div><a href="index.html" class="footer__link">Home</a><a href="scholar-stories.html" class="footer__link">Scholar Stories</a><a href="programs.html" class="footer__link">Programs</a><a href="talent-of-the-year.html" class="footer__link">Talent of the Year</a></div>
+        <div><div class="footer__heading">Get Involved</div><a href="get-involved.html" class="footer__link">Apply for Scholarship</a><a href="get-involved.html#mentor" class="footer__link">Become a Mentor</a><a href="get-involved.html#donate" class="footer__link">Support Our Cause</a></div>
+        <div><div class="footer__heading">Contact</div><div class="footer__contact-item"><i class="fa-solid fa-envelope"></i> info@bfinitiatives.com</div><div class="footer__contact-item"><i class="fa-solid fa-phone"></i> (+234) 816 501 1291</div><div class="footer__contact-item"><i class="fa-solid fa-phone"></i> (+234) 810 237 7511</div></div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 Bold Footprint Initiatives. All rights reserved.</span>
+        <div class="footer__socials"><a href="#" class="footer__social"><i class="fa-brands fa-linkedin-in"></i></a><a href="#" class="footer__social"><i class="fa-brands fa-x-twitter"></i></a><a href="#" class="footer__social"><i class="fa-brands fa-instagram"></i></a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav
+    const navbar=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>{navbar.classList.toggle('nav--scrolled',window.scrollY>60)});
+    document.getElementById('navToggle').addEventListener('click',()=>{document.getElementById('navLinks').classList.toggle('nav__links--open')});
+
+    // Donate amounts
+    document.querySelectorAll('.donate-amount').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('.donate-amount').forEach(b=>b.classList.remove('donate-amount--active'));
+        btn.classList.add('donate-amount--active');
+      });
+    });
+
+    // Reveal
+    const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('reveal--active')})},{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>

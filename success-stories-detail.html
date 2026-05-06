@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/BFI_Logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Story - Bright Future Initiatives (BFI)</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c5282;
+            --primary-light: #3b82f6;
+            --primary-dark: #1e3a8a;
+            --secondary: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+            border-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--secondary);
+        }
+        
+        .btn-outlined {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-outlined:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background-color: #fff;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1001;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--primary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            color: var(--dark);
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--secondary);
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary);
+            z-index: 1001;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: white;
+            z-index: 1000;
+            padding: 80px 40px 40px;
+            transition: right 0.4s ease;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu-panel.active {
+            right: 0;
+        }
+        
+        .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .mobile-link {
+            font-weight: 500;
+            color: var(--dark);
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray-light);
+            display: block;
+        }
+        
+        .mobile-link:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-link.active {
+            color: var(--primary);
+        }
+        
+        .mobile-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 100px 0 20px;
+            background-color: var(--light);
+        }
+        
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .breadcrumb-link {
+            color: var(--primary);
+        }
+        
+        .breadcrumb-link:hover {
+            color: var(--secondary);
+        }
+        
+        /* Story Hero */
+        .story-hero {
+            padding: 40px 0 60px;
+            background: var(--light);
+        }
+        
+        .hero-content {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        
+        .hero-image {
+            flex: 0 0 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .hero-details {
+            flex: 1;
+        }
+        
+        .scholar-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .story-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .scholar-name {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .scholar-info {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .story-summary {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        .story-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .social-share {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .share-label {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .share-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .share-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .share-link.facebook {
+            background: #3b5998;
+        }
+        
+        .share-link.twitter {
+            background: #1da1f2;
+        }
+        
+        .share-link.linkedin {
+            background: #0077b5;
+        }
+        
+        .share-link.whatsapp {
+            background: #25d366;
+        }
+        
+        .share-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Story Content */
+        .story-content {
+            padding: 60px 0;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .main-content {
+            flex: 2;
+        }
+        
+        .sidebar {
+            flex: 1;
+        }
+        
+        .content-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .quote-box {
+            background: var(--light);
+            border-left: 5px solid var(--primary);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .quote-box::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+        
+        .quote-text {
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .quote-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .achievements-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .achievements-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .achievements-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Sidebar */
+        .sidebar-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .info-list {
+            list-style: none;
+        }
+        
+        .info-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .info-value {
+            color: var(--gray);
+            text-align: right;
+        }
+        
+        .timeline {
+            list-style: none;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Related Stories */
+        .related-stories {
+            padding: 60px 0;
+            background: var(--light);
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .related-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .related-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .related-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .related-content {
+            padding: 20px;
+        }
+        
+        .related-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .related-excerpt {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .related-link {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .related-link:hover {
+            color: var(--secondary);
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95)), url('/Images/footer-bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-brand-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .footer-slogan {
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .footer-heading {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-nav {
+            list-style: none;
+        }
+        
+        .footer-nav li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-image {
+                flex: none;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .story-stats {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .story-title {
+                font-size: 2rem;
+            }
+            
+            .hero-image {
+                max-width: 100%;
+            }
+            
+            .story-stats {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .social-share {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .back-to-top {
+                right: 15px;
+                bottom: 15px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .quote-box {
+                padding: 20px;
+            }
+            
+            .quote-box::before {
+                font-size: 3rem;
+                top: -5px;
+                left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><img src="/Images/BFI_Logo.png" alt="BFI Logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiMyYzUyODIiLz48cGF0aCBkPSJNOCAxMkgzMkEyIDIgMCAwIDEgMzQgMTRWMzBBMiAyIDAgMCAxIDMyIDMySDhBMiAyIDAgMCAxIDYgMzBWMTRBMiAyIDAgMCAxIDggMTJaIiBmaWxsPSJ3aGl0ZSIvPjxwYXRoIGQ9Ik0xOCAxOEMyMi40NzYgMTggMjYgMTkuMTIzIDI2IDIwLjVDMjYgMjEuODc3IDIyLjQ3NiAyMyAxOCAyM0MxMy41MjQgMjMgMTAgMjEuODc3IDEwIDIwLjVDMTAgMTkuMTIzIDEzLjUyNCAxOCAxOCAxOFoiIGZpbGw9IiMyYzUyODIiLz48L3N2Zz4='; this.onerror=null;"></div>
+                    <div class="logo-text">Bright Future Initiatives</div>
+                </a>
+                
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="our_programs.html" class="nav-link">Our Programs</a></li>
+                    <li><a href="success-stories.html" class="nav-link active">Success Stories</a></li>
+                    <li><a href="BFI_Talent.html" class="nav-link">BFI Talent of the Year</a></li>
+                    <li><a href="/scholar-portal/index.php" class="nav-link">Scholar Portal</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-panel" id="mobileMenuPanel">
+        <ul class="mobile-menu">
+            <li><a href="index.html" class="mobile-link">Home</a></li>
+            <li><a href="about.html" class="mobile-link">About Us</a></li>
+            <li><a href="our_programs.html" class="mobile-link">Our Programs</a></li>
+            <li><a href="success-stories.html" class="mobile-link active">Success Stories</a></li>
+            <li><a href="BFI_Talent.html" class="mobile-link">BFI Talent of the Year</a></li>
+            <li><a href="/scholar-portal/index.php" class="mobile-link">Scholar Portal</a></li>
+            <li><a href="/admin/index.php" class="mobile-link">Admin Portal</a></li>
+        </ul>
+        <div class="mobile-buttons">
+            <a href="#involved" class="btn btn-primary">Get Involved</a>
+        </div>
+    </div>
+    
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html" class="breadcrumb-link">Home</a>
+                <span>/</span>
+                <a href="success-stories.html" class="breadcrumb-link">Success Stories</a>
+                <span>/</span>
+                <span id="currentStory">Scholar Story</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Story Hero -->
+    <section class="story-hero">
+        <div class="container">
+            <div class="hero-content" id="storyHero">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Content -->
+    <section class="story-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="main-content" id="mainContent">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
+                
+                <div class="sidebar">
+                    <!-- Scholar Info Card -->
+                    <div class="sidebar-card" id="scholarInfo">
+                        <!-- Dynamic content will be loaded here -->
+                    </div>
+                    
+                    <!-- Timeline Card -->
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Journey Timeline</h3>
+                        <ul class="timeline" id="timeline">
+                            <!-- Dynamic content will be loaded here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Stories -->
+    <section class="related-stories">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 0;">More Success Stories</h2>
+            <div class="related-grid">
+                <div class="related-card">
+                    <div class="related-image">
+                        <img src="/Images/babatunde.jpg" alt="Babatunde Adedeji" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNGMEYzRkYiLz48dGV4dCB4PSIyNTAiIHk9IjE1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMmM1MjgyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWFnZSBub3QgZm91bmQ8L3RleHQ+PC9zdmc+'; this.onerror=null;">
+                    </div>
+                    <div class="related-content">
+                        <h3 class="related-title">Transforming Second Class to Global Success</h3>
+                        <p class="related-excerpt">How Babatunde overcame concerns about his second-class degree through BFI mentorship...</p>
+                        <a href="success-stories-detail.html?story=babatunde-adedeji" class="related-link">Read Story →</a>
+                    </div>
+                </div>
+                
+                                <div class="related-card">
+                
+                <div class="related-image">
+                
+                <img src="/Images/Joy.jpg" alt="Joy Chinaza Olatunbosun" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDUwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNGMEYzRkYiLz48dGV4dCB4PSIyNTAiIHk9IjEwMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMmM1MjgyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWFnZSBub3QgZm91bmQ8L3RleHQ+PC9zdmc+'; this.onerror=null;">
+                
+                </div>
+                
+                <div class="related-content">
+                
+                <h3 class="related-title">Advancing Global Change Ecology with Erasmus Mundus (GLOBE</h3>
+                
+                <p class="related-excerpt">Joy’s pathway to the GLOBE EMJM at Universidad Rey Juan Carlos through persistence and BFI mentorship.</p>
+                
+                <a href="success-stories-detail.html?story=joy-olatunbosun" class="related-link">Read Story →</a>
+                
+                </div>
+                
+                </div>
+                
+                <div class="related-card">
+                    <div class="related-image">
+                        <img src="/Images/Tijani_image.png" alt="Abdulafeez Tijani" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNGMEYzRkYiLz48dGV4dCB4PSIyNTAiIHk9IjE1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMmM1MjgyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWFnZSBub3QgZm91bmQ8L3RleHQ+PC9zdmc+'; this.onerror=null;">
+                    </div>
+                    <div class="related-content">
+                        <h3 class="related-title">Third Time's the Charm: Persistence Pays Off</h3>
+                        <p class="related-excerpt">Abdulafeez's journey from multiple rejections to Auburn University admission...</p>
+                        <a href="success-stories-detail.html?story=abdulafeez-tijani" class="related-link">Read Story →</a>
+                    </div>
+                </div>
+                
+                <div class="related-card">
+                    <div class="related-image">
+                        <img src="/Images/Oladepo_Fawaz.png" alt="Oladepo Olaniyi" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNGMEYzRkYiLz48dGV4dCB4PSIyNTAiIHk9IjE1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMmM1MjgyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWFnZSBub3QgZm91bmQ8L3RleHQ+PC9zdmc+'; this.onerror=null;">
+                    </div>
+                    <div class="related-content">
+                        <h3 class="related-title">Building Excellence Through Support</h3>
+                        <p class="related-excerpt">How BFI's comprehensive support helped Oladepo achieve academic excellence...</p>
+                        <a href="success-stories-detail.html?story=oladepo-olaniyi" class="related-link">Read Story →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-brand">
+                        <div class="footer-brand-text">Bright Future Initiatives</div>
+                    </div>
+                    <p class="footer-slogan">Empowering dreams through education</p>
+                    <div class="footer-socials">
+                        <a href="https://web.facebook.com/profile.php?id=61574771032448" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/BFIniatiatives" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/bright-future-initiative" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <ul class="footer-nav">
+                        <li><a href="https://web.facebook.com/profile.php?id=61574771032448"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                        <li><a href="https://x.com/BFIniatiatives"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/company/bright-future-initiative"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="our_programs.html">Programs</a></li>
+                        <li><a href="BFI_Talent.html">Talent of the Year</a></li>
+                        <li><a href="#involved">Get Involved</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bright Future Initiatives. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Story data for all scholars
+        const stories = {
+            'opeyemi-owolabi': {
+                name: 'Opeyemi Sodiq Owolabi',
+                title: 'From Agbeye to Global Recognition',
+                university: 'University of Florida',
+                degree: 'PhD in Aerospace Engineering',
+                location: 'United States',
+                image: '/Images/opeyemi.jpg',
+                badge: 'Multiple Scolarships Winner',
+                summary: 'An electrical engineering graduate from OAU whose research passion led to multiple prestigious scholarships including King Fahd and Erasmus Mundus awards, now pursuing PhD in Aerospace Engineering at the University of Florida.',
+                stats: [
+                    { number: '5+', label: 'International Scholarships' },
+                    { number: '2024', label: 'Year of Success' },
+                    { number: '1st', label: 'Class Honors' }
+                ],
+                quote: {
+                    text: "BFI's mentorship program stood out for me, especially the guidance in refining my research goals and graduate school documents. The feedback I received on my Statement of Purpose and CV was instrumental in my success.",
+                    author: "Opeyemi Sodiq Owolabi"
+                },
+                background: "Opeyemi hails from Agbeye, a small town in Odo-Otin Local Government Area of Osun State. From an early age, he demonstrated exceptional academic prowess and a deep passion for research, particularly in control systems. His journey to international recognition began during his undergraduate studies at Obafemi Awolowo University, where he earned his Bachelor's degree in Electronic and Electrical Engineering in 2024.",
+                challenge: "One of the biggest hurdles Opeyemi faced was crafting a compelling and well-structured Statement of Purpose that could effectively communicate his research goals and experience to international admissions committees. Additionally, preparing for interviews with prospective supervisors proved challenging, as he needed to articulate his research vision clearly and confidently.",
+                solution: "Through BFI's mentorship program, Opeyemi received invaluable guidance in refining his application documents. The mentors helped him dissect and rebuild his Statement of Purpose, ensuring it effectively communicated his goals and experience. The mock interview sessions provided by BFI gave him the confidence and clarity needed to engage with potential supervisors successfully.",
+                process: "Opeyemi began his preparation early during his final year at OAU. He informed his professors well in advance to secure strong recommendation letters, compiled his academic achievements and publications, and wrote the GRE. He obtained fee waivers from most schools and strategically cold-emailed potential supervisors whose research aligned with his interests. His Statement of Purpose went through multiple revisions with BFI mentors' help, leading to successful interviews and ultimately, multiple scholarship offers.",
+                achievements: [
+                    'King Fahd Scholarship recipient',
+                    'Erasmus Mundus Scholarship recipient',
+                    'Multiple R1 university admissions',
+                    'Published research papers during undergraduate studies',
+                    'First-class honors in Electronic and Electrical Engineering',
+                    'PhD admission with full funding at University of Florida'
+                ],
+                timeline: [
+                    { date: '2020-2024', title: 'Undergraduate Studies', desc: 'Bachelor\'s in Electronic and Electrical Engineering at OAU' },
+                    { date: '2023', title: 'Research Publications', desc: 'Published papers in control systems during undergraduate years' },
+                    { date: '2024', title: 'BFI Mentorship', desc: 'Joined BFI mentorship program for graduate school applications' },
+                    { date: '2024', title: 'Multiple Scholarships', desc: 'Awarded King Fahd and Erasmus Mundus scholarships' },
+                    { date: '2024', title: 'PhD Admission', desc: 'Admitted to University of Florida for PhD in Aerospace Engineering' }
+                ],
+                info: {
+                    'Full Name': 'Opeyemi Sodiq Owolabi',
+                    'University': 'University of Florida',
+                    'Field of Study': 'Aerospace Engineering',
+                    'Degree Level': 'PhD',
+                    'Scholarship Type': 'Fully funded PhD Assistantship',
+                    'Research Interest': 'Adaptive Optimal Control'
+                }
+            },
+                                                    'joy-olatunbosun': {
+                    name: 'Joy Chinaza Olatunbosun',
+                    title: 'Advancing Global Change Ecology with Erasmus Mundus (GLOBE',
+                    university: 'Universidad Rey Juan Carlos, Madrid',
+                    degree: 'Erasmus Mundus Joint Master’s in Global Change Ecology and Biodiversity Management (GLOBE)',
+                    location: 'Spain',
+                    image: '/Images/Joy.jpg',
+                    badge: 'Erasmus Mundus Scholar',
+                    summary: 'A University of Benin graduate in Animal and Environmental Biology who secured an Erasmus Mundus Joint Master’s offer to study Global Change Ecology and Biodiversity Management (GLOBE) in Spain.',
+                    stats: [
+                    { number: 'EMJM', label: 'Program Type' },
+                    { number: 'Sept', label: 'Start Month' },
+                    { number: 'Spain', label: 'Study Location' }
+                    ],
+                    quote: {
+                    text: "Not all actions may lead to success, but there is no success without an action. Keep pushing regardless of setbacks; with tenacity and God by your side, it ends in victory.",
+                    author: "Joy Chinaza Olatunbosun"
+                    },
+                    background: "I am a westerner who hails from Oyo State, Nigeria. I finished my undergraduate studies at the University of Benin, Benin City, where I attained a Bachelor's degree in Animal and Environmental Biology.",
+                    challenge: "A major challenge in my application process was getting the right link to the application portal and crafting my SOP alongside other documentations. The BFI team directed me on structuring a well-tailored SOP through a series of mentorship classes.",
+                    solution: "I was introduced to BFI through a mentor. The BFI mentorship—especially finding, preparing, and applying for scholarships—helped my application process.",
+                    process: "My journey started with a desire to further my studies through international scholarships. After discovering the Erasmus Mundus catalogue, I screened programs within my field and reviewed their requirements, entry and closing dates. I drafted my SOPs, gathered necessary documents, submitted them for editing, and applied within the stipulated timeframe. I received some rejections and a self-funded option, but I stayed focused on securing a fully funded scholarship. Fortunately, I got one, and I’m grateful to God.",
+                    achievements: [
+                    'Erasmus Mundus Joint Master’s offer (GLOBE)',
+                    'Admission at Universidad Rey Juan Carlos, Madrid',
+                    'Strong, refined SOP through BFI mentorship',
+                    'Successfully navigated multiple rejections to a funded offer',
+                    'Clear career vision in global change ecology'
+                    ],
+                    timeline: [
+                    { date: 'Undergraduate Years', title: 'B.Sc. Foundation', desc: 'Animal & Environmental Biology at University of Benin' },
+                    { date: 'Discovery Phase', title: 'BFI Mentorship', desc: 'Introduced by a mentor and joined BFI guidance sessions' },
+                    { date: 'Application Window', title: 'Program Screening', desc: 'Reviewed Erasmus Mundus catalogue and aligned programs' },
+                    { date: 'Before September', title: 'Document Prep', desc: 'Drafted and refined SOP and compiled documents' },
+                    { date: 'Offer Received', title: 'Scholarship Success', desc: 'Secured EMJM offer for GLOBE in Spain' }
+                    ],
+                    info: {
+                    'Full Name': 'Joy Chinaza Olatunbosun',
+                    'University': 'Universidad Rey Juan Carlos, Madrid',
+                    'Field of Study': 'Global Change Ecology & Biodiversity Management (GLOBE)',
+                    'Degree Level': 'Erasmus Mundus Joint Master’s',
+                    'Country': 'Spain',
+                    'Program Start': 'September',
+                    'Undergraduate Degree': 'Animal & Environmental Biology, University of Benin'
+                    }
+                    },
+            
+            
+            'babatunde-adedeji': {
+                name: 'Babatunde Adedeji',
+                title: 'Transforming Second Class to Global Success',
+                university: 'Tulane University',
+                degree: 'Graduate Studies in Chemical Engineering',
+                location: 'United States',
+                image: '/Images/babatunde.jpg',
+                badge: 'BFI Mentorship Success',
+                summary: 'How a Chemical Engineering graduate overcame concerns about his second-class degree through BFI mentorship and secured offers from two top US R1 universities mwith fully funded scholarships.',
+                stats: [
+                    { number: '2', label: 'R1 University Offers' },
+                    { number: '2024', label: 'Mentorship Year' },
+                    { number: '100%', label: 'Funding Secured' }
+                ],
+                quote: {
+                    text: "The meetings were detailed, and you can see the mentors pouring themselves out with compassion to help and see the mentees' breakthrough! BFI turned what seemed impossible into reality.",
+                    author: "Babatunde Adedeji"
+                },
+                background: "Babatunde graduated with a second-class upper degree in Chemical Engineering, which initially seemed like a barrier to securing competitive graduate assistantships at top US universities. Despite his strong technical foundation and passion for research, he was concerned about how his academic record would be perceived by admissions committees at prestigious institutions.",
+                challenge: "The primary challenge Babatunde faced was overcoming the perception that a second-class degree would limit his opportunities for PhD programs at top-tier US R1 universities. He needed to find ways to strengthen his application profile and present his case compellingly to admissions committees.",
+                solution: "Through BFI's comprehensive mentorship program in 2024, Babatunde received detailed guidance on how to craft a compelling narrative that highlighted his strengths beyond his GPA. The mentors worked with him to identify research experiences, practical skills, and personal qualities that would make him stand out to admissions committees.",
+                process: "Babatunde was introduced to the BFI mentorship program by a colleague who had previously benefited from their services. After applying and being selected, he participated in intensive mentorship sessions that covered application strategy, personal statement writing, research proposal development, and interview preparation.",
+                achievements: [
+                    'Offers from two top US R1 universities',
+                    'Full funding secured for graduate studies',
+                    'One Master\'s and one PhD offer received',
+                    'Successful transformation of application narrative',
+                    'Current graduate student at Tulane University',
+                    'Active participant in BFI alumni network'
+                ],
+                timeline: [
+                    { date: '2020-2024', title: 'Undergraduate Studies', desc: 'Chemical Engineering degree completion' },
+                    { date: 'Early 2024', title: 'Initial Concerns', desc: 'Worried about second-class degree impact' },
+                    { date: 'Mid 2024', title: 'BFI Mentorship', desc: 'Joined mentorship program through colleague referral' },
+                    { date: 'Late 2024', title: 'Application Success', desc: 'Received offers from two R1 universities' },
+                    { date: '2024', title: 'Enrollment', desc: 'Began graduate studies at Tulane University' }
+                ],
+                info: {
+                    'Full Name': 'Babatunde Adedeji',
+                    'University': 'Tulane University',
+                    'Field of Study': 'Chemical Engineering',
+                    'Degree Level': 'Graduate Studies',
+                    'Previous Degree': 'Second Class Upper',
+                    'Scholarship Type': 'Full Graduate Assistantship',
+                    'Mentorship Year': '2024'
+                }
+            },
+                    'ikwuezuma-reynolds': {
+            name: 'Ikwuezuma Elochukwu Reynolds',
+            title: 'From Pharmacy Dreams to Drug Discovery Innovation',
+            university: 'Newcastle University',
+            degree: 'MSc Drug Chemistry',
+            location: 'United Kingdom',
+            image: '/Images/Reynolds_Elochukwu.jpg',
+            badge: 'Commonwealth Scholar',
+            summary: 'How a Pharmacy graduate from Nnamdi Azikiwe University transformed his passion for designing new molecules into a Commonwealth Scholarship opportunity at Newcastle University, pursuing world-class training in Drug Chemistry.',
+            stats: [
+                { number: '11', label: 'Essay Questions Conquered' },
+                { number: '2025', label: 'Program Start Year' },
+                { number: '100%', label: 'Commonwealth Funding' }
+            ],
+            quote: {
+                text: "Your dreams are valid. There are scholarships available for you to pursue your dream course and you are the only person who can limit yourself from applying. Don't give up, keep applying till you get one that truly suits you!",
+                author: "Ikwuezuma Elochukwu Reynolds"
+            },
+            background: "Reynolds is from Anambra State, Nigeria, and obtained his degree in Pharmacy from Nnamdi Azikiwe University. During his time in pharmacy school, he became fascinated with the challenge and opportunity of designing new molecules to treat diseases that challenge humanity. His primary motivation for pursuing international education was to receive world-class training that would set him up for success in drug discovery.",
+            challenge: "Finding the right scholarship that aligned with his specific career goals in drug chemistry proved difficult when searching independently. The Commonwealth Shared Scholarships application process was particularly demanding, requiring responses to around 11 essay questions, which presented a significant writing and strategic challenge.",
+            solution: "Through BFI's mentorship program, Reynolds was advised to explore the Commonwealth Shared Scholarships by one of the mentors who recognized it as a perfect fit for his aspirations. The comprehensive guidance he received from BFI helped him tackle the extensive essay requirements and develop a strong application strategy.",
+            process: "Reynolds was introduced to BFI by a friend who had discovered it online. He participated in scholarship information sessions that presented diverse opportunities from around the world. The mentorship program provided him with access to previous scholarship winners who reviewed his statements of purpose and overall application, along with detailed roadmaps for submitting strong applications.",
+            achievements: [
+                'Commonwealth Shared Scholarship recipient',
+                'Unconditional admission to Newcastle University',
+                'MSc Drug Chemistry program acceptance',
+                'Successfully navigated 11-question essay process',
+                'Nominated and awarded prestigious scholarship',
+            ],
+            timeline: [
+                { date: 'University Years', title: 'Pharmacy Education', desc: 'Completed Pharmacy degree at Nnamdi Azikiwe University' },
+                { date: 'Early Application', title: 'BFI Introduction', desc: 'Discovered BFI through friend and joined mentorship program' },
+                { date: 'University Application', title: 'Newcastle Admission', desc: 'Applied and secured conditional admission to Newcastle University' },
+                { date: 'Conditions Met', title: 'Unconditional Offer', desc: 'Fulfilled requirements and received unconditional admission' },
+                { date: 'Scholarship Application', title: 'Commonwealth Application', desc: 'Completed extensive Commonwealth Shared Scholarships essays' },
+                { date: 'Award Notification', title: 'Scholarship Success', desc: 'Nominated and awarded Commonwealth Shared Scholarship' },
+                { date: 'September 2025', title: 'Program Start', desc: 'Beginning MSc Drug Chemistry at Newcastle University' }
+            ],
+            info: {
+                'Full Name': 'Ikwuezuma Elochukwu Reynolds',
+                'University': 'Newcastle University',
+                'Field of Study': 'Drug Chemistry',
+                'Degree Level': 'Master of Science (MSc)',
+                'Previous Degree': 'Pharmacy, Nnamdi Azikiwe University',
+                'Scholarship Type': 'Commonwealth Shared Scholarship',
+                'Home State': 'Anambra State, Nigeria',
+                'Program Start': 'September 2025'
+            }
+        },
+        
+            'abdulafeez-tijani': {
+                name: 'Abdulafeez Opeyemi Tijani',
+                title: 'Third Time\'s the Charm: Persistence Pays Off',
+                university: 'Auburn University',
+                degree: 'PhD in Chemical Engineering',
+                location: 'United States',
+                image: '/Images/Tijani_image.png',
+                badge: 'Persistence & Excellence',
+                summary: 'A first-class Chemical Engineering graduate who overcame multiple application setbacks with BFI mentorship to secure PhD admission at Auburn University, focusing on energy and environmental solutions.',
+                stats: [
+                    { number: '3rd', label: 'Application Attempt' },
+                    { number: '1st', label: 'Class Honors' },
+                    { number: '2022', label: 'OAU Graduate' }
+                ],
+                quote: {
+                    text: "Thanks to BFI mentors and all my undergraduate professors at OAU, who never got tired of my recommendation letters for 3 consecutive applications. BFI's support helped me stay organized, confident, and informed throughout the entire process.",
+                    author: "Abdulafeez Opeyemi Tijani"
+                },
+                background: "Abdulafeez graduated with First Class Honours in Chemical Engineering from Obafemi Awolowo University (OAU), Ile-Ife, on January 5, 2022. Despite his excellent academic record, he faced challenges in his initial attempts at securing admission to international graduate programs.",
+                challenge: "The major challenge Abdulafeez faced was a lack of proper guidance on how to craft competitive graduate school applications for international programs. He had attempted graduate school applications twice before with little success, lacking the strategic approach needed for international admissions.",
+                solution: "After discovering BFI through his mentor, Engineer Habeeb, Abdulafeez joined their mentorship program. The program provided him with personalized guidance, access to experienced mentors, and valuable feedback on his documents, particularly helping him write a strong Statement of Purpose and academic CV.",
+                process: "Abdulafeez's journey began with a strong desire to further his education and contribute to solving global energy and environmental challenges. After two unsuccessful attempts, he found Auburn University, whose faculty research areas and facilities perfectly matched his academic and career goals. With BFI's support, he prepared meticulously, reaching out to professors and refining his application materials through multiple iterations.",
+                achievements: [
+                    'First Class Honours in Chemical Engineering from OAU',
+                    'PhD admission at Auburn University with full funding',
+                    'Successfully navigated third application attempt',
+                    'Strong research focus on energy and environmental solutions',
+                    '2022 BFI Future Talent of the Year Winner',
+                    'Active member of BFI alumni network'
+                ],
+                timeline: [
+                    { date: '2022', title: 'OAU Graduation', desc: 'First Class Honours in Chemical Engineering' },
+                    { date: '2022-2023', title: 'First Applications', desc: 'Initial attempts at graduate school applications' },
+                    { date: '2023-2024', title: 'Second Attempt', desc: 'Continued pursuing international opportunities' },
+                    { date: '2024', title: 'BFI Mentorship', desc: 'Joined mentorship program through Engineer Habeeb' },
+                    { date: '2024', title: 'Auburn Success', desc: 'Admitted to Auburn University with full funding' }
+                ],
+                info: {
+                    'Full Name': 'Abdulafeez Opeyemi Tijani',
+                    'University': 'Auburn University',
+                    'Field of Study': 'Chemical Engineering',
+                    'Degree Level': 'PhD',
+                    'Previous Institution': 'Obafemi Awolowo University',
+                    'Previous Grade': 'First Class Honours',
+                    'Research Focus': 'Energy & Environmental Solutions'
+                }
+            },
+            'oladepo-olaniyi': {
+                name: 'Oladepo Fawaz Olaniyi',
+                title: 'Building Excellence Through Support',
+                university: 'University of Ibadan',
+                degree: 'DVM (Doctor of Veterinary Medicine)',
+                location: 'Nigeria',
+                image: '/Images/Oladepo_Fawaz.png',
+                badge: 'BFI Scholar',
+                summary: 'A dedicated veterinary medicine student at the University of Ibadan whose academic journey was transformed through BFI\'s comprehensive support, achieving one of the best WASSCE results in his school.',
+                stats: [
+                    { number: '288', label: 'UTME Score' },
+                    { number: '73', label: 'Post-UTME Score' },
+                    { number: '2022', label: 'WASSCE Excellence' }
+                ],
+                quote: {
+                    text: "I am immensely grateful to the sponsors of the Bright Future Initiative (BFI) Scholarship for their unwavering support throughout my academic journey. They generously sponsored me to attend Zenith Coaching Class for a year.",
+                    author: "Oladepo Fawaz Olaniyi"
+                },
+                background: "Oladepo is currently a 200 Level (DVM I) student in the Department of Veterinary Medicine at the University of Ibadan. His academic journey began at Agbonran School of Science, where initially he had no intention of attending tutorials like most of his classmates. However, during the COVID-19 lockdown, everything changed when he began learning science subjects from Engineer Yusuf Kehinde.",
+                challenge: "Initially, Oladepo was not inclined toward academic excellence and had no plans to attend tutorial classes. The challenge was finding the motivation and support system needed to excel academically and pursue his dream of studying veterinary medicine at a top Nigerian university.",
+                solution: "The turning point came when Engineer Yusuf Kehinde observed Oladepo's dedication and seriousness toward learning during the lockdown period. Impressed by his commitment to classes, assignments, and academic progress, Engineer Kehinde introduced him to the Bright Future Initiative (BFI) Scholarship program.",
+                process: "Through BFI's support, Oladepo was sponsored to attend Zenith Coaching Class for a full year. With this comprehensive support system, he performed excellently in both his Pre-GCE (Lower Class) and GCE (Upper Class) examinations. His hard work culminated in achieving one of the best WASSCE results in his school in 2022, leading to his successful admission to study Veterinary Medicine at the University of Ibadan.",
+                achievements: [
+                    'One of the best WASSCE results in school (2022)',
+                    'UTME score of 288 out of 400',
+                    'Post-UTME score of 73 out of 100',
+                    'Admission to University of Ibadan Veterinary Medicine',
+                    'Currently pursuing DVM degree',
+                    'Complete transformation from reluctant student to high achiever'
+                ],
+                timeline: [
+                    { date: '2020', title: 'COVID-19 Lockdown', desc: 'Began learning with Engineer Yusuf Kehinde' },
+                    { date: '2021', title: 'BFI Scholarship', desc: 'Selected as BFI scholarship beneficiary' },
+                    { date: '2021-2022', title: 'Zenith Coaching', desc: 'Sponsored tutorial classes for one year' },
+                    { date: '2022', title: 'WASSCE Excellence', desc: 'Achieved one of best results in school' },
+                    { date: '2023', title: 'University Admission', desc: 'Gained admission to University of Ibadan' },
+                    { date: '2023-Present', title: 'Veterinary Studies', desc: 'Currently in 200 Level DVM program' }
+                ],
+                info: {
+                    'Full Name': 'Oladepo Fawaz Olaniyi',
+                    'University': 'University of Ibadan',
+                    'Field of Study': 'Veterinary Medicine',
+                    'Current Level': '200 Level (DVM I)',
+                    'UTME Score': '288/400',
+                    'Post-UTME Score': '73/100',
+                    'Scholarship': 'BFI Scholarship Recipient',
+                    'Tutorial Center': 'Zenith Coaching Class'
+                }
+            },
+            'abdulhameed-olamide': {
+                name: 'Abdulhameed Fawaz Olamide',
+                title: 'From Osun to Technical Excellence',
+                university: 'Federal University of Technology Akure (FUTA)',
+                degree: 'Medical Physiology',
+                location: 'Nigeria',
+                image: '/Images/AbdulHameed_Fawaz.jpeg',
+                badge: 'BFI Success Story',
+                summary: 'A medical physiology student at FUTA whose journey from secondary school in Ede to one of Nigeria\'s premier technical universities was made possible through consistent BFI support and determination.',
+                stats: [
+                    { number: '2022', label: 'Tutorial Completion' },
+                    { number: '2023', label: 'JAMB & WAEC' },
+                    { number: '2nd', label: 'Year Student' }
+                ],
+                quote: {
+                    text: "The sponsorship has been a life-changer, enabling me to focus on my studies without financial burdens. Your investment in my education has not only alleviated financial stress but also motivated me to work harder and strive for excellence.",
+                    author: "Abdulhameed Fawaz Olamide"
+                },
+                background: "Abdulhameed's journey with BFI began in 2020/2021 when he was in Senior Secondary School 1 (SSS1) and about to be promoted to SSS2. He was enrolled at Zenith Coaching Center, Ede, Osun State, where BFI took upon themselves the financial responsibility of his tutorial fees.",
+                challenge: "Coming from a background where financial constraints could have limited his educational opportunities, Abdulhameed needed consistent support to maintain his academic progress through secondary school and into university.",
+                solution: "BFI provided comprehensive support by covering his tutorial fees monthly at Zenith Coaching Center until completion. This financial support removed barriers and allowed him to focus entirely on his studies without the burden of financial stress.",
+                process: "From SSS1 through to completion of his secondary education, BFI supported Abdulhameed's tutorial education. He completed his tutorial session in 2022, sat for WAEC the same year, and took JAMB in 2023. His consistent academic performance, supported by BFI's investment, led to his admission to one of Nigeria's premier technical universities.",
+                achievements: [
+                    'Successfully completed secondary education with BFI support',
+                    'Excellent WAEC results in 2022',
+                    'Strong JAMB performance in 2023',
+                    'Admission to Federal University of Technology Akure (FUTA)',
+                    'Currently a second-year student in Medical Physiology',
+                    'Transformed from potential dropout risk to university student'
+                ],
+                timeline: [
+                    { date: '2020-2021', title: 'BFI Discovery', desc: 'Enrolled at Zenith Coaching Center with BFI support' },
+                    { date: '2021-2022', title: 'Tutorial Support', desc: 'BFI covered monthly tutorial fees consistently' },
+                    { date: '2022', title: 'WAEC Success', desc: 'Completed WAEC examinations successfully' },
+                    { date: '2023', title: 'JAMB & Admission', desc: 'Sat for JAMB and gained university admission' },
+                    { date: '2023-Present', title: 'FUTA Student', desc: 'Currently second year Medical Physiology student' }
+                ],
+                info: {
+                    'Full Name': 'Abdulhameed Fawaz Olamide',
+                    'University': 'Federal University of Technology Akure',
+                    'Field of Study': 'Medical Physiology',
+                    'Current Level': 'Second Year',
+                    'Tutorial Center': 'Zenith Coaching Center',
+                    'Support Period': '2020-2022',
+                    'Scholarship': 'BFI Tutorial Sponsorship'
+                }
+            }
+        };
+
+        // Get story parameter from URL
+        function getStoryFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('story') || 'opeyemi-owolabi';
+        }
+
+        // Load story content
+        function loadStory(storyId) {
+            const story = stories[storyId];
+            if (!story) {
+                // Redirect to success stories page if story not found
+                window.location.href = 'success-stories.html';
+                return;
+            }
+
+            // Update breadcrumb
+            document.getElementById('currentStory').textContent = story.name;
+
+            // Update hero section
+            document.getElementById('storyHero').innerHTML = `
+                <div class="hero-image">
+                    <img src="${story.image}" alt="${story.name}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDUwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiNGMEYzRkYiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSIyMDAiIHI9IjEwMCIgZmlsbD0iI0U2RUJGRiIvPjx0ZXh0IHg9IjI1MCIgeT0iMzUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiMyYzUyODIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIG5vdCBmb3VuZDwvdGV4dD48L3N2Zz4='; this.onerror=null;">
+                </div>
+                <div class="hero-details">
+                    <div class="scholar-badge">${story.badge}</div>
+                    <h1 class="story-title">${story.title}</h1>
+                    <h2 class="scholar-name">${story.name}</h2>
+                    <div class="scholar-info">${story.degree} • ${story.university}</div>
+                    <p class="story-summary">${story.summary}</p>
+                    <div class="story-stats">
+                        ${story.stats.map(stat => `
+                            <div class="stat-item">
+                                <span class="stat-number">${stat.number}</span>
+                                <span class="stat-label">${stat.label}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="social-share">
+                        <span class="share-label">Share Story:</span>
+                        <div class="share-links">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}" target="_blank" class="share-link facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(story.title + ' - ' + story.name)}" target="_blank" class="share-link twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}" target="_blank" class="share-link linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://wa.me/?text=${encodeURIComponent(story.title + ' - ' + story.name + ' ' + window.location.href)}" target="_blank" class="share-link whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Update main content
+            document.getElementById('mainContent').innerHTML = `
+                <div class="content-section">
+                    <h2 class="section-title">Background</h2>
+                    <p class="content-text">${story.background}</p>
+                </div>
+
+                <div class="quote-box">
+                    <p class="quote-text">${story.quote.text}</p>
+                    <div class="quote-author">- ${story.quote.author}</div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">The Challenge</h2>
+                    <p class="content-text">${story.challenge}</p>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">BFI's Role & Solution</h2>
+                    <p class="content-text">${story.solution}</p>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">The Journey</h2>
+                    <p class="content-text">${story.process}</p>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">Key Achievements</h2>
+                    <ul class="achievements-list">
+                        ${story.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+
+            // Update scholar info sidebar
+            document.getElementById('scholarInfo').innerHTML = `
+                <h3 class="sidebar-title">Scholar Information</h3>
+                <ul class="info-list">
+                    ${Object.entries(story.info).map(([key, value]) => `
+                        <li>
+                            <span class="info-label">${key}:</span>
+                            <span class="info-value">${value}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+            `;
+
+            // Update timeline
+            document.getElementById('timeline').innerHTML = story.timeline.map(item => `
+                <li class="timeline-item">
+                    <div class="timeline-date">${item.date}</div>
+                    <div class="timeline-title">${item.title}</div>
+                    <div class="timeline-desc">${item.desc}</div>
+                </li>
+            `).join('');
+
+            // Update page title
+            document.title = `${story.name} - Success Story | Bright Future Initiatives`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load the appropriate story
+            const storyId = getStoryFromURL();
+            loadStory(storyId);
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+            const menuOverlay = document.getElementById('menuOverlay');
+            
+            menuToggle.addEventListener('click', function() {
+                mobileMenuPanel.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                
+                if (mobileMenuPanel.classList.contains('active')) {
+                    menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            menuOverlay.addEventListener('click', function() {
+                mobileMenuPanel.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto';
+            });
+
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

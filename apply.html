@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/Images/bfi-new-logo.svg">
+  <link rel="shortcut icon" href="/Images/bfi-new-logo.svg">
+  <title>Apply | Bold Footprint Initiatives</title>
+  <meta name="description" content="Choose the scholarship pathway that fits your stage and learn how to apply to BFI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS — aligned with index.html
+    ============================================ */
+    :root {
+      --navy: #1B2A4A;
+      --navy-dark: #111D35;
+      --navy-light: #2A3F6B;
+      --gold: #C8963E;
+      --gold-light: #DDB96A;
+      --gold-muted: #E8D5B0;
+      --cream: #FAF7F2;
+      --white: #FFFFFF;
+      --text-primary: #1A1A2E;
+      --text-secondary: #5A5A6E;
+      --text-light: #8A8A9A;
+      --border: #E5E5EC;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(27,42,74,0.06);
+      --shadow-md: 0 4px 20px rgba(27,42,74,0.08);
+      --shadow-lg: 0 12px 40px rgba(27,42,74,0.12);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ============================================
+       NAVIGATION
+    ============================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(17, 29, 53, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .nav-logo img { height: 40px; width: auto; }
+
+    .nav-logo-text {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .nav-logo-text span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--gold-light);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--gold);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+
+    .nav-login {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      transition: color var(--transition);
+    }
+    .nav-login:hover { color: var(--gold-light); }
+
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--gold);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .btn-nav:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* Mobile drawer */
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 0 20px;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      padding: 12px 0;
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color var(--transition);
+    }
+    .nav-mobile a:hover { color: var(--gold-light); }
+
+    /* ============================================
+       PAGE HERO
+    ============================================ */
+    .page-hero {
+      background: linear-gradient(165deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+      padding: 140px 0 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -15%;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,150,62,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 32px; height: 1.5px;
+      background: var(--gold);
+    }
+
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 54px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .page-hero h1 em { font-style: italic; color: var(--gold-light); }
+
+    .page-hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.75;
+    }
+
+    .hero-info-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-info-card h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .hero-info-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       SECTION SHARED
+    ============================================ */
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .section-label::after { content: ''; height: 1px; width: 40px; background: var(--gold); }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 42px);
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* ============================================
+       PATHWAY CARDS
+    ============================================ */
+    .pathways { padding: 100px 0 80px; background: var(--cream); }
+
+    .pathways-header { text-align: center; margin-bottom: 56px; }
+    .pathways-header .section-label { justify-content: center; }
+    .pathways-header .section-label::after { display: none; }
+    .pathways-header .section-label::before { content: ''; height: 1px; width: 40px; background: var(--gold); }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .pathway-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .pathway-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+      border-color: var(--gold-muted);
+    }
+
+    .card-track {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(200,150,62,0.1);
+      border-radius: 20px;
+      padding: 4px 14px;
+      margin-bottom: 20px;
+      align-self: flex-start;
+    }
+
+    .pathway-card h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .pathway-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 28px;
+    }
+
+    .btn-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: transparent;
+      color: var(--navy);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      border: 1.5px solid var(--navy);
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      align-self: flex-start;
+    }
+    .btn-card:hover { background: var(--navy); color: var(--white); }
+    .btn-card svg { transition: transform var(--transition); }
+    .btn-card:hover svg { transform: translateX(4px); }
+
+    /* ============================================
+       PROCESS STEPS
+    ============================================ */
+    .process { padding: 100px 0; background: var(--white); }
+    .process-header { margin-bottom: 52px; }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .step-card {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      padding: 28px 22px;
+      transition: var(--transition);
+    }
+    .step-card:hover { box-shadow: var(--shadow-md); border-color: var(--gold-muted); }
+
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 34px;
+      color: var(--gold);
+      opacity: 0.55;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .step-card h3 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+    .step-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ============================================
+       PREPARE
+    ============================================ */
+    .prepare { padding: 100px 0; background: var(--cream); }
+
+    .prepare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .checklist-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .checklist-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      font-size: 15px;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border);
+    }
+    .checklist-card li:last-child { border-bottom: none; }
+
+    .check-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      background: rgba(200,150,62,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .check-icon svg { width: 10px; height: 10px; }
+
+    /* ============================================
+       FAQ
+    ============================================ */
+    .faq { padding: 100px 0; background: var(--white); }
+
+    .faq-header { text-align: center; margin-bottom: 52px; }
+    .faq-header .section-label { justify-content: center; }
+    .faq-header .section-label::after { display: none; }
+    .faq-header .section-label::before { content: ''; height: 1px; width: 40px; background: var(--gold); }
+
+    .accordion { max-width: 780px; margin: 0 auto; }
+
+    .accordion-item { border-bottom: 1px solid var(--border); }
+
+    .accordion-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--navy);
+      transition: color var(--transition);
+    }
+    .accordion-btn:hover { color: var(--gold); }
+
+    .acc-icon {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+      color: var(--text-secondary);
+      transition: var(--transition);
+      line-height: 1;
+    }
+    .accordion-item.open .acc-icon {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--white);
+      transform: rotate(45deg);
+    }
+
+    .accordion-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .accordion-item.open .accordion-panel { max-height: 200px; }
+
+    .accordion-panel p {
+      padding-bottom: 20px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    /* ============================================
+       CTA
+    ============================================ */
+    .cta-band {
+      padding: 100px 0;
+      background: linear-gradient(165deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute;
+      top: -30%; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,150,62,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-inner { position: relative; z-index: 2; }
+
+    .cta-band .section-label { justify-content: center; color: var(--gold); }
+    .cta-band .section-label::after { background: var(--gold); }
+    .cta-band .section-title { color: var(--white); }
+    .cta-band .section-subtitle { color: rgba(255,255,255,0.65); margin: 0 auto 40px; }
+
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: var(--gold);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(200,150,62,0.35);
+    }
+
+    .btn-outline-light {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .btn-outline-light:hover { border-color: var(--gold); color: var(--gold-light); }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    .footer { background: var(--navy-dark); padding: 64px 0 32px; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .footer-logo-text { font-family: var(--font-display); font-size: 17px; color: var(--white); }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.75; }
+
+    .footer h4 {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.55); transition: color var(--transition); }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-contact { display: flex; flex-direction: column; gap: 10px; }
+    .footer-contact a {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; color: rgba(255,255,255,0.55);
+      transition: color var(--transition);
+    }
+    .footer-contact a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
+
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--transition);
+    }
+    .footer-social a:hover { background: var(--gold); }
+    .footer-social svg { width: 15px; height: 15px; fill: rgba(255,255,255,0.6); }
+    .footer-social a:hover svg { fill: var(--white); }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 1024px) {
+      .page-hero-inner { grid-template-columns: 1fr; }
+      .hero-info-card { display: none; }
+      .cards-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: repeat(3, 1fr); }
+      .prepare-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+
+      .page-hero { padding: 110px 0 60px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .cta-buttons { flex-direction: column; }
+      .btn-gold, .btn-outline-light { justify-content: center; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================================================
+       NAVIGATION
+  ================================================ -->
+  <nav class="nav" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="/Images/bfi-new-logo.svg" alt="Bold Footprint Initiatives">
+          <div class="nav-logo-text">
+            Bold Footprint
+            <span>Initiatives</span>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="talent.html">Talent of the Year</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <a href="/scholar-portal/index.php" class="nav-login">Scholar Login</a>
+          <a href="apply.html" class="btn-nav">Apply Now</a>
+        </div>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <div class="nav-mobile" id="navMobile">
+        <a href="about.html">About</a>
+        <a href="stories.html">Stories</a>
+        <a href="programs.html">Programs</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="talent.html">Talent of the Year</a>
+        <a href="mentor.html">Mentor</a>
+        <a href="contact.html">Contact</a>
+        <a href="/scholar-portal/index.php">Scholar Login</a>
+        <a href="apply.html">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================================================
+       PAGE HERO
+  ================================================ -->
+  <header class="page-hero">
+    <div class="container page-hero-inner">
+      <div>
+        <div class="hero-eyebrow">Apply To BFI</div>
+        <h1>Choose the scholarship path that matches your <em>stage</em>.</h1>
+        <p class="page-hero-sub">Whether you are preparing early, advancing through exam years, or aiming for postgraduate opportunities, BFI is built to support scholars at decisive moments.</p>
+      </div>
+      <div class="hero-info-card">
+        <h3>What the process values</h3>
+        <p>Readiness, potential, consistency, and a clear sense that BFI support can materially change your trajectory.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================================================
+         SCHOLARSHIP PATHWAYS
+    ================================================ -->
+    <section class="pathways reveal">
+      <div class="container">
+        <div class="pathways-header">
+          <div class="section-label">Available Pathways</div>
+          <h2 class="section-title">Choose your scholarship programme.</h2>
+        </div>
+
+        <div class="cards-grid">
+          <article class="pathway-card">
+            <span class="card-track">Primary</span>
+            <h3>Primary School Scholarship</h3>
+            <p>Early-stage support for young scholars who need a strong educational foundation and consistent encouragement to reach their potential.</p>
+            <a href="primary_scholarship.php" class="btn-card">
+              Apply to primary
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+
+          <article class="pathway-card">
+            <span class="card-track">Secondary</span>
+            <h3>Secondary School Scholarship</h3>
+            <p>Support for key exam and transition years, including coaching, mentorship, and the educational continuity every scholar deserves.</p>
+            <a href="secondary_scholarship.php" class="btn-card">
+              Apply to secondary
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+
+          <article class="pathway-card">
+            <span class="card-track">Graduate</span>
+            <h3>Graduate Scholarship Pathway</h3>
+            <p>Mentorship and positioning for scholars pursuing funded postgraduate and international academic opportunities at the highest level.</p>
+            <a href="graduate_scholarship.php" class="btn-card">
+              Apply to graduate
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         APPLICATION PROCESS
+    ================================================ -->
+    <section class="process reveal">
+      <div class="container">
+        <div class="process-header">
+          <div class="section-label">Application Process</div>
+          <h2 class="section-title">Five clear steps.</h2>
+          <p class="section-subtitle">A straightforward process designed to help us understand your readiness, potential, and how BFI support can shape your next chapter.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3>Choose a programme</h3>
+            <p>Select the scholarship path that matches your current academic stage.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3>Prepare documents</h3>
+            <p>Gather materials that help us understand your readiness, history, and need.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3>Complete the application</h3>
+            <p>Provide clear, honest information about your goals, performance, and background.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <h3>Submit for review</h3>
+            <p>Your application is screened against programme requirements and fit.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">05</div>
+            <h3>Receive a decision</h3>
+            <p>Shortlisted applicants move forward and selected scholars are notified.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         PREPARE
+    ================================================ -->
+    <section class="prepare reveal">
+      <div class="container prepare-grid">
+        <div>
+          <div class="section-label">Before You Apply</div>
+          <h2 class="section-title">Prepare a strong application packet.</h2>
+          <p class="section-subtitle">A thoughtful application helps us understand both need and potential. Bring your best picture of who you are and what support would unlock for you.</p>
+        </div>
+        <div class="checklist-card">
+          <ul>
+            <li>
+              <span class="check-icon">
+                <svg viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#C8963E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Academic records or recent performance evidence
+            </li>
+            <li>
+              <span class="check-icon">
+                <svg viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#C8963E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Personal statement or motivation details
+            </li>
+            <li>
+              <span class="check-icon">
+                <svg viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#C8963E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Relevant school or programme information
+            </li>
+            <li>
+              <span class="check-icon">
+                <svg viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#C8963E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Supporting documents requested for your track
+            </li>
+            <li>
+              <span class="check-icon">
+                <svg viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#C8963E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Accurate contact information for follow-up
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         FAQ
+    ================================================ -->
+    <section class="faq reveal">
+      <div class="container">
+        <div class="faq-header">
+          <div class="section-label">FAQ</div>
+          <h2 class="section-title">Answers for applicants.</h2>
+        </div>
+        <div class="accordion">
+          <div class="accordion-item open">
+            <button class="accordion-btn">
+              <span>What documents do I need to apply?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="accordion-panel">
+              <p>Requirements vary by scholarship stage, but applicants should be ready with school records, personal statements, and any requested supporting materials.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              <span>How are scholarship recipients selected?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="accordion-panel">
+              <p>Selections consider need, promise, readiness, and how effectively BFI support can shape the next stage of a scholar's journey.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              <span>What does the scholarship cover?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="accordion-panel">
+              <p>Coverage depends on the programme and may include tuition, tutorials, mentoring, educational resources, or application support.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              <span>Can I apply for multiple scholarships?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="accordion-panel">
+              <p>In most cases it is better to apply to the pathway that best fits your stage. If you are unsure, contact BFI for direction before submitting.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              <span>Is there an application fee?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="accordion-panel">
+              <p>BFI's application process is an access pathway — there is no application fee to apply for any scholarship.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         CTA
+    ================================================ -->
+    <section class="cta-band reveal">
+      <div class="container cta-inner">
+        <div class="section-label" style="justify-content:center;">Ready To Begin</div>
+        <h2 class="section-title">Start your BFI journey with clarity.</h2>
+        <p class="section-subtitle">If you still have questions, the contact page is there to help before you submit.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn-gold">Ask a question</a>
+          <a href="faq.html" class="btn-outline-light">Open FAQ</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================
+       FOOTER
+  ================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="/Images/bfi-new-logo.svg" alt="BFI" style="height:36px;">
+            <span class="footer-logo-text">Bold Footprint Initiatives</span>
+          </div>
+          <p>Equipping high-potential Nigerian scholars with scholarships, mentorship, and access to globally competitive academic careers since 2016.</p>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="talent.html">Talent of the Year</a></li>
+            <li><a href="stories.html">Scholar Stories</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Get Involved</h4>
+          <ul class="footer-links">
+            <li><a href="apply.html">Apply for Scholarship</a></li>
+            <li><a href="mentor.html">Become a Mentor</a></li>
+            <li><a href="support.html">Support Our Cause</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <div class="footer-contact">
+            <a href="mailto:info@bfinitiatives.com">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              info@bfinitiatives.com
+            </a>
+            <a href="tel:+2348165011291">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              (+234) 816 501 1291
+            </a>
+            <a href="tel:+2348102377511">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              (+234) 810 237 7511
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Bold Footprint Initiatives. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/bright-future-initiative/" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://twitter.com/bfinitiatives" aria-label="Twitter" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMobile = document.getElementById('navMobile');
+    navToggle.addEventListener('click', () => {
+      const open = navMobile.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const ro = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => ro.observe(el));
+
+    // Accordion
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.accordion-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/BFI_Logo.png">
+    <title>Apply for Scholarship - Bright Future Initiatives</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c5282;
+            --primary-light: #3b82f6;
+            --primary-dark: #1e3a8a;
+            --secondary: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+            border-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--secondary);
+        }
+        
+        .btn-accent {
+            background-color: var(--success);
+            color: white;
+            border-color: var(--success);
+        }
+        
+        .btn-accent:hover {
+            background-color: transparent;
+            color: var(--success);
+        }
+        
+        .btn-outlined {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-outlined:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-lg {
+            padding: 14px 32px;
+            font-size: 1.1rem;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background-color: transparent;
+        }
+        
+        .header-scrolled {
+            background-color: #fff;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1001;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--primary);
+        }
+        
+        .header:not(.header-scrolled) .logo-text {
+            color: white;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .header:not(.header-scrolled) .nav-link {
+            color: white;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--secondary);
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary);
+            z-index: 1001;
+        }
+        
+        .header:not(.header-scrolled) .menu-toggle {
+            color: white;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: white;
+            z-index: 1000;
+            padding: 80px 40px 40px;
+            transition: right 0.4s ease;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu-panel.active {
+            right: 0;
+        }
+        
+        .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .mobile-link {
+            font-weight: 500;
+            color: var(--dark);
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray-light);
+            display: block;
+        }
+        
+        .mobile-link:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-link.active {
+            color: var(--primary);
+        }
+        
+        .mobile-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(37, 99, 235, 0.85)), url('/Images/scholarship-bg.jpeg');
+            min-height: 60vh;
+            display: flex;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            color: white;
+            position: relative;
+            z-index: 2;
+            padding: 120px 0 60px;
+        }
+        
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            max-width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-img {
+            max-width: 100%;
+            height: auto;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .hero-title {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+        
+        .hero-shape {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="white" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,122.7C384,128,480,160,576,170.7C672,181,768,171,864,154.7C960,139,1056,117,1152,117.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            z-index: 1;
+        }
+        
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+        
+        /* Scholarship Cards Section */
+        .scholarships-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .scholarships-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .scholarship-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .scholarship-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-banner {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-banner-primary {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
+        }
+        
+        .card-banner-secondary {
+            background: linear-gradient(135deg, var(--secondary) 0%, #e89806 100%);
+        }
+        
+        .card-banner-accent {
+            background: linear-gradient(135deg, var(--success) 0%, #0d9668 100%);
+        }
+        
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+        
+        .icon-primary {
+            color: var(--primary);
+        }
+        
+        .icon-secondary {
+            color: var(--secondary);
+        }
+        
+        .icon-accent {
+            color: var(--success);
+        }
+        
+        .card-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .title-primary {
+            color: var(--primary);
+        }
+        
+        .title-secondary {
+            color: var(--secondary);
+        }
+        
+        .title-accent {
+            color: var(--success);
+        }
+        
+        .card-description {
+            margin-bottom: 20px;
+            color: var(--gray);
+            text-align: center;
+        }
+        
+        .eligibility-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .eligibility-list {
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+        
+        .eligibility-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .eligibility-item i {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .check-primary {
+            color: var(--primary);
+        }
+        
+        .check-secondary {
+            color: var(--secondary);
+        }
+        
+        .check-accent {
+            color: var(--success);
+        }
+        
+        .card-footer {
+            background-color: var(--light);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        /* Process Section */
+        .process-section {
+            padding: 80px 0;
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .process-wrapper {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 40px;
+        }
+        
+        .process-timeline {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--primary-light);
+            transform: translateX(-50%);
+        }
+        
+        .process-item {
+            position: relative;
+            margin-bottom: 60px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .process-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .process-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .process-content {
+            width: calc(50% - 50px);
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-item:nth-child(odd) .process-content {
+            text-align: right;
+        }
+        
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 20px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .process-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .process-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+        
+        .process-text {
+            color: var(--gray);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            background: var(--light);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: white;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .faq-arrow {
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: var(--light);
+        }
+        
+        .faq-answer-content {
+            padding: 20px 0;
+            color: var(--gray);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+        }
+        
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .cta-shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .cta-shape-1 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            animation: float-slow 15s linear infinite;
+        }
+        
+        .cta-shape-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            right: 10%;
+            animation: float-slow 18s linear infinite;
+        }
+        
+        .cta-shape-3 {
+            width: 70px;
+            height: 70px;
+            top: 60%;
+            left: 20%;
+            animation: float-slow 12s linear infinite;
+        }
+        
+        @keyframes float-slow {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(10px, 10px); }
+            50% { transform: translate(0, 20px); }
+            75% { transform: translate(-10px, 10px); }
+            100% { transform: translate(0, 0); }
+        }
+        
+        /* Footer */
+        .footer{
+            background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95)), url('/Images/footer-bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-brand-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+        
+        .footer-brand-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .footer-slogan {
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .footer-heading {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-nav {
+            list-style: none;
+        }
+        
+        .footer-nav li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease;
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1s ease;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-image {
+                margin-top: 40px;
+            }
+            
+            .process-timeline {
+                left: 20px;
+            }
+            
+            .process-item {
+                flex-direction: row !important;
+            }
+            
+            .process-item:nth-child(odd) .process-content {
+                text-align: left;
+            }
+            
+            .process-content {
+                width: calc(100% - 100px);
+                margin-left: 40px;
+            }
+            
+            .process-number {
+                position: absolute;
+                left: 0;
+                margin: 0;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                padding: 15px 0;
+            }
+            
+            .hero {
+                min-height: 50vh;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .process-content {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text {
+                font-size: 18px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><img src="/Images/BFI_Logo.png"></div>
+                    <div class="logo-text">Bright Future Initiatives</div>
+                </a>
+                
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="our_programs.html" class="nav-link">Our Programs</a></li>
+                    <li><a href="BFI_Talent.html" class="nav-link">BFI Talent of the Year</a></li>
+                    <li><a href="/scholar-portal/index.php" class="nav-link">Scholar Portal</a></li>
+                    <li><a href="/admin/index.php" class="nav-link">Admin Portal</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-panel" id="mobileMenuPanel">
+        <ul class="mobile-menu">
+            <li><a href="index.html" class="mobile-link">Home</a></li>
+            <li><a href="about.html" class="mobile-link">About Us</a></li>
+            <li><a href="our_programs.html" class="mobile-link">Our Programs</a></li>
+            <li><a href="BFI_Talent.html" class="mobile-link">BFI Talent of the Year</a></li>
+            <li><a href="/scholar-portal/index.php" class="mobile-link">Scholar Portal</a></li>
+            <li><a href="/admin/index.php" class="mobile-link">Admin Portal</a></li>
+        </ul>
+        <div class="mobile-buttons">
+            <a href="#scholarships" class="btn btn-primary">Explore Scholarships</a>
+        </div>
+    </div>
+    
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Apply for a Scholarship</h1>
+                    <p class="hero-subtitle">Take the first step toward achieving your educational dreams with our comprehensive scholarship programs.</p>
+                    <a href="#scholarships" class="btn btn-secondary btn-lg">Explore Programs</a>
+                </div>
+                <div class="hero-image">
+                    <svg class="hero-img" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                        <style>
+                            .st0{fill:#3b82f6;} .st1{fill:#f59e0b;} .st2{fill:#10b981;} .st3{fill:#ffffff;} .st4{fill:#e2e8f0;} .st5{fill:#1e293b;}
+                        </style>
+                        <g>
+                            <path class="st4" d="M640,500H160c-11,0-20-9-20-20V120c0-11,9-20,20-20h480c11,0,20,9,20,20v360C660,491,651,500,640,500z"/>
+                            <path class="st3" d="M630,480H170c-5.5,0-10-4.5-10-10V130c0-5.5,4.5-10,10-10h460c5.5,0,10,4.5,10,10v340C640,475.5,635.5,480,630,480z"/>
+                            <rect x="190" y="150" class="st0" width="420" height="50"/>
+                            <circle class="st1" cx="215" cy="175" r="15"/>
+                            <rect x="240" y="165" class="st3" width="150" height="10"/>
+                            <rect x="240" y="185" class="st3" width="100" height="5"/>
+                            <rect x="190" y="220" class="st4" width="200" height="220"/>
+                            <rect x="410" y="220" class="st4" width="200" height="220"/>
+                            <rect x="200" y="230" class="st3" width="180" height="200"/>
+                            <rect x="420" y="230" class="st3" width="180" height="200"/>
+                            <path class="st0" d="M290,280c-22.1,0-40-17.9-40-40h80C330,262.1,312.1,280,290,280z"/>
+                            <path class="st1" d="M510,280c-22.1,0-40-17.9-40-40h80C550,262.1,532.1,280,510,280z"/>
+                            <path class="st2" d="M290,380h-40v-60h40V380z"/>
+                            <path class="st0" d="M330,380h-40v-80h40V380z"/>
+                            <path class="st1" d="M510,380h-40v-40h40V380z"/>
+                            <path class="st2" d="M550,380h-40v-90h40V380z"/>
+                            <rect x="200" y="430" class="st1" width="400" height="20"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="hero-shape"></div>
+    </section>
+
+    <!-- Scholarships Section -->
+    <section class="scholarships-section" id="scholarships">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Choose Your Scholarship Program</h2>
+                <p class="section-subtitle">Bright Future Initiatives offers three distinct scholarship programs designed to support students at different stages of their educational journey.</p>
+            </div>
+            
+            <div class="scholarships-grid">
+                <div class="scholarship-card" data-aos="fade-up">
+                    <div class="card-banner card-banner-primary">
+                        <div class="card-icon">
+                            <i class="fas fa-school icon-primary"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title title-primary">Primary School Scholarship</h3>
+                        <p class="card-description">Supporting young minds with comprehensive educational funding to build strong foundations.</p>
+                        
+                        <h4 class="eligibility-title">Eligibility Criteria:</h4>
+                        <ul class="eligibility-list">
+                            <li class="eligibility-item">
+                                <i class="fas fa-check check-primary"></i>
+                                <span>Students in grades 1-6</span>
+                            </li>
+                            <li class="eligibility-item">
+                                <i class="fas fa-check check-primary"></i>
+                                <span>Academic excellence or potential</span>
+                            </li>
+                            <li class="eligibility-item">
+                                <i class="fas fa-check check-primary"></i>
+                                <span>Demonstrated financial need</span>
+                            </li>
+                            <li class="eligibility-item">
+                                <i class="fas fa-check check-primary"></i>
+                                <span>Active participation in school activities</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="primary_scholarship.php" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+                
+                <div class="scholarship-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-banner card-banner-secondary">
+                        <div class="card-icon">
+                            <i class="fas fa-graduation-cap icon-secondary"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title title-secondary">Secondary School Scholarship</h3>
+                        <p class="card-description">Empowering teenagers to continue their education through merit-based scholarships.</p>
+                        
+                        <h4 class="eligibility-title">Eligibility Criteria:</h4>
+                        <ul class="eligibility-list">
+                            <li class="eligibility-item">
+                                <i class="fas fa-check check-secondary"></i>
+                                <span>Students in grades 7-12 (JSS 1 - SSS 3)</span>
+                            </li>
+                            <li class="eligibility-item">
+                                <i class="fas fa-check check-secondary"></i>
+                                <span>Demonstrated financial needs</span>
+                            </li>
+                            <li class="eligibility-item">
+                                <i class="fas fa-check check-secondary"></i>
+                                <span>Leadership potential</span>
+                            </li>
+                            <li class="eligibility-item">
+                                <i class="fas fa-check check-secondary"></i>
+                                <span>Community involvement</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="secondary_scholarship.php" class="btn btn-secondary">Apply Now</a>
+                    </div>
+                </div>
+                
+                <div class="scholarship-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-banner card-banner-accent">
+                        <div class="card-icon">
+                            <i class="fas fa-university icon-accent"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title title-accent">Graduate Scholarship</h3>
+                        <p class="card-description">Enabling ambitious students to pursue postgraduate studies in their chosen fields.</p>
+                        
+                        <h4 class="eligibility-title">Eligibility Criteria:</h4>
+                        <ul class="eligibility-list">
+                            <li class="eligibility-item">
+                                <i class="fas fa-check check-accent"></i>
+                                <span>Bachelor's degree or equivalent</span>
+                            </li>
+                            <li class="eligibility-item">
+                                <i class="fas fa-check check-accent"></i>
+                                <span>Minimum GPA of 3.5 in undergraduate studies</span>
+                            </li>
+                            <li class="eligibility-item">
+                                <i class="fas fa-check check-accent"></i>
+                                <span>Research experience or professional achievements</span>
+                            </li>
+                            <li class="eligibility-item">
+                                <i class="fas fa-check check-accent"></i>
+                                <span>Clear professional/academic goals</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="graduate_scholarship.php" class="btn btn-accent">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Application Process</h2>
+                <p class="section-subtitle">We've designed a straightforward application process to help you apply for your chosen scholarship program.</p>
+            </div>
+            
+            <div class="process-wrapper">
+                <div class="process-timeline"></div>
+                
+                <div class="process-item" data-aos="fade-right">
+                    <div class="process-content">
+                        <i class="fas fa-search process-icon"></i>
+                        <h3 class="process-title">Choose a Program</h3>
+                        <p class="process-text">Select the scholarship program that aligns with your current educational level and future goals.</p>
+                    </div>
+                    <div class="process-number">1</div>
+                </div>
+                
+                <div class="process-item" data-aos="fade-left">
+                    <div class="process-content">
+                        <i class="fas fa-file-alt process-icon"></i>
+                        <h3 class="process-title">Prepare Documents</h3>
+                        <p class="process-text">Gather all required documents including transcripts, identification, and recommendation letters.</p>
+                    </div>
+                    <div class="process-number">2</div>
+                </div>
+                
+                <div class="process-item" data-aos="fade-right">
+                    <div class="process-content">
+                        <i class="fas fa-pen-fancy process-icon"></i>
+                        <h3 class="process-title">Complete Application</h3>
+                        <p class="process-text">Fill out the application form with accurate personal, academic, and financial information.</p>
+                    </div>
+                    <div class="process-number">3</div>
+                </div>
+                
+                <div class="process-item" data-aos="fade-left">
+                    <div class="process-content">
+                        <i class="fas fa-paper-plane process-icon"></i>
+                        <h3 class="process-title">Submit Application</h3>
+                        <p class="process-text">Review your application for accuracy and submit it through our online portal.</p>
+                    </div>
+                    <div class="process-number">4</div>
+                </div>
+                
+                <div class="process-item" data-aos="fade-right">
+                    <div class="process-content">
+                        <i class="fas fa-award process-icon"></i>
+                        <h3 class="process-title">Receive Decision</h3>
+                        <p class="process-text">Successful applicants will be notified and provided with further instructions about the scholarship award.</p>
+                    </div>
+                    <div class="process-number">5</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Find answers to common questions about our scholarship programs and application process.</p>
+            </div>
+            
+            <div class="faq-wrapper">
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>What documents do I need to apply?</h3>
+                        <i class="fas fa-chevron-down faq-arrow"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Required documents typically include academic transcripts, proof of identity, recommendation letters, and a personal statement. Specific requirements vary by program level and are detailed on each application page.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>How are scholarship recipients selected?</h3>
+                        <i class="fas fa-chevron-down faq-arrow"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Our selection committee evaluates applications based on academic merit, financial need, personal character, and potential for future success. The specific weighting of these factors varies by program level.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>What does the scholarship cover?</h3>
+                        <i class="fas fa-chevron-down faq-arrow"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Scholarships may cover tuition fees, books, educational materials, and in some cases, living stipends. The exact coverage depends on the specific program and funding available. Full details are provided to successful applicants.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>Can I apply for multiple scholarships?</h3>
+                        <i class="fas fa-chevron-down faq-arrow"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>You may only apply for one scholarship category at a time, corresponding to your current educational level. If your educational status changes, you may apply for a different scholarship category in the future.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>Is there an application fee?</h3>
+                        <i class="fas fa-chevron-down faq-arrow"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>No, there is no application fee for any of our scholarship programs. Bright Future Initiatives is committed to making education accessible to all qualified candidates regardless of financial circumstances.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-shapes">
+            <div class="cta-shape cta-shape-1"></div>
+            <div class="cta-shape cta-shape-2"></div>
+            <div class="cta-shape cta-shape-3"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Start Your Journey?</h2>
+                <p class="cta-text">Don't miss this opportunity to transform your educational path. Our scholarships have helped thousands of students achieve their dreams.</p>
+                <a href="#scholarships" class="btn btn-secondary btn-lg">Apply Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-brand">
+                         <div class="footer-brand-text">Bright Future Initiatives</div>
+                    </div>
+                    <p class="footer-slogan">Empowering dreams through education</p>
+                    <div class="footer-socials">
+                        <a href="https://web.facebook.com/profile.php?id=61574771032448" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/BFIniatiatives" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/bright-future-initiative" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <ul class="footer-nav">
+                        <li><a href="https://web.facebook.com/profile.php?id=61574771032448"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                        <li><a href="https://x.com/BFIniatiatives"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/company/bright-future-initiative"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="our_programs.html">Programs</a></li>
+                        <li><a href="BFI_Talent.html">BFI Talent</a></li>
+                        <li><a href="mentor.html">Become a Mentor</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bright Future Initiatives. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const header = document.getElementById('header');
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        // Event Listeners
+        window.addEventListener('scroll', handleScroll);
+        menuToggle.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+        
+        // FAQ Toggle
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Functions
+        function handleScroll() {
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        }
+        
+        function toggleMenu() {
+            mobileMenuPanel.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenuPanel.classList.contains('active') ? 'hidden' : 'auto';
+            
+            // Toggle icon
+            if (mobileMenuPanel.classList.contains('active')) {
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        }
+        
+        function closeMenu() {
+            mobileMenuPanel.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (mobileMenuPanel.classList.contains('active')) {
+                    closeMenu();
+                }
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check initial scroll position
+            handleScroll();
+            
+            // Add animation classes to elements
+            document.querySelectorAll('.scholarship-card, .process-item, .faq-item').forEach(element => {
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('fade-in-up');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/BFI_Logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories - Bright Future Initiatives (BFI)</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c5282;
+            --primary-light: #3b82f6;
+            --primary-dark: #1e3a8a;
+            --secondary: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+            border-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--secondary);
+        }
+        
+        .btn-outlined {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-outlined:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-lg {
+            padding: 14px 32px;
+            font-size: 1.1rem;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background-color: transparent;
+        }
+        
+        .header-scrolled {
+            background-color: #fff;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1001;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--primary);
+        }
+        
+        .header:not(.header-scrolled) .logo-text {
+            color: white;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .header:not(.header-scrolled) .nav-link {
+            color: white;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--secondary);
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary);
+            z-index: 1001;
+        }
+        
+        .header:not(.header-scrolled) .menu-toggle {
+            color: white;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: white;
+            z-index: 1000;
+            padding: 80px 40px 40px;
+            transition: right 0.4s ease;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu-panel.active {
+            right: 0;
+        }
+        
+        .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .mobile-link {
+            font-weight: 500;
+            color: var(--dark);
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray-light);
+            display: block;
+        }
+        
+        .mobile-link:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-link.active {
+            color: var(--primary);
+        }
+        
+        .mobile-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(37, 99, 235, 0.85)), url('/Images/success-stories-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 180px 0 100px;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .page-hero-shape {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="white" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,122.7C384,128,480,160,576,170.7C672,181,768,171,864,154.7C960,139,1056,117,1152,117.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            z-index: 1;
+        }
+        
+        /* Stories Section */
+        .stories-section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .section-subtitle {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Filter Controls */
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 30px;
+            background: white;
+            color: var(--dark);
+            border: 2px solid var(--gray-light);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--primary-light);
+            color: var(--primary);
+        }
+        
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        /* Stories Grid */
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .story-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .story-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .story-card:hover .story-image img {
+            transform: scale(1.1);
+        }
+        
+        .story-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .story-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .story-scholar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .scholar-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .scholar-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .scholar-details {
+            flex: 1;
+        }
+        
+        .scholar-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .scholar-info {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .story-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+        
+        .story-excerpt {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .story-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .meta-item {
+            color: var(--gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .meta-item i {
+            color: var(--primary);
+        }
+        
+        .story-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .story-link:hover {
+            gap: 12px;
+            color: var(--secondary);
+        }
+        
+        /* Load More */
+        .load-more {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        /* Featured Scholar */
+        .featured-section {
+            padding: 80px 0;
+            background: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231e3a8a" opacity="0"/><circle cx="10" cy="10" r="3" fill="%233b82f6" opacity="0.1"/><circle cx="50" cy="10" r="3" fill="%233b82f6" opacity="0.1"/><circle cx="90" cy="10" r="3" fill="%233b82f6" opacity="0.1"/><circle cx="10" cy="50" r="3" fill="%233b82f6" opacity="0.1"/><circle cx="50" cy="50" r="3" fill="%233b82f6" opacity="0.1"/><circle cx="90" cy="50" r="3" fill="%233b82f6" opacity="0.1"/><circle cx="10" cy="90" r="3" fill="%233b82f6" opacity="0.1"/><circle cx="50" cy="90" r="3" fill="%233b82f6" opacity="0.1"/><circle cx="90" cy="90" r="3" fill="%233b82f6" opacity="0.1"/></svg>');
+        }
+        
+        .featured-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (min-width: 992px) {
+            .featured-card {
+                flex-direction: row;
+                max-height: 500px;
+            }
+        }
+        
+        .featured-image {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+            min-height: 300px;
+        }
+        
+        @media (min-width: 992px) {
+            .featured-image {
+                min-width: 500px;
+            }
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .featured-card:hover .featured-image img {
+            transform: scale(1.05);
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .featured-content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .featured-scholar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .featured-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .featured-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .featured-details {
+            flex: 1;
+        }
+        
+        .featured-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .featured-info {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+        
+        .featured-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+        
+        .featured-quote {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--gray);
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .featured-excerpt {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        .featured-link {
+            margin-top: auto;
+            align-self: flex-start;
+        }
+        
+        /* Testimonial Section */
+        .testimonial-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><text x="40" y="40" font-family="Arial" font-size="60" fill="rgba(255,255,255,0.05)" text-anchor="middle" dominant-baseline="middle">"</text></svg>');
+            opacity: 0.2;
+        }
+        
+        .testimonial-header {
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-subtitle {
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            margin-right: 15px;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-position {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        /* Call to Action */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .cta-subtitle {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95)), url('/Images/footer-bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-brand-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+        
+        .footer-brand-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .footer-slogan {
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .footer-heading {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-nav {
+            list-style: none;
+        }
+        
+        .footer-nav li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .page-title {
+                font-size: 2.8rem;
+            }
+            
+            .stories-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .featured-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                padding: 15px 0;
+            }
+            
+            .page-title {
+                font-size: 2.2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-quote {
+                font-size: 1.1rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text {
+                font-size: 18px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .back-to-top {
+                right: 15px;
+                bottom: 15px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><img src="/Images/BFI_Logo.png" alt="BFI Logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiMyYzUyODIiLz48cGF0aCBkPSJNOCAxMkgzMkEyIDIgMCAwIDEgMzQgMTRWMzBBMiAyIDAgMCAxIDMyIDMySDhBMiAyIDAgMCAxIDYgMzBWMTRBMiAyIDAgMCAxIDggMTJaIiBmaWxsPSJ3aGl0ZSIvPjxwYXRoIGQ9Ik0xOCAxOEMyMi40NzYgMTggMjYgMTkuMTIzIDI2IDIwLjVDMjYgMjEuODc3IDIyLjQ3NiAyMyAxOCAyM0MxMy41MjQgMjMgMTAgMjEuODc3IDEwIDIwLjVDMTAgMTkuMTIzIDEzLjUyNCAxOCAxOCAxOFoiIGZpbGw9IiMyYzUyODIiLz48L3N2Zz4='; this.onerror=null;"></div>
+                    <div class="logo-text">Bright Future Initiatives</div>
+                </a>
+                
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="our_programs.html" class="nav-link">Our Programs</a></li>
+                    <li><a href="success-stories.html" class="nav-link active">Success Stories</a></li>
+                    <li><a href="BFI_Talent.html" class="nav-link">BFI Talent of the Year</a></li>
+                    <li><a href="/scholar-portal/index.php" class="nav-link">Scholar Portal</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-panel" id="mobileMenuPanel">
+        <ul class="mobile-menu">
+            <li><a href="index.html" class="mobile-link">Home</a></li>
+            <li><a href="about.html" class="mobile-link">About Us</a></li>
+            <li><a href="our_programs.html" class="mobile-link">Our Programs</a></li>
+            <li><a href="success-stories.html" class="mobile-link active">Success Stories</a></li>
+            <li><a href="BFI_Talent.html" class="mobile-link">BFI Talent of the Year</a></li>
+            <li><a href="/scholar-portal/index.php" class="mobile-link">Scholar Portal</a></li>
+            <li><a href="/admin/index.php" class="mobile-link">Admin Portal</a></li>
+        </ul>
+        <div class="mobile-buttons">
+            <a href="#involved" class="btn btn-primary">Get Involved</a>
+        </div>
+    </div>
+    
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-title">Success Stories</h1>
+                <p class="page-subtitle">Inspiring journeys of Nigerian scholars who transformed their dreams into reality with BFI's support</p>
+            </div>
+        </div>
+        <div class="page-hero-shape"></div>
+    </section>
+
+    <!-- Stories Section -->
+    <section class="stories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Scholars' Journeys</h2>
+                <p class="section-subtitle">Explore the inspiring stories of determination, resilience, and achievement from our BFI scholars around the world</p>
+            </div>
+            
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">All Stories</button>
+                <button class="filter-btn" data-filter="usa">United States</button>
+                <button class="filter-btn" data-filter="uk">United Kingdom</button>
+                <button class="filter-btn" data-filter="nigeria">Nigeria</button>
+                <button class="filter-btn" data-filter="international">International</button>
+            </div>
+            
+            <!-- Stories Grid -->
+            <div class="stories-grid">
+                <!-- Story Card 1 - Opeyemi (Featured in spotlight) -->
+                <div class="story-card" data-category="usa">
+                    <div class="story-image">
+                        <img src="/Images/opeyemi.jpg" alt="Opeyemi Sodiq Owolabi" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNGMEYzRkYiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSIxNTAiIHI9IjgwIiBmaWxsPSIjRTZFQkZGIi8+PHBhdGggZD0iTTI0MCAxNDBDMjQwIDEzNC40NzcgMjQ0LjQ3NyAxMzAgMjUwIDEzMEMyNTUuNTIzIDEzMCAyNjAgMTM0LjQ3NyAyNjAgMTQwVjE5MEMyNjAgMTk1LjUyMyAyNTUuNTIzIDIwMCAyNTAgMjAwQzI0NC40NzcgMjAwIDI0MCAxOTUuNTIzIDI0MCAxOTBWMTQwWiIgZmlsbD0iIzJjNTI4MiIvPjxwYXRoIGQ9Ik0yMTUgMTUwQzIxNSAxNDQuNDc3IDIxOS40NzcgMTQwIDIyNSAxNDBIMjc1QzI4MC41MjMgMTQwIDI4NSAxNDQuNDc3IDI4NSAxNTBDMjg1IDE1NS41MjMgMjgwLjUyMyAxNjAgMjc1IDE2MEgyMjVDMjE5LjQ3NyAxNjAgMjE1IDE1NS41MjMgMjE1IDE1MFoiIGZpbGw9IiMyYzUyODIiLz48dGV4dCB4PSIyNTAiIHk9IjI0MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMmM1MjgyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWFnZSBub3QgZm91bmQ8L3RleHQ+PC9zdmc+'; this.onerror=null;">
+                        <div class="story-badge">United States</div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-scholar">
+                            <div class="scholar-avatar">
+                                <img src="/Images/opeyemi.jpg" alt="Opeyemi Sodiq Owolabi" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiIGZpbGw9IiNFNkVCRkYiLz48cGF0aCBkPSJNMTAwIDEwNUMxMTguODEgMTA1IDEzNCAxMDAuMDc1IDEzNCA5NEM1MCBsNSA4NCAxMTA3NkM4MS4xODk1IDEwNSA2NiAxMDAuMDc1IDY2IDk0QzcyIDgxLjE4OTUgODEuMTg5NSA3NSAxMDAgNzVDMTE4LjgxIDc1IDEzNCA4MS4xODk1IDEzNCA5NEMxMzQgMTA2LjgxIDExOC44MSAxMDUgMTAwIDEwNVoiIGZpbGw9IiMyYzUyODIiLz48cGF0aCBkPSJNMTAwIDEyNUMxMjguNzEgMTI1IDE1MiAxNTIuMzg2IDE1MiAxODYuNUMxNTIgMTk3LjU0NiAxMjguNzEgMjA1IDEwMCAyMDVDNzEuMjkwMyAyMDUgNDggMTk3LjU0NiA0OCAxODYuNUM0OCAxNTIuMzg2IDcxLjI5MDMgMTI1IDEwMCAxMjVaIiBmaWxsPSIjMzMzMzMzIi8+PC9zdmc+'; this.onerror=null;">
+                            </div>
+                            <div class="scholar-details">
+                                <h3 class="scholar-name">Opeyemi Sodiq Owolabi</h3>
+                                <div class="scholar-info">Multiple Scholarship Awards Winner</div>
+                            </div>
+                        </div>
+                        <h2 class="story-title">From Osun to Global Recognition</h2>
+                        <p class="story-excerpt">An electrical engineering graduate from OAU whose research passion led to multiple prestigious scholarships including top R1 Universities in the US, King Fahd and Erasmus Mundus awards, now pursuing PhD in Aerospace Engineering at the University of Florida.</p>
+                        <div class="story-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-university"></i>
+                                <span>University of Florida</span>
+                            </div>
+                            <a href="success-stories-detail.html?story=opeyemi-owolabi" class="story-link">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story Card 2 - Babatunde -->
+                <div class="story-card" data-category="usa">
+                    <div class="story-image">
+                        <img src="/Images/babatunde.jpg" alt="Babatunde Adedeji" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNGMEYzRkYiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSIxNTAiIHI9IjgwIiBmaWxsPSIjRTZFQkZGIi8+PHBhdGggZD0iTTI0MCAxNDBDMjQwIDEzNC40NzcgMjQ0LjQ3NyAxMzAgMjUwIDEzMEMyNTUuNTIzIDEzMCAyNjAgMTM0LjQ3NyAyNjAgMTQwVjE5MEMyNjAgMTk1LjUyMyAyNTUuNTIzIDIwMCAyNTAgMjAwQzI0NC40NzcgMjAwIDI0MCAxOTUuNTIzIDI0MCAxOTBWMTQwWiIgZmlsbD0iIzJjNTI4MiIvPjxwYXRoIGQ9Ik0yMTUgMTUwQzIxNSAxNDQuNDc3IDIxOS40NzcgMTQwIDIyNSAxNDBIMjc1QzI4MC41MjMgMTQwIDI4NSAxNDQuNDc3IDI4NSAxNTBDMjg1IDE1NS41MjMgMjgwLjUyMyAxNjAgMjc1IDE2MEgyMjVDMjE5LjQ3NyAxNjAgMjE1IDE1NS41MjMgMjE1IDE1MFoiIGZpbGw9IiMyYzUyODIiLz48dGV4dCB4PSIyNTAiIHk9IjI0MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMmM1MjgyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWFnZSBub3QgZm91bmQ8L3RleHQ+PC9zdmc+'; this.onerror=null;">
+                        <div class="story-badge">United States</div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-scholar">
+                            <div class="scholar-avatar">
+                                <img src="/Images/babatunde.jpg" alt="Babatunde Adedeji" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiIGZpbGw9IiNFNkVCRkYiLz48cGF0aCBkPSJNMTAwIDEwNUMxMTguODEgMTA1IDEzNCAxMDAuMDc1IDEzNCA5NEM1MCBsNSA4NCAxMTA3NkM4MS4xODk1IDEwNSA2NiAxMDAuMDc1IDY2IDk0QzcyIDgxLjE4OTUgODEuMTg5NSA3NSAxMDAgNzVDMTE4LjgxIDc1IDEzNCA4MS4xODk1IDEzNCA5NEMxMzQgMTA2LjgxIDExOC44MSAxMDUgMTAwIDEwNVoiIGZpbGw9IiMyYzUyODIiLz48cGF0aCBkPSJNMTAwIDEyNUMxMjguNzEgMTI1IDE1MiAxNTIuMzg2IDE1MiAxODYuNUMxNTIgMTk3LjU0NiAxMjguNzEgMjA1IDEwMCAyMDVDNzEuMjkwMyAyMDUgNDggMTk3LjU0NiA0OCAxODYuNUM0OCAxNTIuMzg2IDcxLjI5MDMgMTI1IDEwMCAxMjVaIiBmaWxsPSIjMzMzMzMzIi8+PC9zdmc+'; this.onerror=null;">
+                            </div>
+                            <div class="scholar-details">
+                                <h3 class="scholar-name">Babatunde Adedeji</h3>
+                                <div class="scholar-info">BFI Mentorship Program 2024</div>
+                            </div>
+                        </div>
+                        <h2 class="story-title">Transforming Second Class to Global Success</h2>
+                        <p class="story-excerpt">How a Chemical Engineering graduate overcame concerns about his second-class degree through BFI mentorship and secured offers from two top US R1 universities with fully funded scholarships.</p>
+                        <div class="story-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-university"></i>
+                                <span>Tulane University</span>
+                            </div>
+                            <a href="success-stories-detail.html?story=babatunde-adedeji" class="story-link">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story Card - Ikwuezuma Elochukwu Reynolds -->
+                <div class="story-card" data-category="uk">
+                    <div class="story-image">
+                        <img src="/Images/Reynolds_Elochukwu.jpg" alt="Ikwuezuma Elochukwu Reynolds" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNGMEYzRkYiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSIxNTAiIHI9IjgwIiBmaWxsPSIjRTZFQkZGIi8+PHBhdGggZD0iTTI0MCAxNDBDMjQwIDEzNC40NzcgMjQ0LjQ3NyAxMzAgMjUwIDEzMEMyNTUuNTIzIDEzMCAyNjAgMTM0LjQ3NyAyNjAgMTQwVjE5MEMyNjAgMTk1LjUyMyAyNTUuNTIzIDIwMCAyNTAgMjAwQzI0NC40NzcgMjAwIDI0MCAxOTUuNTIzIDI0MCAxOTBWMTQwWiIgZmlsbD0iIzJjNTI4MiIvPjxwYXRoIGQ9Ik0yMTUgMTUwQzIxNSAxNDQuNDc3IDIxOS40NzcgMTQwIDIyNSAxNDBIMjc1QzI4MC41MjMgMTQwIDI4NSAxNDQuNDc3IDI4NSAxNTBDMjg1IDE1NS41MjMgMjgwLjUyMyAxNjAgMjc1IDE2MEgyMjVDMjE5LjQ3NyAxNjAgMjE1IDE1NS41MjMgMjE1IDE1MFoiIGZpbGw9IiMyYzUyODIiLz48dGV4dCB4PSIyNTAiIHk9IjI0MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMmM1MjgyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWFnZSBub3QgZm91bmQ8L3RleHQ+PC9zdmc+'; this.onerror=null;">
+                        <div class="story-badge">United Kingdom</div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-scholar">
+                            <div class="scholar-avatar">
+                                <img src="/Images/Reynolds_Elochukwu.jpg" alt="Ikwuezuma Elochukwu Reynolds" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiIGZpbGw9IiNFNkVCRkYiLz48cGF0aCBkPSJNMTAwIDEwNUMxMTguODEgMTA1IDEzNCAxMDAuMDc1IDEzNCA5NEM1MCBsNSA4NCAxMTA3NkM4MS4xODk1IDEwNSA2NiAxMDAuMDc1IDY2IDk0QzcyIDgxLjE4OTUgODEuMTg5NSA3NSAxMDAgNzVDMTE4LjgxIDc1IDEzNCA4MS4xODk1IDEzNCA5NEMxMzQgMTA2LjgxIDExOC44MSAxMDUgMTAwIDEwNVoiIGZpbGw9IiMyYzUyODIiLz48cGF0aCBkPSJNMTAwIDEyNUMxMjguNzEgMTI1IDE1MiAxNTIuMzg2IDE1MiAxODYuNUMxNTIgMTk3LjU0NiAxMjguNzEgMjA1IDEwMCAyMDVDNzEuMjkwMyAyMDUgNDggMTk3LjU0NiA0OCAxODYuNUM0OCAxNTIuMzg2IDcxLjI5MDMgMTI1IDEwMCAxMjVaIiBmaWxsPSIjMzMzMzMzIi8+PC9zdmc+'; this.onerror=null;">
+                            </div>
+                            <div class="scholar-details">
+                                <h3 class="scholar-name">Ikwuezuma Elochukwu Reynolds</h3>
+                                <div class="scholar-info">BFI Mentorship Program 2024</div>
+                            </div>
+                        </div>
+                        <h2 class="story-title">From Pharmacy Dreams to Drug Discovery Innovation</h2>
+                        <p class="story-excerpt">How a Pharmacy graduate from Nnamdi Azikiwe University transformed his passion for designing new molecules into a Commonwealth Scholarship opportunity at Newcastle University, pursuing world-class training in Drug Chemistry.</p>
+                        <div class="story-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-university"></i>
+                                <span>Newcastle University</span>
+                            </div>
+                            <a href="success-stories-detail.html?story=ikwuezuma-reynolds" class="story-link">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                                    <div class="story-card" data-category="international">
+                    
+                    <div class="story-image">
+                    
+                    <img src="/Images/Joy.jpg" alt="Joy Chinaza Olatunbosun" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNGMEYzRkYiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSIxNTAiIHI9IjgwIiBmaWxsPSIjRTZFQkZGIi8+PHBhdGggZD0iTTI0MCAxNDBDMjQwIDEzNC40NzcgMjQ0LjQ3NyAxMzAgMjUwIDEzMEMyNTUuNTIzIDEzMCAyNjAgMTM0LjQ3NyAyNjAgMTQwVjE5MEMyNjAgMTk1LjUyMyAyNTUuNTIzIDIwMCAyNTAgMjAwQzI0NC40NzcgMjAwIDI0MCAxOTUuNTIzIDI0MCAxOTBWMTQwWiIgZmlsbD0iIzJjNTI4MiIvPjxwYXRoIGQ9Ik0yMTUgMTUwQzIxNSAxNDQuNDc3IDIxOS40NzcgMTQwIDIyNSAxNDBIMjc1QzI4MC41MjMgMTQwIDI4NSAxNDQuNDc3IDI4NSAxNTBDMjg1IDE1NS41MjMgMjgwLjUyMyAxNjAgMjc1IDE2MEgyMjVDMjE5LjQ3NyAxNjAgMjE1IDE1NS41MjMgMjE1IDE1MFoiIGZpbGw9IiMyYzUyODIiLz48dGV4dCB4PSIyNTAiIHk9IjI0MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMmM1MjgyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWFnZSBub3QgZm91bmQ8L3RleHQ+PC9zdmc+'; this.onerror=null;">
+                    
+                    <div class="story-badge">Spain</div>
+                    
+                    </div>
+                    
+                    <div class="story-content">
+                    
+                    <div class="story-scholar">
+                    
+                    <div class="scholar-avatar">
+                    
+                    <img src="/Images/Joy.jpg" alt="Joy Chinaza Olatunbosun" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiIGZpbGw9IiNFNkVCRkYiLz48cGF0aCBkPSJNMTAwIDEwNUMxMTguODEgMTA1IDEzNCAxMDAuMDc1IDEzNCA5NEM1MCBsNSA4NCAxMTA3NkM4MS4xODk1IDEwNSA2NiAxMDAuMDc1IDY2IDk0QzcyIDgxLjE4OTUgODEuMTg5NSA3NSAxMDAgNzVDMTE4LjgxIDc1IDEzNCA4MS4xODk1IDEzNCA5NEMxMzQgMTA2LjgxIDExOC44MSAxMDUgMTAwIDEwNVoiIGZpbGw9IiMyYzUyODIiLz48cGF0aCBkPSJNMTAwIDEyNUMxMjguNzEgMTI1IDE1MiAxNTIuMzg2IDE1MiAxODYuNUMxNTIgMTk3LjU0NiAxMjguNzEgMjA1IDEwMCAyMDVDNzEuMjkwMyAyMDUgNDggMTk3LjU0NiA0OCAxODYuNUM0OCAxNTIuMzg2IDcxLjI5MDMgMTI1IDEwMCAxMjVaIiBmaWxsPSIjMzMzMzMzIi8+PC9zdmc+'; this.onerror=null;">
+                    
+                    </div>
+                    
+                    <div class="scholar-details">
+                    
+                    <h3 class="scholar-name">Joy Chinaza Olatunbosun</h3>
+                    
+                    <div class="scholar-info">Erasmus Mundus Joint Master’s</div>
+                    
+                    </div>
+                    
+                    </div>
+                    
+                    <h2 class="story-title">Advancing Global Change Ecology with Erasmus Mundus (GLOBE)</h2>
+                    
+                    <p class="story-excerpt">Joy, a University of Benin graduate in Animal and Environmental Biology, earned an Erasmus Mundus Joint Master’s offer in Global Change Ecology and Biodiversity Management (GLOBE) at Universidad Rey Juan Carlos, Madrid.</p>
+                    
+                    <div class="story-meta">
+                    
+                    <div class="meta-item">
+                    
+                    <i class="fas fa-university"></i>
+                    
+                    <span>Universidad Rey Juan Carlos, Madrid</span>
+                    
+                    </div>
+                    
+                    <a href="success-stories-detail.html?story=joy-olatunbosun" class="story-link">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    
+                    </div>
+                    
+                    </div>
+                    
+                    </div>
+                
+                <!-- Story Card 3 - Abdulafeez -->
+                <div class="story-card" data-category="usa">
+                    <div class="story-image">
+                        <img src="/Images/Tijani_image.png" alt="Abdulafeez Opeyemi Tijani" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNGMEYzRkYiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSIxNTAiIHI9IjgwIiBmaWxsPSIjRTZFQkZGIi8+PHBhdGggZD0iTTI0MCAxNDBDMjQwIDEzNC40NzcgMjQ0LjQ3NyAxMzAgMjUwIDEzMEMyNTUuNTIzIDEzMCAyNjAgMTM0LjQ3NyAyNjAgMTQwVjE5MEMyNjAgMTk1LjUyMyAyNTUuNTIzIDIwMCAyNTAgMjAwQzI0NC40NzcgMjAwIDI0MCAxOTUuNTIzIDI0MCAxOTBWMTQwWiIgZmlsbD0iIzJjNTI4MiIvPjxwYXRoIGQ9Ik0yMTUgMTUwQzIxNSAxNDQuNDc3IDIxOS40NzcgMTQwIDIyNSAxNDBIMjc1QzI4MC41MjMgMTQwIDI4NSAxNDQuNDc3IDI4NSAxNTBDMjg1IDE1NS41MjMgMjgwLjUyMyAxNjAgMjc1IDE2MEgyMjVDMjE5LjQ3NyAxNjAgMjE1IDE1NS41MjMgMjE1IDE1MFoiIGZpbGw9IiMyYzUyODIiLz48dGV4dCB4PSIyNTAiIHk9IjI0MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMmM1MjgyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWFnZSBub3QgZm91bmQ8L3RleHQ+PC9zdmc+'; this.onerror=null;">
+                        <div class="story-badge">United States</div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-scholar">
+                            <div class="scholar-avatar">
+                                <img src="/Images/Tijani_image.png" alt="Abdulafeez Opeyemi Tijani" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiIGZpbGw9IiNFNkVCRkYiLz48cGF0aCBkPSJNMTAwIDEwNUMxMTguODEgMTA1IDEzNCAxMDAuMDc1IDEzNCA5NEM1MCBsNSA4NCAxMTA3NkM4MS4xODk1IDEwNSA2NiAxMDAuMDc1IDY2IDk0QzcyIDgxLjE4OTUgODEuMTg5NSA3NSAxMDAgNzVDMTE4LjgxIDc1IDEzNCA4MS4xODk1IDEzNCA5NEMxMzQgMTA2LjgxIDExOC44MSAxMDUgMTAwIDEwNVoiIGZpbGw9IiMyYzUyODIiLz48cGF0aCBkPSJNMTAwIDEyNUMxMjguNzEgMTI1IDE1MiAxNTIuMzg2IDE1MiAxODYuNUMxNTIgMTk3LjU0NiAxMjguNzEgMjA1IDEwMCAyMDVDNzEuMjkwMyAyMDUgNDggMTk3LjU0NiA0OCAxODYuNUM0OCAxNTIuMzg2IDcxLjI5MDMgMTI1IDEwMCAxMjVaIiBmaWxsPSIjMzMzMzMzIi8+PC9zdmc+'; this.onerror=null;">
+                            </div>
+                            <div class="scholar-details">
+                                <h3 class="scholar-name">Abdulafeez Opeyemi Tijani</h3>
+                                <div class="scholar-info">First Class Graduate - OAU</div>
+                            </div>
+                        </div>
+                        <h2 class="story-title">Third Time's the Charm: Persistence Pays Off</h2>
+                        <p class="story-excerpt">A first-class Chemical Engineering graduate from Ede, Osun State, who overcame multiple application setbacks with BFI mentorship to secure PhD admission at Auburn University, focusing on energy and environmental solutions.</p>
+                        <div class="story-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-university"></i>
+                                <span>Auburn University</span>
+                            </div>
+                            <a href="success-stories-detail.html?story=abdulafeez-tijani" class="story-link">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story Card 4 - Oladepo -->
+                <div class="story-card" data-category="nigeria">
+                    <div class="story-image">
+                        <img src="/Images/Oladepo_Fawaz.png" alt="Oladepo Fawaz Olaniyi" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi0vL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjBGM0ZGIi8+PGNpcmNsZSBjeD0iMjUwIiBjeT0iMTUwIiByPSI4MCIgZmlsbD0iI0U2RUJGRiIvPjxwYXRoIGQ9Ik0yNDAgMTQwQzI0MCAxMzQuNDc3IDI0NC40NzcgMTMwIDI1MCAxMzBDMjU1LjUyMyAxMzAgMjYwIDEzNC40NzcgMjYwIDE0MFYxOTBDMjYwIDE5NS41MjMgMjU1LjUyMyAyMDAgMjUwIDIwMEMyNDQuNDc3IDIwMCAyNDAgMTk1LjUyMyAyNDAgMTkwVjE0MFoiIGZpbGw9IiMyYzUyODIiLz48cGF0aCBkPSJNMjE1IDE1MEMyMTUgMTQ0LjQ3NyAyMTkuNDc3IDE0MCAyMjUgMTQwSDI3NUMyODAuNTIzIDE0MCAyODUgMTQ0LjQ3NyAyODUgMTUwQzI4NSAxNTUuNTIzIDI4MC41MjMgMTYwIDI3NSAxNjBIMjI1QzIxOS40NzcgMTYwIDIxNSAxNTUuNTIzIDIxNSAxNTBaIiBmaWxsPSIjMmM1MjgyIi8+PHRleHQgeD0iMjUwIiB5PSIyNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzJjNTI4MiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SW1hZ2Ugbm90IGZvdW5kPC90ZXh0Pjwvc3ZnPg=='; this.onerror=null;">
+                        <div class="story-badge">Nigeria</div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-scholar">
+                            <div class="scholar-avatar">
+                                <img src="/Images/Oladepo_Fawaz.png" alt="Oladepo Fawaz Olaniyi" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiIGZpbGw9IiNFNkVCRkYiLz48cGF0aCBkPSJNMTAwIDEwNUMxMTguODEgMTA1IDEzNCAxMDAuMDc1IDEzNCA5NEM1MCBsNSA4NCAxMTA3NkM4MS4xODk1IDEwNSA2NiAxMDAuMDc1IDY2IDk0QzcyIDgxLjE4OTUgODEuMTg5NSA3NSAxMDAgNzVDMTE4LjgxIDc1IDEzNCA4MS4xODk1IDEzNCA5NEMxMzQgMTA2LjgxIDExOC44MSAxMDUgMTAwIDEwNVoiIGZpbGw9IiMyYzUyODIiLz48cGF0aCBkPSJNMTAwIDEyNUMxMjguNzEgMTI1IDE1MiAxNTIuMzg2IDE1MiAxODYuNUMxNTIgMTk3LjU0NiAxMjguNzEgMjA1IDEwMCAyMDVDNzEuMjkwMyAyMDUgNDggMTk3LjU0NiA0OCAxODYuNUM0OCAxNTIuMzg2IDcxLjI5MDMgMTI1IDEwMCAxMjVaIiBmaWxsPSIjMzMzMzMzIi8+PC9zdmc+'; this.onerror=null;">
+                            </div>
+                            <div class="scholar-details">
+                                <h3 class="scholar-name">Oladepo Fawaz Olaniyi</h3>
+                                <div class="scholar-info">BFI Scholarship Recipient</div>
+                            </div>
+                        </div>
+                        <h2 class="story-title">Building Excellence Through Support</h2>
+                        <p class="story-excerpt">A dedicated veterinary medicine student at the University of Ibadan whose academic journey was transformed through BFI's comprehensive support, achieving one of the best WASSCE results in his school.</p>
+                        <div class="story-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-university"></i>
+                                <span>University of Ibadan</span>
+                            </div>
+                            <a href="success-stories-detail.html?story=oladepo-olaniyi" class="story-link">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story Card 5 - Abdulhameed -->
+                <div class="story-card" data-category="nigeria">
+                    <div class="story-image">
+                        <img src="/Images/AbdulHameed_Fawaz.jpeg" alt="Abdulhameed Fawaz Olamide" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNGMEYzRkYiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSIxNTAiIHI9IjgwIiBmaWxsPSIjRTZFQkZGIi8+PHBhdGggZD0iTTI0MCAxNDBDMjQwIDEzNC40NzcgMjQ0LjQ3NyAxMzAgMjUwIDEzMEMyNTUuNTIzIDEzMCAyNjAgMTM0LjQ3NyAyNjAgMTQwVjE5MEMyNjAgMTk1LjUyMyAyNTUuNTIzIDIwMCAyNTAgMjAwQzI0NC40NzcgMjAwIDI0MCAxOTUuNTIzIDI0MCAxOTBWMTQwWiIgZmlsbD0iIzJjNTI4MiIvPjxwYXRoIGQ9Ik0yMTUgMTUwQzIxNSAxNDQuNDc3IDIxOS40NzcgMTQwIDIyNSAxNDBIMjc1QzI4MC41MjMgMTQwIDI4NSAxNDQuNDc3IDI4NSAxNTBDMjg1IDE1NS41MjMgMjgwLjUyMyAxNjAgMjc1IDE2MEgyMjVDMjE5LjQ3NyAxNjAgMjE1IDE1NS41MjMgMjE1IDE1MFoiIGZpbGw9IiMyYzUyODIiLz48dGV4dCB4PSIyNTAiIHk9IjI0MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMmM1MjgyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWFnZSBub3QgZm91bmQ8L3RleHQ+PC9zdmc+'; this.onerror=null;">
+                        <div class="story-badge">Nigeria</div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-scholar">
+                            <div class="scholar-avatar">
+                                <img src="/Images/AbdulHameed_Fawaz.jpeg" alt="Abdulhameed Fawaz Olamide" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiIGZpbGw9IiNFNkVCRkYiLz48cGF0aCBkPSJNMTAwIDEwNUMxMTguODEgMTA1IDEzNCAxMDAuMDc1IDEzNCA5NEM1MCBsNSA4NCAxMTA3NkM4MS4xODk1IDEwNSA2NiAxMDAuMDc1IDY2IDk0QzcyIDgxLjE4OTUgODEuMTg5NSA3NSAxMDAgNzVDMTE4LjgxIDc1IDEzNCA4MS4xODk1IDEzNCA5NEMxMzQgMTA2LjgxIDExOC44MSAxMDUgMTAwIDEwNVoiIGZpbGw9IiMyYzUyODIiLz48cGF0aCBkPSJNMTAwIDEyNUMxMjguNzEgMTI1IDE1MiAxNTIuMzg2IDE1MiAxODYuNUMxNTIgMTk3LjU0NiAxMjguNzEgMjA1IDEwMCAyMDVDNzEuMjkwMyAyMDUgNDggMTk3LjU0NiA0OCAxODYuNUM0OCAxNTIuMzg2IDcxLjI5MDMgMTI1IDEwMCAxMjVaIiBmaWxsPSIjMzMzMzMzIi8+PC9zdmc+'; this.onerror=null;">
+                            </div>
+                            <div class="scholar-details">
+                                <h3 class="scholar-name">Abdulhameed Fawaz Olamide</h3>
+                                <div class="scholar-info">BFI Scholarship Recipient</div>
+                            </div>
+                        </div>
+                        <h2 class="story-title">From Osun to Technical Excellence</h2>
+                        <p class="story-excerpt">A medical physiology student at FUTA whose journey from secondary school in Ede to one of Nigeria's premier technical universities was made possible through consistent BFI support and determination.</p>
+                        <div class="story-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-university"></i>
+                                <span>Federal University of Technology Akure</span>
+                            </div>
+                            <a href="success-stories-detail.html?story=abdulhameed-olamide" class="story-link">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="load-more">
+                <a href="#" class="btn btn-outlined" id="loadMoreBtn">Load More Stories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Scholar Section -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="featured-card">
+                <div class="featured-image">
+                    <img src="/Images/opeyemi.jpg" alt="Opeyemi Sodiq Owolabi" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSI1MDAiIGZpbGw9IiNGMEYzRkYiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSIyNTAiIHI9IjEyMCIgZmlsbD0iI0U2RUJGRiIvPjxwYXRoIGQ9Ik0yMzUgMjIwQzIzNSAyMTEuNzE2IDI0MS43MTYgMjA1IDI1MCAyMDVDMjU4LjI4NCAyMDUgMjY1IDIxMS43MTYgMjY1IDIyMFYyOTVDMjY1IDMwMy4yODQgMjU4LjI4NCAzMTAgMjUwIDMxMEMyNDEuNzE2IDMxMCAyMzUgMzAzLjI4NCAyMzUgMjk1VjIyMFoiIGZpbGw9IiMyYzUyODIiLz48cGF0aCBkPSJNMjAwIDI1MEMyMDAgMjQxLjcxNiAyMDYuNzE2IDIzNSAyMTUgMjM1SDI4NUMyOTMuMjg0IDIzNSAzMDAgMjQxLjcxNiAzMDAgMjUwQzMwMCAyNTguMjg0IDI5My4yODQgMjY1IDI4NSAyNjVIMjE1QzIwNi43MTYgMjY1IDIwMCAyNTguMjg0IDIwMCAyNTBaIiBmaWxsPSIjMmM1MjgyIi8+PHRleHQgeD0iMjUwIiB5PSIzODAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzJjNTI4MiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SW1hZ2Ugbm90IGZvdW5kPC90ZXh0Pjwvc3ZnPg=='; this.onerror=null;">
+                    <div class="featured-badge">Scholar Spotlight</div>
+                </div>
+                <div class="featured-content">
+                    <div class="featured-scholar">
+                        <div class="featured-avatar">
+                            <img src="/Images/opeyemi.jpg" alt="Opeyemi Sodiq Owolabi" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiIGZpbGw9IiNFNkVCRkYiLz48cGF0aCBkPSJNMTAwIDEwNUMxMTguODEgMTA1IDEzNCAxMDAuMDc1IDEzNCA5NEM1MCBsNSA4NCAxMTA3NkM4MS4xODk1IDEwNSA2NiAxMDAuMDc1IDY2IDk0QzcyIDgxLjE4OTUgODEuMTg5NSA3NSAxMDAgNzVDMTE4LjgxIDc1IDEzNCA4MS4xODk1IDEzNCA5NEMxMzQgMTA2LjgxIDExOC44MSAxMDUgMTAwIDEwNVoiIGZpbGw9IiMyYzUyODIiLz48cGF0aCBkPSJNMTAwIDEyNUMxMjguNzEgMTI1IDE1MiAxNTIuMzg2IDE1MiAxODYuNUMxNTIgMTk3LjU0NiAxMjguNzEgMjA1IDEwMCAyMDVDNzEuMjkwMyAyMDUgNDggMTk3LjU0NiA0OCAxODYuNUM0OCAxNTIuMzg2IDcxLjI5MDMgMTI1IDEwMCAxMjVaIiBmaWxsPSIjMzMzMzMzIi8+PC9zdmc+'; this.onerror=null;">
+                        </div>
+                        <div class="featured-details">
+                            <h3 class="featured-name">Opeyemi Sodiq Owolabi</h3>
+                            <div class="featured-info">PhD in Aerospace Engineering, University of Florida | Multiple Award Winner</div>
+                        </div>
+                    </div>
+                    <h2 class="featured-title">From Agbeye to Global Recognition</h2>
+                    <div class="featured-quote">
+                        "BFI's mentorship program stood out for me, especially the guidance in refining my research goals and graduate school documents. The feedback I received on my Statement of Purpose and CV was instrumental in my success."
+                    </div>
+                    <p class="featured-excerpt">Opeyemi's journey from a small town in Osun State to earning multiple prestigious international scholarships including fully-funded offer from top R1 Universities in the US, King Fahd and Erasmus Mundus awards demonstrates the power of determination combined with strategic guidance. His passion for research in control systems, nurtured during his undergraduate years at OAU, has now opened doors to advanced research opportunities at the University of Florida.</p>
+                    <div class="featured-link">
+                        <a href="success-stories-detail.html?story=opeyemi-owolabi" class="btn btn-primary">Read Opeyemi's Full Story</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="testimonial-header">
+                <h2 class="testimonial-title">Words From Our Scholars</h2>
+                <p class="testimonial-subtitle">Hear directly from our scholars about their experiences with BFI's support programs</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-item">
+                    <p class="testimonial-quote">
+                        "The meetings were detailed, and you can see the mentors pouring themselves out with compassion to help and see the mentees' breakthrough! BFI turned what seemed impossible into reality. I ended up with offers from two top US R1 universities on fully funded scholarships."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="/Images/babatunde.jpg" alt="Babatunde Adedeji" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiIGZpbGw9IiNFNkVCRkYiLz48cGF0aCBkPSJNMTAwIDEwNUMxMTguODEgMTA1IDEzNCAxMDAuMDc1IDEzNCA5NEM1MCBsNSA4NCAxMTA3NkM4MS4xODk1IDEwNSA2NiAxMDAuMDc1IDY2IDk0QzcyIDgxLjE4OTUgODEuMTg5NSA3NSAxMDAgNzVDMTE4LjgxIDc1IDEzNCA4MS4xODk1IDEzNCA5NEMxMzQgMTA2LjgxIDExOC44MSAxMDUgMTAwIDEwNVoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIvPjxwYXRoIGQ9Ik0xMDAgMTI1QzEyOC43MSAxMjUgMTUyIDE1Mi4zODYgMTUyIDE4Ni41QzE1MiAxOTcuNTQ2IDEyOC43MSAyMDUgMTAwIDIwNUM3MS4yOTAzIDIwNSA0OCAxOTcuNTQ2IDQ4IDE4Ni41QzQ4IDE1Mi4zODYgNzEuMjkwMyAxMjUgMTAwIDEyNVoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg=='; this.onerror=null;">
+                        </div>
+                        <div>
+                            <div class="author-name">Babatunde Adedeji</div>
+                            <div class="author-position">Graduate Student at Tulane University</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to Create Your Success Story?</h2>
+            <p class="cta-subtitle">Join hundreds of Nigerian students who have achieved their international education dreams with BFI's comprehensive support</p>
+            <div class="cta-buttons">
+                <a href="apply_scholarship.html" class="btn btn-primary btn-lg">Apply Now</a>
+                <a href="#contact" class="btn btn-outlined btn-lg">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-brand">
+                        <div class="footer-brand-text">Bright Future Initiatives</div>
+                    </div>
+                    <p class="footer-slogan">Empowering dreams through education</p>
+                    <div class="footer-socials">
+                        <a href="https://web.facebook.com/profile.php?id=61574771032448" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/BFIniatiatives" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/bright-future-initiative" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <ul class="footer-nav">
+                        <li><a href="https://web.facebook.com/profile.php?id=61574771032448"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                        <li><a href="https://x.com/BFIniatiatives"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/company/bright-future-initiative"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="our_programs.html">Programs</a></li>
+                        <li><a href="BFI_Talent.html">Talent of the Year</a></li>
+                        <li><a href="#involved">Get Involved</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bright Future Initiatives. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+            const menuOverlay = document.getElementById('menuOverlay');
+            
+            menuToggle.addEventListener('click', function() {
+                mobileMenuPanel.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                
+                if (mobileMenuPanel.classList.contains('active')) {
+                    menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            menuOverlay.addEventListener('click', function() {
+                mobileMenuPanel.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+            });
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const storyCards = document.querySelectorAll('.story-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Show/hide items based on filter
+                    storyCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Load more functionality (demo)
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            let isLoading = false;
+            
+            loadMoreBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (isLoading) return;
+                
+                isLoading = true;
+                loadMoreBtn.innerHTML = 'Loading...';
+                
+                // Simulate loading delay
+                setTimeout(function() {
+                    // This would typically fetch more stories from a server
+                    // For this demo, we'll just hide the button
+                    loadMoreBtn.innerHTML = 'No More Stories';
+                    loadMoreBtn.classList.add('disabled');
+                    isLoading = false;
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>

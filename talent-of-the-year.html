@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talent of the Year | Bold Footprint Initiatives</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ---- AWARD OVERVIEW ---- */
+    .award-overview { padding: var(--section-padding); }
+    .award-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .award-text { font-size: 16px; color: var(--gray-700); line-height: 1.8; margin-bottom: 16px; }
+    .award-perks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .award-perk {
+      background: var(--gray-50);
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: center;
+      border: 1px solid var(--gray-200);
+    }
+    .award-perk__icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--navy-800);
+      color: var(--gold-400);
+      font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+    }
+    .award-perk__title {
+      font-family: var(--font-display);
+      font-size: 14px; font-weight: 700;
+      color: var(--navy-800);
+      margin-bottom: 4px;
+    }
+    .award-perk__text { font-size: 13px; color: var(--gray-600); line-height: 1.5; }
+    .award-visual {
+      background: linear-gradient(160deg, var(--navy-800), var(--navy-700));
+      border-radius: 16px;
+      padding: 60px 40px;
+      text-align: center;
+      color: var(--white);
+    }
+    .award-visual__icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+      color: var(--gold-400);
+    }
+    .award-visual__title {
+      font-family: var(--font-display);
+      font-size: 24px; font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .award-visual__subtitle {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ---- CRITERIA ---- */
+    .criteria-section {
+      padding: var(--section-padding);
+      background: var(--gray-50);
+    }
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .criteria-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 32px 28px;
+      border: 1px solid var(--gray-200);
+    }
+    .criteria-card__title {
+      font-family: var(--font-display);
+      font-size: 18px; font-weight: 700;
+      color: var(--navy-800);
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .criteria-card__title i {
+      color: var(--gold-500); font-size: 16px;
+    }
+    .criteria-card__list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .criteria-card__item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--gray-700); line-height: 1.5;
+    }
+    .criteria-card__item i {
+      color: var(--gold-500); font-size: 11px; margin-top: 5px; flex-shrink: 0;
+    }
+
+    /* ---- WINNERS CAROUSEL ---- */
+    .winners-section { padding: var(--section-padding); }
+    .winners-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .winner-card {
+      background: var(--white);
+      border-radius: 14px;
+      border: 1px solid var(--gray-200);
+      overflow: hidden;
+      transition: all var(--transition-base);
+    }
+    .winner-card:hover {
+      border-color: var(--gold-200);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .winner-card__header {
+      background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .winner-card__year {
+      font-family: var(--font-display);
+      font-size: 40px; font-weight: 800;
+      color: var(--gold-400);
+      line-height: 1;
+    }
+    .winner-card__avatar {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      margin: 16px auto 0;
+      font-size: 24px; color: var(--gold-400);
+    }
+    .winner-card__body { padding: 28px 24px; }
+    .winner-card__name {
+      font-family: var(--font-display);
+      font-size: 18px; font-weight: 700;
+      color: var(--navy-800);
+      margin-bottom: 4px;
+    }
+    .winner-card__field {
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 600;
+      color: var(--gold-600);
+      margin-bottom: 14px;
+    }
+    .winner-card__text {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.7;
+      /* Clamp */
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* ---- NOMINATION PROCESS ---- */
+    .nominate-section {
+      padding: 80px 0;
+      background: var(--gray-50);
+    }
+    .nominate-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .nominate-step {
+      text-align: center;
+      position: relative;
+    }
+    .nominate-step__num {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--navy-800);
+      color: var(--gold-400);
+      font-family: var(--font-display);
+      font-size: 18px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .nominate-step__title {
+      font-family: var(--font-display);
+      font-size: 16px; font-weight: 700;
+      color: var(--navy-800);
+      margin-bottom: 6px;
+    }
+    .nominate-step__text {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.6;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1024px) {
+      .award-grid { grid-template-columns: 1fr; gap: 40px; }
+      .criteria-grid { grid-template-columns: 1fr; }
+      .winners-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .award-perks { grid-template-columns: 1fr; }
+      .winners-grid { grid-template-columns: 1fr; }
+      .nominate-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo"><span class="nav__logo-text">Bold <span>Footprint</span></span></a>
+      <div class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="scholar-stories.html" class="nav__link">Scholar Stories</a>
+        <a href="programs.html" class="nav__link">Programs</a>
+        <a href="mentor-impact.html" class="nav__link">Mentor Impact</a>
+        <a href="talent-of-the-year.html" class="nav__link nav__link--active">Talent of the Year</a>
+      </div>
+      <a href="get-involved.html" class="nav__cta">Get Involved</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero__breadcrumb"><a href="index.html">Home</a> <span>/</span> Talent of the Year</div>
+      <h1 class="page-hero__title">BFI Talent of the <em>Year Award</em></h1>
+      <p class="page-hero__subtitle">A national recognition for exceptional achievement in academic excellence and professional development among Nigerian students.</p>
+    </div>
+  </section>
+
+  <!-- AWARD OVERVIEW -->
+  <section class="award-overview">
+    <div class="container">
+      <div class="award-grid">
+        <div class="reveal">
+          <div class="section-label">About the Award</div>
+          <h2 class="section-title" style="font-size:34px;">Recognizing Exceptional Talent</h2>
+          <p class="award-text">The BFI Talent of the Year Award is our premier recognition program celebrating outstanding Nigerian students who demonstrate exceptional academic performance, leadership abilities, and commitment to community service.</p>
+          <p class="award-text">This annual award identifies individuals who not only excel in their studies but also demonstrate the potential to become future leaders and change-makers in their fields and communities.</p>
+          <div class="award-perks">
+            <div class="award-perk">
+              <div class="award-perk__icon"><i class="fa-solid fa-trophy"></i></div>
+              <div class="award-perk__title">Recognition</div>
+              <div class="award-perk__text">National recognition through educational and corporate partners.</div>
+            </div>
+            <div class="award-perk">
+              <div class="award-perk__icon"><i class="fa-solid fa-coins"></i></div>
+              <div class="award-perk__title">Financial Grant</div>
+              <div class="award-perk__text">Supporting continued educational and professional development.</div>
+            </div>
+            <div class="award-perk">
+              <div class="award-perk__icon"><i class="fa-solid fa-diagram-project"></i></div>
+              <div class="award-perk__title">Network Access</div>
+              <div class="award-perk__text">BFI's network of professionals, mentors, and alumni.</div>
+            </div>
+          </div>
+        </div>
+        <div class="award-visual reveal reveal--delay-2">
+          <div class="award-visual__icon">🏆</div>
+          <div class="award-visual__title">BFI Talent of the Year</div>
+          <div class="award-visual__subtitle">Celebrating academic excellence, leadership, and impact since 2021</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTION CRITERIA -->
+  <section class="criteria-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <div class="section-label section-label--center">Excellence Standards</div>
+        <h2 class="section-title" style="font-size:34px;">Selection Criteria</h2>
+        <p class="section-subtitle section-subtitle--center">Evaluated across four dimensions to identify truly exceptional talent.</p>
+      </div>
+      <div class="criteria-grid">
+        <div class="criteria-card reveal reveal--delay-1">
+          <h3 class="criteria-card__title"><i class="fa-solid fa-graduation-cap"></i> Academic Excellence</h3>
+          <div class="criteria-card__list">
+            <div class="criteria-card__item"><i class="fa-solid fa-check"></i> Minimum GPA of 4.5 or equivalent</div>
+            <div class="criteria-card__item"><i class="fa-solid fa-check"></i> Strong academic recommendations from faculty</div>
+            <div class="criteria-card__item"><i class="fa-solid fa-check"></i> Research publications or academic contributions</div>
+          </div>
+        </div>
+        <div class="criteria-card reveal reveal--delay-2">
+          <h3 class="criteria-card__title"><i class="fa-solid fa-lightbulb"></i> Leadership &amp; Innovation</h3>
+          <div class="criteria-card__list">
+            <div class="criteria-card__item"><i class="fa-solid fa-check"></i> Demonstrated leadership in academic or extracurricular activities</div>
+            <div class="criteria-card__item"><i class="fa-solid fa-check"></i> Innovative project experience or creative solutions</div>
+            <div class="criteria-card__item"><i class="fa-solid fa-check"></i> Problem-solving with tangible outcomes</div>
+          </div>
+        </div>
+        <div class="criteria-card reveal reveal--delay-3">
+          <h3 class="criteria-card__title"><i class="fa-solid fa-heart"></i> Community Impact</h3>
+          <div class="criteria-card__list">
+            <div class="criteria-card__item"><i class="fa-solid fa-check"></i> Volunteer work with measurable community benefits</div>
+            <div class="criteria-card__item"><i class="fa-solid fa-check"></i> Community service initiatives or programs</div>
+            <div class="criteria-card__item"><i class="fa-solid fa-check"></i> Social impact projects addressing local challenges</div>
+          </div>
+        </div>
+        <div class="criteria-card reveal reveal--delay-4">
+          <h3 class="criteria-card__title"><i class="fa-solid fa-briefcase"></i> Professional Experience</h3>
+          <div class="criteria-card__list">
+            <div class="criteria-card__item"><i class="fa-solid fa-check"></i> Internship performance and recommendations</div>
+            <div class="criteria-card__item"><i class="fa-solid fa-check"></i> Work experience quality and field relevance</div>
+            <div class="criteria-card__item"><i class="fa-solid fa-check"></i> Professional achievements and recognitions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST WINNERS -->
+  <section class="winners-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <div class="section-label section-label--center">Hall of Excellence</div>
+        <h2 class="section-title" style="font-size:34px;">Past Winners</h2>
+        <p class="section-subtitle section-subtitle--center">Exceptional individuals whose bold footprints continue to inspire.</p>
+      </div>
+      <div class="winners-grid">
+        <div class="winner-card reveal reveal--delay-1">
+          <div class="winner-card__header">
+            <div class="winner-card__year">2023</div>
+            <div class="winner-card__avatar"><i class="fa-solid fa-user"></i></div>
+          </div>
+          <div class="winner-card__body">
+            <h3 class="winner-card__name">Adewale Akinwale</h3>
+            <div class="winner-card__field">Electrical Engineering</div>
+            <p class="winner-card__text">Aced his WASSCE with seven distinctions including A1 in General Mathematics, Further Mathematics, and Biology. His remarkable performance is a testament to dedication and commitment to academic excellence.</p>
+          </div>
+        </div>
+        <div class="winner-card reveal reveal--delay-2">
+          <div class="winner-card__header">
+            <div class="winner-card__year">2022</div>
+            <div class="winner-card__avatar"><i class="fa-solid fa-user"></i></div>
+          </div>
+          <div class="winner-card__body">
+            <h3 class="winner-card__name">Tijani AbdulHafiz</h3>
+            <div class="winner-card__field">BSc Chemical Engineering</div>
+            <p class="winner-card__text">First-class graduate of Chemical Engineering from Obafemi Awolowo University. Demonstrated remarkable leadership through mentorship of peers, promoting diversity and inclusivity in STEM fields.</p>
+          </div>
+        </div>
+        <div class="winner-card reveal reveal--delay-3">
+          <div class="winner-card__header">
+            <div class="winner-card__year">2021</div>
+            <div class="winner-card__avatar"><i class="fa-solid fa-user"></i></div>
+          </div>
+          <div class="winner-card__body">
+            <h3 class="winner-card__name">Alabere Hafsat</h3>
+            <div class="winner-card__field">MRes Parasite Control · PhD Biomedical Science</div>
+            <p class="winner-card__text">First-class Microbiology degree from FUTA. Commonwealth Scholar at Aberystwyth University. Now pursuing PhD at West Virginia University focusing on Non-Coding RNA therapeutics for cardiovascular diseases.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOMINATION PROCESS -->
+  <section class="nominate-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <div class="section-label section-label--center">How to Nominate</div>
+        <h2 class="section-title" style="font-size:34px;">Nomination Process</h2>
+        <p class="section-subtitle section-subtitle--center">Transparent and merit-based. Three steps to recognize a deserving candidate.</p>
+      </div>
+      <div class="nominate-steps">
+        <div class="nominate-step reveal reveal--delay-1">
+          <div class="nominate-step__num">1</div>
+          <h4 class="nominate-step__title">Submission</h4>
+          <p class="nominate-step__text">Complete the online application with nominee's academic credentials, portfolio, and personal statement.</p>
+        </div>
+        <div class="nominate-step reveal reveal--delay-2">
+          <div class="nominate-step__num">2</div>
+          <h4 class="nominate-step__title">Evaluation</h4>
+          <p class="nominate-step__text">Applications reviewed by our selection committee against the four key criteria areas.</p>
+        </div>
+        <div class="nominate-step reveal reveal--delay-3">
+          <div class="nominate-step__num">3</div>
+          <h4 class="nominate-step__title">Selection</h4>
+          <p class="nominate-step__text">Finalists are interviewed, and the winner is selected based on overall excellence and impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-section__title reveal">Know an Exceptional Scholar?</h2>
+      <p class="cta-section__text reveal reveal--delay-1">Nominate a student who exemplifies academic excellence, leadership, and community impact.</p>
+      <div class="cta-section__actions reveal reveal--delay-2">
+        <a href="#" class="btn btn--gold">Nominate for Award <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="programs.html" class="btn btn--outline-white">View Criteria</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div><div class="footer__brand-name">Bold <span>Footprint</span> Initiatives</div><p class="footer__brand-text">Equipping high-potential Nigerian scholars with scholarships, mentorship, and global pathways since 2016.</p></div>
+        <div><div class="footer__heading">Quick Links</div><a href="index.html" class="footer__link">Home</a><a href="scholar-stories.html" class="footer__link">Scholar Stories</a><a href="programs.html" class="footer__link">Programs</a><a href="talent-of-the-year.html" class="footer__link">Talent of the Year</a></div>
+        <div><div class="footer__heading">Get Involved</div><a href="get-involved.html" class="footer__link">Apply for Scholarship</a><a href="get-involved.html#mentor" class="footer__link">Become a Mentor</a><a href="get-involved.html#donate" class="footer__link">Support Our Cause</a></div>
+        <div><div class="footer__heading">Contact</div><div class="footer__contact-item"><i class="fa-solid fa-envelope"></i> info@bfinitiatives.com</div><div class="footer__contact-item"><i class="fa-solid fa-phone"></i> (+234) 816 501 1291</div><div class="footer__contact-item"><i class="fa-solid fa-phone"></i> (+234) 810 237 7511</div></div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 Bold Footprint Initiatives. All rights reserved.</span>
+        <div class="footer__socials"><a href="#" class="footer__social"><i class="fa-brands fa-linkedin-in"></i></a><a href="#" class="footer__social"><i class="fa-brands fa-x-twitter"></i></a><a href="#" class="footer__social"><i class="fa-brands fa-instagram"></i></a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>{navbar.classList.toggle('nav--scrolled',window.scrollY>60)});
+    document.getElementById('navToggle').addEventListener('click',()=>{document.getElementById('navLinks').classList.toggle('nav__links--open')});
+    const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('reveal--active')})},{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>

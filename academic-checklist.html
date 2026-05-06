@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postgraduate Scholarship Application Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .kpi-card {
+            background-color: #003f5c;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        .kpi-number {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .kpi-label {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-dot {
+            min-width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ff764a;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #ff764a;
+            margin-right: 1rem;
+        }
+        .flowchart-item {
+            background-color: #003f5c20;
+            border-left: 4px solid #003f5c;
+        }
+        .flowchart-arrow {
+            color: #003f5c;
+            font-size: 2rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-6xl">
+        <header class="text-center my-8">
+            <h1 class="text-4xl md:text-5xl font-black text-[#003f5c]">The Postgraduate Scholarship Journey</h1>
+            <p class="text-lg text-slate-600 mt-2 max-w-3xl mx-auto">A visual guide to navigating the application process and securing funding for your future.</p>
+        </header>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
+            <div class="kpi-card bg-[#003f5c]">
+                <div class="kpi-number">75%</div>
+                <div class="kpi-label">of successful applicants start researching over 6 months in advance.</div>
+            </div>
+            <div class="kpi-card bg-[#7a5195]">
+                <div class="kpi-number">Top 3</div>
+                <div class="kpi-label">Documents: Personal Statement, Transcripts, and Letters of Rec.</div>
+            </div>
+            <div class="kpi-card bg-[#ff764a]">
+                <div class="kpi-number">3+</div>
+                <div class="kpi-label">Proofreads recommended before final submission.</div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-12">
+            <h2 class="text-2xl font-bold text-center mb-6 text-[#003f5c]">The Application Timeline: A 12-Month Overview</h2>
+            <div class="relative w-full">
+                <div class="border-l-4 border-[#ff764a] absolute h-full top-0 left-4"></div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <h3 class="font-bold text-lg text-[#003f5c]">Phase 1: The Foundation (6-12 Months Out)</h3>
+                        <p class="text-slate-600">This is the strategic planning stage. Define your academic goals, research potential scholarships, check eligibility, and identify potential recommenders. A strong foundation is critical.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <h3 class="font-bold text-lg text-[#003f5c]">Phase 2: The Application (3-6 Months Out)</h3>
+                        <p class="text-slate-600">Focus on gathering documents and crafting your narrative. This includes requesting transcripts, updating your CV, and writing a compelling personal statement that tells your unique story.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <h3 class="font-bold text-lg text-[#003f5c]">Phase 3: Submission & Follow-Up (1-3 Months Out)</h3>
+                        <p class="text-slate-600">The final stretch. Proofread everything meticulously, submit applications well before deadlines, send gentle reminders to recommenders, and prepare for any potential interviews.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-center mb-4 text-[#003f5c]">Where to Find Scholarships</h2>
+                <p class="text-slate-600 text-center mb-6">A diverse search strategy yields the best results. Don't limit yourself to a single source.</p>
+                <div class="chart-container">
+                    <canvas id="scholarshipSourcesChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-center mb-4 text-[#003f5c]">Anatomy of a Winning Application</h2>
+                 <p class="text-slate-600 text-center mb-6">While all components are important, the personal statement is your opportunity to truly stand out.</p>
+                <div class="chart-container h-96">
+                    <canvas id="applicationComponentsChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-12">
+            <h2 class="text-2xl font-bold text-center mb-6 text-[#003f5c]">Essential Documents Checklist</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg">
+                <div class="flex items-center"><span class="text-green-500 mr-3 text-2xl">✓</span>Academic Transcripts</div>
+                <div class="flex items-center"><span class="text-green-500 mr-3 text-2xl">✓</span>Updated Resume/CV</div>
+                <div class="flex items-center"><span class="text-green-500 mr-3 text-2xl">✓</span>Personal Statement</div>
+                <div class="flex items-center"><span class="text-green-500 mr-3 text-2xl">✓</span>Letters of Recommendation</div>
+                <div class="flex items-center"><span class="text-green-500 mr-3 text-2xl">✓</span>Degree Certificates</div>
+                <div class="flex items-center"><span class="text-green-500 mr-3 text-2xl">✓</span>Standardized Test Scores</div>
+                <div class="flex items-center"><span class="text-green-500 mr-3 text-2xl">✓</span>Research Proposal (if needed)</div>
+                <div class="flex items-center"><span class="text-green-500 mr-3 text-2xl">✓</span>Valid Passport/ID</div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-12">
+            <h2 class="text-2xl font-bold text-center mb-8 text-[#003f5c]">The Final Submission Flow</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <div class="flowchart-item p-4 rounded-lg text-center w-full md:w-auto">
+                    <h3 class="font-bold">Final Review</h3>
+                    <p>Proofread everything. Then proofread it again.</p>
+                </div>
+                <div class="flowchart-arrow transform md:-rotate-0">➔</div>
+                <div class="flowchart-item p-4 rounded-lg text-center w-full md:w-auto">
+                    <h3 class="font-bold">Submit Early</h3>
+                    <p>Avoid last-minute tech issues and stress.</p>
+                </div>
+                <div class="flowchart-arrow transform md:-rotate-0">➔</div>
+                <div class="flowchart-item p-4 rounded-lg text-center w-full md:w-auto">
+                    <h3 class="font-bold">Follow Up</h3>
+                    <p>Thank recommenders and prepare for interviews.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-8">
+            <p class="text-slate-600">Your future is an investment. Good luck with your applications!</p>
+        </footer>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const brilliantBlues = ['#003f5c', '#7a5195', '#ef5675', '#ff764a', '#ffa600'];
+
+            function wrapLabel(label, maxWidth) {
+                if (label.length <= maxWidth) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + ' ' + word).trim().length > maxWidth && currentLine.length > 0) {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                }
+                if (currentLine.length > 0) {
+                    lines.push(currentLine);
+                }
+                return lines;
+            }
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+            
+            const sharedTooltipOptions = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            };
+            
+            const scholarshipSourcesCtx = document.getElementById('scholarshipSourcesChart');
+            if(scholarshipSourcesCtx) {
+                new Chart(scholarshipSourcesCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['University Websites', 'Government Bodies', 'Online Search Engines', 'Charitable Organizations', 'Professional Associations'],
+                        datasets: [{
+                            label: 'Scholarship Sources',
+                            data: [40, 25, 15, 15, 5],
+                            backgroundColor: brilliantBlues,
+                            borderColor: '#ffffff',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                            },
+                            tooltip: sharedTooltipOptions.plugins.tooltip
+                        }
+                    }
+                });
+            }
+
+            const applicationComponentsCtx = document.getElementById('applicationComponentsChart');
+            if(applicationComponentsCtx) {
+                const rawLabels = ['Personal Statement', 'Letters of Recommendation', 'Academic Transcripts / GPA', 'Resume / CV', 'Standardized Test Scores'];
+                const processedLabels = rawLabels.map(label => wrapLabel(label, 16));
+
+                new Chart(applicationComponentsCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: processedLabels,
+                        datasets: [{
+                            label: 'Impact on Application',
+                            data: [95, 85, 80, 70, 60],
+                            backgroundColor: brilliantBlues,
+                            borderColor: brilliantBlues,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                grid: {
+                                    display: false
+                                }
+                            },
+                            y: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        },
+                        plugins: {
+                           legend: {
+                                display: false
+                           },
+                           tooltip: sharedTooltipOptions.plugins.tooltip
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

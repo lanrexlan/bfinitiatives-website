@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/BFI_Logo.png">
+    <title>Nominate for BFI Talent of the Year - Bright Future Initiatives</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <style>
+        :root {
+            --primary: #2c5282;
+            --primary-light: #3b82f6;
+            --primary-dark: #1e3a8a;
+            --secondary: #f59e0b;
+            --secondary-light: #fbbf24;
+            --secondary-dark: #d97706;
+            --accent: #6366f1;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --gold: #fbbf24;
+            --white: #ffffff;
+            --black: #000000;
+            
+            --transition-slow: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition-medium: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition-fast: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-fast);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition-fast);
+            border: 2px solid transparent;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: pointer;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: var(--transition-fast);
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+            border-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-dark);
+            border-color: var(--secondary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-outlined {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-outlined:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-white {
+            background-color: var(--white);
+            color: var(--primary);
+            border-color: var(--white);
+        }
+        
+        .btn-white:hover {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-sm {
+            padding: 70px 0;
+        }
+        
+        .section-title-wrapper {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-sm-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 25px auto 0;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-medium);
+            background-color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1001;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--primary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition-fast);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary);
+            z-index: 1001;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 1000;
+            padding: 80px 40px 40px;
+            transition: var(--transition-medium);
+            box-shadow: var(--shadow-xl);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu-panel.active {
+            right: 0;
+        }
+        
+        .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .mobile-link {
+            font-weight: 500;
+            color: var(--dark);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            display: block;
+            transition: var(--transition-fast);
+        }
+        
+        .mobile-link:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+        
+        .mobile-link.active {
+            color: var(--primary);
+        }
+        
+        .mobile-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-medium);
+            backdrop-filter: blur(5px);
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(37, 99, 235, 0.85));
+            color: var(--white);
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/Images/Talent_image.png');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.3);
+            z-index: -1;
+        }
+        
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="white" fill-opacity="1" fill-rule="evenodd"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></svg>');
+            z-index: -1;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-icon {
+            display: inline-block;
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .hero-shape {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="white" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,122.7C384,128,480,160,576,170.7C672,181,768,171,864,154.7C960,139,1056,117,1152,117.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            z-index: 1;
+        }
+
+        /* Form Styles */
+        .form-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .form-header {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .form-header::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .form-header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .form-header-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .form-header-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-header-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-body {
+            padding: 40px;
+        }
+
+        .form-section-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .form-section-content {
+            margin-bottom: 40px;
+        }
+
+        .form-section-content:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-required {
+            color: var(--danger);
+            margin-left: 3px;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--gray-light);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            color: var(--dark);
+            transition: var(--transition-fast);
+            background-color: var(--white);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--gray);
+            opacity: 0.7;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%2364748b"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>');
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        .form-helper {
+            font-size: 0.85rem;
+            margin-top: 6px;
+            color: var(--gray);
+        }
+
+        .form-error {
+            color: var(--danger);
+            font-size: 0.85rem;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .form-error.active {
+            display: block;
+        }
+
+        .upload-container {
+            border: 2px dashed var(--gray-light);
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: var(--transition-fast);
+            background-color: var(--light);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .upload-container:hover {
+            border-color: var(--primary-light);
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+
+        .upload-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .upload-text {
+            margin-bottom: 10px;
+        }
+
+        .upload-subtext {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .upload-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-preview {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: var(--light);
+            border-radius: 10px;
+            margin-top: 15px;
+            transition: var(--transition-fast);
+        }
+
+        .file-icon {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .file-name {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .file-remove {
+            color: var(--danger);
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-input {
+            flex: 0 0 20px;
+            height: 20px;
+            appearance: none;
+            border: 2px solid var(--gray-light);
+            border-radius: 5px;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            margin-top: 3px;
+        }
+
+        .checkbox-input:checked {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .checkbox-input:checked::after {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--white);
+            font-size: 12px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .checkbox-label {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .checkbox-link {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .form-back {
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition-fast);
+        }
+
+        .form-back:hover {
+            color: var(--primary);
+            transform: translateX(-5px);
+        }
+
+        /* Form Steps */
+        .form-steps {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-steps::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--gray-light);
+            transform: translateY(-50%);
+            z-index: -1;
+        }
+
+        .form-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .step-indicator {
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            border: 2px solid var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition-medium);
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray);
+            text-align: center;
+            transition: var(--transition-medium);
+        }
+
+        .form-step.active .step-indicator {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            color: var(--dark);
+        }
+
+        .form-step.active .step-label {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .form-step.completed .step-indicator {
+            background-color: var(--success);
+            border-color: var(--success);
+            color: var(--white);
+        }
+
+        .form-step.completed .step-indicator::after {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+        }
+
+        .form-step-content {
+            display: none;
+        }
+
+        .form-step-content.active {
+            display: block;
+        }
+
+        /* Success message */
+        .nomination-success {
+            text-align: center;
+            padding: 60px 30px;
+            display: none;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: var(--success);
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: successPulse 2s infinite;
+        }
+
+        @keyframes successPulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .success-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .success-message {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .success-info {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .success-info-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .success-info-list {
+            list-style: disc;
+            padding-left: 20px;
+            color: var(--gray);
+        }
+
+        .success-info-list li {
+            margin-bottom: 8px;
+        }
+
+        .success-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .process-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .process-step {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            padding: 30px;
+            flex: 0 0 calc(33.333% - 30px);
+            min-width: 280px;
+            text-align: center;
+            transition: var(--transition-medium);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+            z-index: 1;
+        }
+
+        .process-step:nth-child(2)::before {
+            background: var(--secondary);
+        }
+
+        .process-step:nth-child(3)::before {
+            background: var(--accent);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .process-step:nth-child(2) .step-number {
+            color: var(--secondary);
+        }
+
+        .process-step:nth-child(3) .step-number {
+            color: var(--accent);
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .process-step:nth-child(2) .step-icon {
+            color: var(--secondary);
+        }
+
+        .process-step:nth-child(3) .step-icon {
+            color: var(--accent);
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .step-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95)), url('/Images/footer-bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 80px 0 20px;
+        }
+        
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+        
+        .footer-logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+        
+        .footer-description {
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+        }
+        
+        .footer-social-link:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .footer-link:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        
+        .footer-contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .footer-contact-text {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .form-steps {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .form-steps::before {
+                display: none;
+            }
+            
+            .form-step {
+                flex: 0 0 calc(50% - 20px);
+            }
+            
+            .process-step {
+                flex: 0 0 calc(50% - 30px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding-top: 100px;
+                padding-bottom: 60px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .form-body {
+                padding: 30px 20px;
+            }
+            
+            .form-header-title {
+                font-size: 1.5rem;
+            }
+            
+            .form-buttons {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+            
+            .form-back {
+                order: 2;
+                justify-content: center;
+            }
+            
+            .process-step {
+                flex: 0 0 100%;
+            }
+            
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text {
+                font-size: 18px;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .form-step {
+                flex: 0 0 100%;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .success-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><img src="/Images/BFI_Logo.png" alt="BFI Logo"></div>
+                    <div class="logo-text">Bright Future Initiatives</div>
+                </a>
+                
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="our_programs.html" class="nav-link">Our Programs</a></li>
+                    <li><a href="BFI_Talent.html" class="nav-link active">BFI Talent of the Year</a></li>
+                    <li><a href="/scholar-portal/index.php" class="nav-link">Scholar Portal</a></li>
+                    <li><a href="/admin/index.php" class="nav-link">Admin Portal</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-panel" id="mobileMenuPanel">
+        <ul class="mobile-menu">
+            <li><a href="index.html" class="mobile-link">Home</a></li>
+            <li><a href="about.html" class="mobile-link">About Us</a></li>
+            <li><a href="our_programs.html" class="mobile-link">Our Programs</a></li>
+            <li><a href="BFI_Talent.html" class="mobile-link active">BFI Talent of the Year</a></li>
+            <li><a href="/scholar-portal/index.php" class="mobile-link">Scholar Portal</a></li>
+            <li><a href="/admin/index.php" class="mobile-link">Admin Portal</a></li>
+        </ul>
+        <div class="mobile-buttons">
+            <a href="BFI_Talent.html" class="btn btn-primary">Back to Award</a>
+            <a href="talent-application.html" class="btn btn-outlined">Apply Yourself</a>
+        </div>
+    </div>
+    
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-pattern"></div>
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-icon">✨</div>
+                <h1 class="hero-title">Nominate a Talented Nigerian</h1>
+                <p class="hero-subtitle">Know someone extraordinary? Nominate them for the BFI Talent of the Year Award and help us recognize excellence in academic achievement and community impact.</p>
+            </div>
+        </div>
+        <div class="hero-shape"></div>
+    </section>
+
+    <!-- Nomination Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container" data-aos="fade-up">
+                <div class="form-header">
+                    <div class="form-header-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h2 class="form-header-title">Nomination Form</h2>
+                    <p class="form-header-subtitle">Submit your nomination for an exceptional Nigerian student who embodies academic excellence, leadership, and community impact.</p>
+                </div>
+                
+                <div class="form-body">
+                    <!-- Form Steps Navigation -->
+                    <div class="form-steps">
+                        <div class="form-step active" data-step="1">
+                            <div class="step-indicator">1</div>
+                            <div class="step-label">Your Information</div>
+                        </div>
+                        <div class="form-step" data-step="2">
+                            <div class="step-indicator">2</div>
+                            <div class="step-label">Nominee Details</div>
+                        </div>
+                        <div class="form-step" data-step="3">
+                            <div class="step-indicator">3</div>
+                            <div class="step-label">Nomination Reasons</div>
+                        </div>
+                    </div>
+                    
+                    <form id="nominationForm" action="process_nomination.php" method="post" enctype="multipart/form-data">
+                        <!-- Step 1: Nominator Information -->
+                        <div class="form-step-content active" data-step="1">
+                            <h3 class="form-section-title">Your Information</h3>
+                            <div class="form-section-content">
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="nominatorFirstName" class="form-label">First Name <span class="form-required">*</span></label>
+                                            <input type="text" id="nominatorFirstName" name="nominatorFirstName" class="form-input" placeholder="Enter your first name" required>
+                                            <div class="form-error" id="nominatorFirstNameError">Please enter your first name</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="nominatorLastName" class="form-label">Last Name <span class="form-required">*</span></label>
+                                            <input type="text" id="nominatorLastName" name="nominatorLastName" class="form-input" placeholder="Enter your last name" required>
+                                            <div class="form-error" id="nominatorLastNameError">Please enter your last name</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="nominatorEmail" class="form-label">Email Address <span class="form-required">*</span></label>
+                                            <input type="email" id="nominatorEmail" name="nominatorEmail" class="form-input" placeholder="Enter your email address" required>
+                                            <div class="form-error" id="nominatorEmailError">Please enter a valid email address</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="nominatorPhone" class="form-label">Phone Number <span class="form-required">*</span></label>
+                                            <input type="tel" id="nominatorPhone" name="nominatorPhone" class="form-input" placeholder="Enter your phone number" required>
+                                            <div class="form-error" id="nominatorPhoneError">Please enter a valid phone number</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="relationship" class="form-label">Relationship to Nominee <span class="form-required">*</span></label>
+                                    <select id="relationship" name="relationship" class="form-select" required>
+                                        <option value="" selected disabled>Select your relationship</option>
+                                        <option value="teacher">Teacher/Professor</option>
+                                        <option value="employer">Employer/Supervisor</option>
+                                        <option value="mentor">Mentor</option>
+                                        <option value="colleague">Colleague</option>
+                                        <option value="friend">Friend</option>
+                                        <option value="family">Family Member</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <div class="form-error" id="relationshipError">Please select your relationship to the nominee</div>
+                                </div>
+                                
+                                <div class="form-group" id="otherRelationshipGroup" style="display: none;">
+                                    <label for="otherRelationship" class="form-label">Please Specify Relationship <span class="form-required">*</span></label>
+                                    <input type="text" id="otherRelationship" name="otherRelationship" class="form-input" placeholder="Describe your relationship to the nominee">
+                                    <div class="form-error" id="otherRelationshipError">Please specify your relationship</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="howLongKnown" class="form-label">How long have you known the nominee? <span class="form-required">*</span></label>
+                                    <select id="howLongKnown" name="howLongKnown" class="form-select" required>
+                                        <option value="" selected disabled>Select duration</option>
+                                        <option value="less-than-1">Less than 1 year</option>
+                                        <option value="1-2">1-2 years</option>
+                                        <option value="3-5">3-5 years</option>
+                                        <option value="6-10">6-10 years</option>
+                                        <option value="more-than-10">More than 10 years</option>
+                                    </select>
+                                    <div class="form-error" id="howLongKnownError">Please select how long you've known the nominee</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-buttons">
+                                <a href="BFI_Talent.html" class="form-back">
+                                    <i class="fas fa-arrow-left"></i> Back to Award Page
+                                </a>
+                                <button type="button" class="btn btn-primary next-step" data-next="2">Continue to Nominee Details</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Nominee Information -->
+                        <div class="form-step-content" data-step="2">
+                            <h3 class="form-section-title">Nominee Information</h3>
+                            <div class="form-section-content">
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="nomineeFirstName" class="form-label">First Name <span class="form-required">*</span></label>
+                                            <input type="text" id="nomineeFirstName" name="nomineeFirstName" class="form-input" placeholder="Enter nominee's first name" required>
+                                            <div class="form-error" id="nomineeFirstNameError">Please enter nominee's first name</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="nomineeLastName" class="form-label">Last Name <span class="form-required">*</span></label>
+                                            <input type="text" id="nomineeLastName" name="nomineeLastName" class="form-input" placeholder="Enter nominee's last name" required>
+                                            <div class="form-error" id="nomineeLastNameError">Please enter nominee's last name</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="nomineeEmail" class="form-label">Email Address <span class="form-required">*</span></label>
+                                            <input type="email" id="nomineeEmail" name="nomineeEmail" class="form-input" placeholder="Enter nominee's email address" required>
+                                            <div class="form-error" id="nomineeEmailError">Please enter a valid email address</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="nomineePhone" class="form-label">Phone Number (if known)</label>
+                                            <input type="tel" id="nomineePhone" name="nomineePhone" class="form-input" placeholder="Enter nominee's phone number">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="institution" class="form-label">Current Institution <span class="form-required">*</span></label>
+                                    <input type="text" id="institution" name="institution" class="form-input" placeholder="Enter nominee's current school or university" required>
+                                    <div class="form-error" id="institutionError">Please enter the institution</div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="fieldOfStudy" class="form-label">Field of Study <span class="form-required">*</span></label>
+                                            <input type="text" id="fieldOfStudy" name="fieldOfStudy" class="form-input" placeholder="E.g., Computer Science, Medicine, Engineering" required>
+                                            <div class="form-error" id="fieldOfStudyError">Please enter field of study</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="academicLevel" class="form-label">Academic Level <span class="form-required">*</span></label>
+                                            <select id="academicLevel" name="academicLevel" class="form-select" required>
+                                                <option value="" selected disabled>Select level</option>
+                                                <option value="high-school">High School</option>
+                                                <option value="undergraduate">Undergraduate</option>
+                                                <option value="postgraduate">Postgraduate</option>
+                                                <option value="doctorate">Doctorate</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                            <div class="form-error" id="academicLevelError">Please select academic level</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-buttons">
+                                <button type="button" class="form-back prev-step" data-prev="1">
+                                    <i class="fas fa-arrow-left"></i> Back to Your Information
+                                </button>
+                                <button type="button" class="btn btn-primary next-step" data-next="3">Continue to Nomination Reasons</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Nomination Reasons -->
+                        <div class="form-step-content" data-step="3">
+                            <h3 class="form-section-title">Nomination Reasons</h3>
+                            <div class="form-section-content">
+                                <div class="form-group">
+                                    <label for="academicExcellence" class="form-label">Academic Excellence <span class="form-required">*</span></label>
+                                    <textarea id="academicExcellence" name="academicExcellence" class="form-textarea" placeholder="Describe the nominee's academic achievements, including GPA (if known), awards, publications, or other evidence of academic excellence." required></textarea>
+                                    <div class="form-error" id="academicExcellenceError">Please describe academic excellence</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="leadershipSkills" class="form-label">Leadership & Innovation <span class="form-required">*</span></label>
+                                    <textarea id="leadershipSkills" name="leadershipSkills" class="form-textarea" placeholder="Describe the nominee's leadership abilities and innovative initiatives or projects they have undertaken." required></textarea>
+                                    <div class="form-error" id="leadershipSkillsError">Please describe leadership skills</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="communityImpact" class="form-label">Community Impact <span class="form-required">*</span></label>
+                                    <textarea id="communityImpact" name="communityImpact" class="form-textarea" placeholder="Describe the nominee's contributions to their community, volunteer work, or social impact initiatives." required></textarea>
+                                    <div class="form-error" id="communityImpactError">Please describe community impact</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="additionalQualities" class="form-label">Additional Outstanding Qualities</label>
+                                    <textarea id="additionalQualities" name="additionalQualities" class="form-textarea" placeholder="What else makes this nominee stand out? Mention any other remarkable qualities or achievements."></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="supportingDocument" class="form-label">Supporting Document (optional)</label>
+                                    <div class="upload-container" id="supportingDocumentUploadContainer">
+                                        <div class="upload-icon">
+                                            <i class="fas fa-file-upload"></i>
+                                        </div>
+                                        <div class="upload-text">Click to upload a Supporting Document</div>
+                                        <div class="upload-subtext">PDF files only, max 5MB (recommendation letter, certificates, etc.)</div>
+                                        <input type="file" id="supportingDocument" name="supportingDocument" class="upload-input" accept=".pdf">
+                                    </div>
+                                    <div id="supportingDocumentPreview" class="file-preview" style="display: none;">
+                                        <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div class="file-name" id="supportingDocumentFileName">filename.pdf</div>
+                                        <div class="file-remove" id="removeSupportingDocument"><i class="fas fa-times"></i></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="informedNominee" name="informedNominee" class="checkbox-input">
+                                        <label for="informedNominee" class="checkbox-label">
+                                            I have already informed the nominee about this nomination.
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="termsAgreement" name="termsAgreement" class="checkbox-input" required>
+                                        <label for="termsAgreement" class="checkbox-label">
+                                            I certify that all information provided in this nomination is true and accurate to the best of my knowledge.
+                                        </label>
+                                    </div>
+                                    <div class="form-error" id="termsAgreementError">You must agree to this statement</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="privacyAgreement" name="privacyAgreement" class="checkbox-input" required>
+                                        <label for="privacyAgreement" class="checkbox-label">
+                                            I consent to BFI contacting the nominee regarding this nomination and processing the information provided.
+                                        </label>
+                                    </div>
+                                    <div class="form-error" id="privacyAgreementError">You must agree to this statement</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-buttons">
+                                <button type="button" class="form-back prev-step" data-prev="2">
+                                    <i class="fas fa-arrow-left"></i> Back to Nominee Details
+                                </button>
+                                <button type="submit" class="btn btn-secondary" id="submitNomination">Submit Nomination</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Success Message (Hidden Initially) -->
+                        <div class="nomination-success" id="nominationSuccess">
+                            <div class="success-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h2 class="success-title">Nomination Submitted Successfully!</h2>
+                            <p class="success-message">Thank you for nominating an outstanding talent for the BFI Talent of the Year Award. Your nomination has been received and will be carefully reviewed by our selection committee.</p>
+                            
+                            <div class="success-info">
+                                <h4 class="success-info-title">What happens next?</h4>
+                                <ul class="success-info-list">
+                                    <li>You will receive a confirmation email with details of your nomination.</li>
+                                    <li>We will reach out to the nominee to inform them of their nomination and invite them to complete their portion of the application.</li>
+                                    <li>The selection committee will review all nominations within 30 days.</li>
+                                    <li>All nominators will be notified of the results once the selection process is complete.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="success-buttons">
+                                <a href="BFI_Talent.html" class="btn btn-primary">Return to Award Page</a>
+                                <a href="index.html" class="btn btn-outlined">Go to Homepage</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nomination Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <div class="section-sm-title" data-aos="fade-up">Nomination Guide</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">How the Nomination Process Works</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Understanding the journey from nomination to award recognition.</p>
+            </div>
+            
+            <div class="process-container">
+                <div class="process-steps">
+                    <div class="process-step" data-aos="fade-up">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h3 class="step-title">Submit Nomination</h3>
+                        <p class="step-description">Complete the nomination form with details about the nominee and why they deserve recognition. Be specific about their achievements and impact.</p>
+                    </div>
+                    
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3 class="step-title">Nominee Verification</h3>
+                        <p class="step-description">We'll contact the nominee to inform them of their nomination and invite them to provide additional information to complete their application.</p>
+                    </div>
+                    
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="step-title">Selection Process</h3>
+                        <p class="step-description">Our selection committee evaluates all nominations based on the four key criteria: academic excellence, leadership, community impact, and professional experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon"><img src="/Images/BFI_Logo.png" alt="BFI Logo"></div>
+                        <div class="footer-logo-text">Bright Future Initiatives</div>
+                    </div>
+                    <p class="footer-description">Empowering Nigerian students through scholarships, mentorship, and resources for academic and professional success since 2016.</p>
+                    <div class="footer-social">
+                        <a href="https://web.facebook.com/profile.php?id=61574771032448" class="footer-social-link" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/BFIniatiatives" class="footer-social-link" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/bright-future-initiative" class="footer-social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="footer-link-list">
+                        <a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a>
+                        <a href="about.html" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a>
+                        <a href="our_programs.html" class="footer-link"><i class="fas fa-chevron-right"></i> Programs</a>
+                        <a href="BFI_Talent.html" class="footer-link"><i class="fas fa-chevron-right"></i> Talent of the Year</a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            <a href="mailto:info@bfinitiatives.com">info@bfinitiatives.com</a>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            <a href="tel:+2348165011291">(+234) 816 501 1291</a><br>
+                            <a href="tel:+2348102377511">(+234) 810 237 7511</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bright Future Initiatives. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out',
+                once: true,
+                offset: 100,
+            });
+            
+            // DOM Elements
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const formSteps = document.querySelectorAll('.form-step');
+            const formStepContents = document.querySelectorAll('.form-step-content');
+            const nextButtons = document.querySelectorAll('.next-step');
+            const prevButtons = document.querySelectorAll('.prev-step');
+            const nominationForm = document.getElementById('nominationForm');
+            const nominationSuccess = document.getElementById('nominationSuccess');
+            
+            // Relationship selector
+            const relationshipSelect = document.getElementById('relationship');
+            const otherRelationshipGroup = document.getElementById('otherRelationshipGroup');
+            
+            // File Upload Elements
+            const supportingDocument = document.getElementById('supportingDocument');
+            const supportingDocumentPreview = document.getElementById('supportingDocumentPreview');
+            const supportingDocumentFileName = document.getElementById('supportingDocumentFileName');
+            const removeSupportingDocument = document.getElementById('removeSupportingDocument');
+            
+            // Event Listeners
+            
+            // Mobile Menu
+            menuToggle.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', closeMenu);
+            
+            // Form Navigation
+            nextButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const nextStep = button.getAttribute('data-next');
+                    if (validateStep(parseInt(nextStep) - 1)) {
+                        goToStep(nextStep);
+                    }
+                });
+            });
+            
+            prevButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const prevStep = button.getAttribute('data-prev');
+                    goToStep(prevStep);
+                });
+            });
+            
+            // Form Submission
+            // Form Submission
+nominationForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    if (validateStep(3)) {
+        // Prepare form data
+        const formData = new FormData(this);
+        
+        // Submit button UI update
+        const submitBtn = document.getElementById('submitNomination');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+        
+        // Send form data to server
+        fetch('process_nomination.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Hide form and show success message
+                formStepContents.forEach(content => {
+                    content.style.display = 'none';
+                });
+                nominationSuccess.style.display = 'block';
+                
+                // Add reference number to success message
+                const successMessage = document.querySelector('.success-message');
+                successMessage.innerHTML = `Thank you for nominating an outstanding talent for the BFI Talent of the Year Award. Your nomination with reference <strong>${data.reference}</strong> has been received and will be carefully reviewed by our selection committee.`;
+                
+                // Scroll to top of form
+                nominationForm.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // Show error message
+                alert(data.message || 'An error occurred. Please try again.');
+                
+                // Reset submit button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Submit Nomination';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while submitting your nomination. Please try again.');
+            
+            // Reset submit button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Submit Nomination';
+        });
+    }
+});
+            
+            // Relationship Field Toggle
+            relationshipSelect.addEventListener('change', function() {
+                if (this.value === 'other') {
+                    otherRelationshipGroup.style.display = 'block';
+                    document.getElementById('otherRelationship').setAttribute('required', 'required');
+                } else {
+                    otherRelationshipGroup.style.display = 'none';
+                    document.getElementById('otherRelationship').removeAttribute('required');
+                }
+            });
+            
+            // File Upload
+            supportingDocument.addEventListener('change', function() {
+                handleFileUpload(this, supportingDocumentPreview, supportingDocumentFileName);
+            });
+            
+            // Remove File
+            removeSupportingDocument.addEventListener('click', function() {
+                removeFile(supportingDocument, supportingDocumentPreview);
+            });
+            
+            // Functions
+            
+            function toggleMenu() {
+                mobileMenuPanel.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileMenuPanel.classList.contains('active') ? 'hidden' : 'auto';
+                
+                // Toggle icon
+                if (mobileMenuPanel.classList.contains('active')) {
+                    menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+            
+            function closeMenu() {
+                mobileMenuPanel.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+            
+            function goToStep(stepNumber) {
+                // Hide all steps
+                formStepContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show target step
+                const targetStep = document.querySelector(`.form-step-content[data-step="${stepNumber}"]`);
+                targetStep.classList.add('active');
+                
+                // Update step indicators
+                formSteps.forEach(step => {
+                    const stepNum = parseInt(step.getAttribute('data-step'));
+                    
+                    if (stepNum < stepNumber) {
+                        step.classList.add('completed');
+                        step.classList.remove('active');
+                    } else if (stepNum == stepNumber) {
+                        step.classList.add('active');
+                        step.classList.remove('completed');
+                    } else {
+                        step.classList.remove('active', 'completed');
+                    }
+                });
+                
+                // Scroll to top of form
+                const formContainer = document.querySelector('.form-container');
+                formContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            function validateStep(stepNumber) {
+                let isValid = true;
+                const currentStep = document.querySelector(`.form-step-content[data-step="${stepNumber}"]`);
+                
+                // Get all required fields in current step
+                const requiredFields = currentStep.querySelectorAll('[required]');
+                
+                requiredFields.forEach(field => {
+                    // Reset previous error
+                    const errorDiv = document.getElementById(`${field.id}Error`);
+                    if (errorDiv) {
+                        errorDiv.classList.remove('active');
+                    }
+                    
+                    // Check if field is empty
+                    if (!field.value) {
+                        if (errorDiv) {
+                            errorDiv.classList.add('active');
+                        }
+                        isValid = false;
+                    }
+                    
+                    // Additional validation for email
+                    if (field.type === 'email' && field.value) {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(field.value)) {
+                            if (errorDiv) {
+                                errorDiv.classList.add('active');
+                            }
+                            isValid = false;
+                        }
+                    }
+                    
+                    // Additional validation for checkboxes
+                    if (field.type === 'checkbox' && !field.checked) {
+                        if (errorDiv) {
+                            errorDiv.classList.add('active');
+                        }
+                        isValid = false;
+                    }
+                });
+                
+                // Special case for the relationship field
+                if (stepNumber === 1 && relationshipSelect.value === 'other') {
+                    const otherRelationship = document.getElementById('otherRelationship');
+                    const otherRelationshipError = document.getElementById('otherRelationshipError');
+                    
+                    if (!otherRelationship.value) {
+                        otherRelationshipError.classList.add('active');
+                        isValid = false;
+                    } else {
+                        otherRelationshipError.classList.remove('active');
+                    }
+                }
+                
+                return isValid;
+            }
+            
+            function handleFileUpload(input, previewDiv, fileNameDiv) {
+                if (input.files && input.files[0]) {
+                    const file = input.files[0];
+                    
+                    // Check file size (max 5MB)
+                    if (file.size > 5 * 1024 * 1024) {
+                        alert('File size exceeds 5MB limit. Please choose a smaller file.');
+                        input.value = '';
+                        return;
+                    }
+                    
+                    // Update file preview
+                    fileNameDiv.textContent = file.name;
+                    previewDiv.style.display = 'flex';
+                    
+                    // Update file icon based on type
+                    const fileIcon = previewDiv.querySelector('.file-icon i');
+                    if (file.type.includes('pdf')) {
+                        fileIcon.className = 'fas fa-file-pdf';
+                    } else if (file.type.includes('doc')) {
+                        fileIcon.className = 'fas fa-file-word';
+                    } else if (file.type.includes('image')) {
+                        fileIcon.className = 'fas fa-file-image';
+                    } else {
+                        fileIcon.className = 'fas fa-file';
+                    }
+                }
+            }
+            
+            function removeFile(input, previewDiv) {
+                input.value = '';
+                previewDiv.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

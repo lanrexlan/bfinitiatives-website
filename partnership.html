@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Partnership Proposal - Dodja Errands</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact; /* Ensures colors print correctly */
+            print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #555; /* Dark background for screen viewing */
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* A4 Page Configuration */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            margin: 20px auto; /* Spacing for screen viewing */
+            padding: 25mm;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3); /* Shadow for screen viewing */
+            page-break-after: always;
+        }
+
+        /* Print Specific Overrides */
+        @media print {
+            body {
+                background-color: white;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+                height: 297mm; /* Force height for consistent footer placement */
+            }
+        }
+
+        /* Typography */
+        h1 {
+            color: #003366;
+            font-size: 24pt;
+            margin-bottom: 15pt;
+            border-bottom: 3px solid #003366;
+            padding-bottom: 5pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: #0055aa;
+            font-size: 16pt;
+            margin-top: 15pt;
+            margin-bottom: 10pt;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #444;
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 10pt;
+            margin-bottom: 5pt;
+        }
+
+        p {
+            font-size: 10.5pt;
+            margin-bottom: 10pt;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 10pt;
+        }
+
+        li {
+            font-size: 10.5pt;
+            margin-bottom: 4pt;
+        }
+
+        /* Placeholders */
+        .logo-placeholder {
+            position: absolute;
+            top: 10mm;
+            right: 10mm;
+            width: 40mm;
+            height: 15mm;
+            border: 1px dashed #ccc;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 8pt;
+            text-align: center;
+        }
+        
+        /* Image size constraints */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Cover page hero image - limit to reasonable height */
+.page:first-child img {
+    max-height: 300px;
+    width: auto;
+    margin: 20px auto;
+    object-fit: contain;
+}
+
+/* All placeholder images in content sections */
+.page img {
+    max-width: 500px;
+    max-height: 350px;
+    margin: 15px auto;
+    object-fit: contain;
+}
+
+/* Timeline/banner style images */
+img[alt*="Timeline"],
+img[alt*="Chart"],
+img[alt*="Graph"] {
+    max-width: 600px;
+    max-height: 250px;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Sidebar/icon style images */
+img[alt*="Diagram"],
+img[alt*="Interface"],
+img[alt*="Screenshot"] {
+    max-width: 300px;
+    max-height: 400px;
+}
+
+        .page-number {
+            position: absolute;
+            bottom: 10mm;
+            right: 10mm;
+            font-size: 9pt;
+            color: #666;
+        }
+
+        .visual-placeholder {
+            width: 100%;
+            height: 50mm;
+            background-color: #f0f4f8;
+            border: 2px dashed #bcd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 15pt 0;
+            color: #668;
+            font-size: 10pt;
+        }
+        
+        .visual-placeholder i {
+            font-style: normal;
+            font-size: 20pt;
+            margin-bottom: 5pt;
+        }
+
+        /* Components */
+        .cover-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+        }
+
+        .hero-placeholder {
+            width: 80%;
+            height: 80mm;
+            margin: 0 auto 20mm auto;
+            background-color: #e1e8ed;
+            border: 3px dashed #99a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #556;
+        }
+
+        .cover-title {
+            font-size: 32pt;
+            color: #003366;
+            margin-bottom: 10pt;
+            border: none;
+            text-transform: none;
+        }
+
+        .cover-subtitle {
+            font-size: 16pt;
+            color: #555;
+            margin-bottom: 30mm;
+            font-weight: 300;
+        }
+
+        .cover-details {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: auto;
+            margin-bottom: 20mm;
+        }
+
+        .cover-box strong {
+            display: block;
+            color: #0055aa;
+            text-transform: uppercase;
+            font-size: 9pt;
+            margin-bottom: 5pt;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 10pt;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid #0055aa;
+            padding: 10pt;
+        }
+        
+        .card h4 {
+            color: #003366;
+            margin-bottom: 5pt;
+            font-size: 11pt;
+        }
+
+        .card p {
+            font-size: 9pt;
+            margin: 0;
+            text-align: left;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 10pt;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5pt;
+        }
+
+        .timeline-date {
+            width: 25%;
+            font-weight: bold;
+            color: #0055aa;
+            font-size: 10pt;
+        }
+
+        .timeline-content {
+            width: 75%;
+            font-size: 10pt;
+        }
+
+        .pillar-header {
+            background-color: #003366;
+            color: white;
+            padding: 8pt 15pt;
+            border-radius: 4px;
+            margin-top: 15pt;
+            margin-bottom: 10pt;
+            font-weight: bold;
+        }
+
+        .contact-box {
+            background-color: #eef2f5;
+            padding: 20pt;
+            border-radius: 8px;
+            margin-top: 20pt;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15pt 0;
+        }
+        th {
+            background-color: #003366;
+            color: white;
+            padding: 8pt;
+            text-align: left;
+            font-size: 10pt;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 8pt;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: COVER -->
+    <div class="page cover-page">
+        <div class="logo-placeholder"><img src="Images/dodja-errands.png" alt="DODJA Errands Logo"></div>
+        
+        
+            <img src="Images/new-cover-page.png" alt="DODJA Errands Logo">
+
+        <h1 class="cover-title">Strategic Partnership Proposal</h1>
+        <div class="cover-subtitle">Economic Empowerment Through Technology-Enabled Logistics</div>
+
+        <div class="cover-details">
+            <div class="cover-box">
+                <strong>Prepared By:</strong>
+                DODJA ERRANDS LTD.<br>
+            </div>
+            <div class="cover-box">
+                <strong>Prepared For:</strong>
+                PROVIDUS<br>
+                BANK PLC
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: EXECUTIVE SUMMARY -->
+    <div class="page">
+        <div class="logo-placeholder"><img src="Images/dodja-errands.png" alt="DODJA Errands Logo"></div>
+        <h1>Executive Summary</h1>
+        
+        <p>Dodja Errands Ltd. respectfully submits this proposal to explore a strategic partnership with your prestigious bank that advances both our platform's growth objectives and your institution's core mandate of economic development, youth employment creation, and SME support across Nigeria.</p>
+        
+        <p>Rather than a conventional commercial arrangement, we propose a multi-dimensional collaboration that positions Dodja Errands as infrastructure supporting your beneficiary ecosystem. Our technology-enabled logistics platform can serve as both an income generation vehicle for individuals in your empowerment programs and a logistics solution for businesses within your lending portfolio.</p>
+
+        
+            <img src="Images/executive-summary.png" alt="DODJA Errands Logo">
+            
+
+        <p>This proposal outlines three strategic collaboration pathways, each designed to create measurable impact aligned with developmental banking objectives while establishing sustainable revenue streams for Dodja Errands. We propose initiating this partnership through a structured pilot program that demonstrates quantifiable outcomes before scaling across your broader beneficiary base.</p>
+
+        <div class="page-number">Page 1</div>
+    </div>
+
+    <!-- PAGE 3: ABOUT DODJA -->
+    <div class="page">
+        <div class="logo-placeholder"><img src="Images/dodja-errands.png" alt="DODJA Errands Logo"></div>
+        <h1>About Dodja Errands</h1>
+        
+        <p>Dodja Errands operates as a technology-enabled connection platform that links users requiring pickup and delivery services with independent riders in their local areas. Unlike traditional logistics companies that maintain costly fleet infrastructure, our low-overhead marketplace model leverages proprietary matching algorithms to create efficient, transparent, and community-powered logistics solutions.</p>
+
+        <div class="grid-2">
+            <div class="card">
+                <h4>Dual Market Focus</h4>
+                <p>Serving busy professionals and businesses seeking reliability, while providing flexible income opportunities for individuals.</p>
+            </div>
+            <div class="card">
+                <h4>Revenue Model</h4>
+                <p>Riders retain 80-85% of fees. Dodja retains 15-20% for platform maintenance and technology infrastructure.</p>
+            </div>
+        </div>
+
+        
+            <img src="Images/delivery-man.png" alt="DODJA Errands Logo">
+        
+        <h2>Core Values</h2>
+        <p>Since our founding, we have been guided by core values of <strong>trust through technology</strong>, <strong>community-powered logistics</strong>, <strong>flexible opportunities</strong>, and <strong>transparent marketplace operations</strong>. These values align naturally with the developmental banking sector's commitment to inclusive economic growth.</p>
+
+        <div class="page-number">Page 2</div>
+    </div>
+
+    <!-- PAGE 4: STRATEGIC RATIONALE -->
+    <div class="page">
+        <div class="logo-placeholder"><img src="Images/dodja-errands.png" alt="DODJA Errands Logo"></div>
+        <h1>Strategic Rationale</h1>
+        
+        <p>Developmental banks face consistent challenges in achieving their mandates: creating sustainable employment, ensuring SME viability, and extending financial services. Dodja Errands addresses each of these challenges through our existing platform capabilities:</p>
+
+        <div class="grid-2">
+            <div class="card">
+                <h4>1. Income Opportunities</h4>
+                <p>Our rider network creates legitimate, flexible income opportunities that can be accessed by individuals with minimal capital requirements beyond a reliable means of transportation.</p>
+            </div>
+            <div class="card">
+                <h4>2. SME Efficiency</h4>
+                <p>Our B2B logistics services can materially reduce operational costs for small businesses, improving their profitability and loan repayment capacity.</p>
+            </div>
+            <div class="card">
+                <h4>3. Community Presence</h4>
+                <p>Our embedded presence in local communities positions us to serve as an extension point for banking services that require physical presence.</p>
+            </div>
+            <div class="card">
+                <h4>4. Value Proposition</h4>
+                <p>Leveraging your institution's credibility and beneficiary networks while providing Dodja Errands with access to vetted individuals and businesses.</p>
+            </div>
+        </div>
+
+        <img src="Images/3-pillars.png" alt="DODJA Errands Logo">
+
+        <div class="page-number">Page 3</div>
+    </div>
+
+    <!-- PAGE 5: COLLABORATION FRAMEWORK -->
+    <div class="page">
+        <div class="logo-placeholder"><img src="Images/dodja-errands.png" alt="DODJA Errands Logo"></div>
+        <h1>Proposed Collaboration Framework</h1>
+        <p>We propose a three-pillar partnership structure that can be implemented sequentially or simultaneously based on your institutional priorities.</p>
+
+        <div class="pillar-header">Pillar One: Youth & Beneficiary Empowerment</div>
+        <p><strong>Concept:</strong> Positions Dodja Errands as an income generation solution for individuals already participating in your empowerment, entrepreneurship, or educational support programs.</p>
+        <ul>
+            <li><strong>Target:</strong> Youth in entrepreneurship programs, students, and vocational trainees.</li>
+            <li><strong>Value to Bank:</strong> Creates documented employment outcomes and strengthens impact reporting.</li>
+            <li><strong>Pilot Scale:</strong> 100 to 200 beneficiaries.</li>
+        </ul>
+
+        <div class="pillar-header">Pillar Two: SME Portfolio Logistics</div>
+        <p><strong>Concept:</strong> Provides preferential logistics services to businesses within your lending portfolio, improving their operational efficiency.</p>
+        <ul>
+            <li><strong>Target:</strong> Retail, food service, small manufacturers, and agriculture.</li>
+            <li><strong>Value to Bank:</strong> Improved operational efficiency reduces default risk and improves loan performance.</li>
+            <li><strong>Pilot Scale:</strong> 20 to 30 businesses.</li>
+        </ul>
+
+        <div class="pillar-header">Pillar Three: Community Banking Extension</div>
+        <p><strong>Concept:</strong> Leverages our rider network to extend basic banking services into communities where traditional branch infrastructure is uneconomical.</p>
+        <ul>
+            <li><strong>Activity:</strong> Account opening form collection, document collection, financial literacy distribution.</li>
+            <li><strong>Pilot Scale:</strong> Single community with 10-15 specially trained riders.</li>
+        </ul>
+
+        <div class="page-number">Page 4</div>
+    </div>
+
+    <!-- PAGE 6: PILOT PROGRAM STRUCTURE -->
+    <div class="page">
+        <div class="logo-placeholder"><img src="Images/dodja-errands.png" alt="DODJA Errands Logo"></div>
+        <h1>Proposed Pilot Program Structure</h1>
+        <p>We recommend initiating this partnership through a structured <strong>six-month pilot program</strong> focusing initially on Pillar One, with potential expansion into Pillar Two.</p>
+
+        <img src="Images/3-arrows.png" alt="DODJA Errands Logo">
+
+        <h3>Phase One: Foundation (Month 1-2)</h3>
+        <p>Jointly develop operational protocols, communication materials, and success metrics. Finalize beneficiary selection criteria and establish expedited onboarding procedures.</p>
+
+        <h3>Phase Two: Launch and Activation (Month 3-4)</h3>
+        <p>Focus on active beneficiary recruitment and platform activation. Conduct joint orientation sessions, process expedited rider onboarding, and initiate marketing to generate errand demand.</p>
+
+        <h3>Phase Three: Optimization and Evaluation (Month 5-6)</h3>
+        <p>Emphasize performance optimization. Collect usage and income data, conduct satisfaction surveys, and prepare a comprehensive pilot evaluation report.</p>
+
+        <div class="page-number">Page 5</div>
+    </div>
+
+    <!-- PAGE 7: METRICS & INVESTMENT -->
+    <div class="page">
+        <div class="logo-placeholder"><img src="Images/dodja-errands.png" alt="DODJA Errands Logo"></div>
+        <h1>Success Metrics & Investment</h1>
+
+        <h2>Success Metrics</h2>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><strong>Rider Activation Rate</strong></td>
+                <td>Percentage of referred beneficiaries who complete onboarding.</td>
+            </tr>
+            <tr>
+                <td><strong>Income Generation</strong></td>
+                <td>Average monthly income per active rider & aggregate cohort income.</td>
+            </tr>
+            <tr>
+                <td><strong>Rider Retention</strong></td>
+                <td>Percentage of activated riders still active at 3 and 6 months.</td>
+            </tr>
+            <tr>
+                <td><strong>Cost Efficiency</strong></td>
+                <td>Cost per rider activated compared to alternative programs.</td>
+            </tr>
+        </table>
+
+        <h2>Investment Requirements</h2>
+        <p>This partnership requires minimal capital investment, operating primarily through existing channels.</p>
+        
+        <div class="grid-2">
+            <div class="card">
+                <h4>Bank Resources</h4>
+                <p>Partnership coordinator (5-8 hrs/week), communication channels, and anonymized beneficiary data access.</p>
+            </div>
+            <div class="card">
+                <h4>Dodja Investment</h4>
+                <p>Waived onboarding fees, customized training materials, dedicated support liaison (10-15 hrs/week), and technology costs.</p>
+            </div>
+        </div>
+
+        <div class="page-number">Page 6</div>
+    </div>
+
+    <!-- PAGE 8: RISK & OUTCOMES -->
+    <div class="page">
+        <div class="logo-placeholder"><img src="Images/dodja-errands.png" alt="DODJA Errands Logo"></div>
+        <h1>Risk Mitigation & Expected Outcomes</h1>
+
+        <h2>Risk Mitigation</h2>
+        <ul>
+            <li><strong>Reputational:</strong> All riders undergo mandatory background verification. Independent contractor model maintains liability separation.</li>
+            <li><strong>Regulatory:</strong> Clear distinction between bank lending and logistics. No deposit-taking outside structured agency banking.</li>
+            <li><strong>Financial:</strong> Minimal commitment; referral fees are success-based.</li>
+        </ul>
+
+        <img src="Images/seedling-growing.png" alt="DODJA Errands Logo">
+
+        <h2>Expected Outcomes</h2>
+        <ul>
+            <li><strong>Employment:</strong> A cohort of 150 riders could generate ₦2.4M - ₦4.5M aggregate income (Avg ₦25k-50k per rider).</li>
+            <li><strong>Business Performance:</strong> Portfolio businesses typically see 20-35% logistics cost reductions.</li>
+            <li><strong>Institutional Impact:</strong> Positions your institution as an innovative leader in developmental banking.</li>
+        </ul>
+
+        <div class="page-number">Page 7</div>
+    </div>
+
+    <!-- PAGE 9: NEXT STEPS & CONTACT -->
+    <div class="page">
+        <div class="logo-placeholder"><img src="Images/dodja-errands.png" alt="DODJA Errands Logo"></div>
+        <h1>Next Steps</h1>
+        
+        <p>We propose the following immediate next steps to operationalize this partnership:</p>
+
+        <div class="timeline-item">
+            <div class="timeline-date">Step 1</div>
+            <div class="timeline-content">Initial consultation meeting with your leadership.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">Step 2</div>
+            <div class="timeline-content">Joint scoping workshop to refine the pilot program.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">Step 3</div>
+            <div class="timeline-content">Development of detailed implementation plan and agreement.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">Step 4</div>
+            <div class="timeline-content">Initiation of the pilot program foundation phase.</div>
+        </div>
+
+        <div class="contact-box">
+            <h2>Contact Information</h2>
+            <p>We look forward to exploring how Dodja Errands can support your institution's developmental mandate.</p>
+            <br>
+            <p><strong>Dodja Errands Ltd.</strong><br>
+            Email: info@dodjaerrands.com</p>
+            <br>
+            <p><strong>Osundoja Osundare, Founder</strong><br>
+            Email: osundoja@dodjaoriginals.com</p>
+            <p><strong>Olanrewaju Akande, Co-Founder</strong><br>
+            Email: lanreylan@dodjaoriginals.com</p>
+        </div>
+
+        <div class="page-number">Page 8</div>
+    </div>
+
+</body>
+</html>

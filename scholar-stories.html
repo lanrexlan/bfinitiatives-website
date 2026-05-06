@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scholar Stories | Bold Footprint Initiatives</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ---- STORIES: GRID ---- */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .story-card {
+      background: var(--white);
+      border-radius: 14px;
+      border: 1px solid var(--gray-200);
+      padding: 32px 28px;
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .story-card:hover {
+      border-color: var(--gold-200);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .story-card__accent {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+    .story-card:hover .story-card__accent { opacity: 1; }
+    .story-card__country {
+      font-family: var(--font-display);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-600);
+      margin-bottom: 16px;
+    }
+    .story-card__name {
+      font-family: var(--font-display);
+      font-size: 20px; font-weight: 700;
+      color: var(--navy-800);
+      margin-bottom: 4px;
+    }
+    .story-card__program {
+      font-size: 14px;
+      color: var(--gray-500);
+      margin-bottom: 14px;
+    }
+    .story-card__title {
+      font-family: var(--font-display);
+      font-size: 16px; font-weight: 600;
+      color: var(--navy-700);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .story-card__text {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex-grow: 1;
+      /* Clamp to 3 lines */
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .story-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--gray-100);
+    }
+    .story-card__uni {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 600;
+      color: var(--navy-600);
+    }
+    .story-card__uni i { font-size: 11px; color: var(--gold-500); }
+    .story-card__link {
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 600;
+      color: var(--gold-600);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap var(--transition-fast);
+    }
+    .story-card__link:hover { gap: 8px; color: var(--gold-500); }
+
+    /* ---- SPOTLIGHT (featured scholar) ---- */
+    .spotlight {
+      padding: var(--section-padding);
+    }
+    .spotlight__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .spotlight__visual {
+      position: relative;
+    }
+    .spotlight__img {
+      background: linear-gradient(160deg, var(--navy-100), var(--navy-50));
+      border-radius: 16px;
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy-300);
+      font-size: 48px;
+    }
+    .spotlight__badge {
+      position: absolute;
+      bottom: -12px; right: -12px;
+      background: var(--gold-500);
+      color: var(--navy-950);
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 10px;
+      box-shadow: var(--shadow-lg);
+    }
+    .spotlight__content .section-title { font-size: 34px; }
+    .spotlight__scholar-info {
+      font-family: var(--font-display);
+      font-size: 14px; font-weight: 600;
+      color: var(--gold-600);
+      margin-bottom: 12px;
+    }
+    .spotlight__quote {
+      font-size: 17px;
+      font-style: italic;
+      color: var(--navy-700);
+      line-height: 1.8;
+      padding-left: 20px;
+      border-left: 3px solid var(--gold-500);
+      margin: 20px 0;
+    }
+    .spotlight__text {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+    .spotlight__meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .spotlight__avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--navy-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 16px; font-weight: 700;
+      color: var(--navy-600);
+    }
+    .spotlight__name {
+      font-family: var(--font-display);
+      font-size: 16px; font-weight: 600;
+      color: var(--navy-800);
+    }
+    .spotlight__detail { font-size: 13px; color: var(--gray-500); }
+
+    /* ---- TESTIMONIAL STRIP ---- */
+    .testimonial-strip {
+      padding: 80px 0;
+      background: var(--gray-50);
+    }
+    .testimonial-strip__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 32px 28px;
+      border: 1px solid var(--gray-200);
+    }
+    .testimonial-card__quote {
+      font-size: 15px;
+      font-style: italic;
+      color: var(--navy-700);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .testimonial-card__quote::before {
+      content: '"';
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--gold-300);
+      line-height: 0;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .testimonial-card__author {
+      font-family: var(--font-display);
+      font-size: 15px; font-weight: 600;
+      color: var(--navy-800);
+    }
+    .testimonial-card__role {
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+
+    /* ---- STORIES SECTION ---- */
+    .stories-section {
+      padding: var(--section-padding);
+    }
+    .stories-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .load-more {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 1024px) {
+      .stories-grid { grid-template-columns: repeat(2, 1fr); }
+      .spotlight__grid { grid-template-columns: 1fr; gap: 40px; }
+      .testimonial-strip__grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .stories-grid { grid-template-columns: 1fr; }
+      .stories-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo"><span class="nav__logo-text">Bold <span>Footprint</span></span></a>
+      <div class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="scholar-stories.html" class="nav__link nav__link--active">Scholar Stories</a>
+        <a href="programs.html" class="nav__link">Programs</a>
+        <a href="mentor-impact.html" class="nav__link">Mentor Impact</a>
+        <a href="talent-of-the-year.html" class="nav__link">Talent of the Year</a>
+      </div>
+      <a href="get-involved.html" class="nav__cta">Get Involved</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero__breadcrumb">
+        <a href="index.html">Home</a> <span>/</span> Scholar Stories
+      </div>
+      <h1 class="page-hero__title">From Nigeria to the <em>World Stage</em></h1>
+      <p class="page-hero__subtitle">Real scholars. Real outcomes. Every story here started with a single application and the support to see it through.</p>
+    </div>
+  </section>
+
+  <!-- STORIES LISTING -->
+  <section class="stories-section">
+    <div class="container">
+      <div class="stories-header reveal">
+        <div>
+          <div class="section-label">Proven Outcomes</div>
+          <h2 class="section-title" style="font-size:34px;">Our Scholars' Journeys</h2>
+        </div>
+      </div>
+      <div class="filters reveal">
+        <button class="filter-btn filter-btn--active" data-filter="all">All Stories</button>
+        <button class="filter-btn" data-filter="us">United States</button>
+        <button class="filter-btn" data-filter="uk">United Kingdom</button>
+        <button class="filter-btn" data-filter="ng">Nigeria</button>
+        <button class="filter-btn" data-filter="intl">International</button>
+      </div>
+      <div class="stories-grid">
+
+        <!-- Card 1 -->
+        <div class="story-card reveal reveal--delay-1" data-category="us">
+          <div class="story-card__accent"></div>
+          <div class="story-card__country">United States</div>
+          <h3 class="story-card__name">Opeyemi Sodiq Owolabi</h3>
+          <p class="story-card__program">Multiple Scholarship Awards Winner</p>
+          <h4 class="story-card__title">From Osun to Global Recognition</h4>
+          <p class="story-card__text">An electrical engineering graduate from OAU whose research passion led to multiple prestigious scholarships including top R1 universities, King Fahd, and Erasmus Mundus awards.</p>
+          <div class="story-card__footer">
+            <span class="story-card__uni"><i class="fa-solid fa-building-columns"></i> University of Florida</span>
+            <a href="#" class="story-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="story-card reveal reveal--delay-2" data-category="us">
+          <div class="story-card__accent"></div>
+          <div class="story-card__country">United States</div>
+          <h3 class="story-card__name">Babatunde Adedeji</h3>
+          <p class="story-card__program">BFI Mentorship Program 2024</p>
+          <h4 class="story-card__title">Transforming Second Class to Global Success</h4>
+          <p class="story-card__text">How a Chemical Engineering graduate overcame concerns about his second-class degree through BFI mentorship and secured offers from two top US R1 universities with fully funded scholarships.</p>
+          <div class="story-card__footer">
+            <span class="story-card__uni"><i class="fa-solid fa-building-columns"></i> Tulane University</span>
+            <a href="#" class="story-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="story-card reveal reveal--delay-3" data-category="uk">
+          <div class="story-card__accent"></div>
+          <div class="story-card__country">United Kingdom</div>
+          <h3 class="story-card__name">Ikwuezuma Elochukwu Reynolds</h3>
+          <p class="story-card__program">BFI Mentorship Program 2024</p>
+          <h4 class="story-card__title">From Pharmacy Dreams to Drug Discovery Innovation</h4>
+          <p class="story-card__text">How a Pharmacy graduate from Nnamdi Azikiwe University transformed his passion for designing new molecules into a Commonwealth Scholarship at Newcastle University.</p>
+          <div class="story-card__footer">
+            <span class="story-card__uni"><i class="fa-solid fa-building-columns"></i> Newcastle University</span>
+            <a href="#" class="story-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="story-card reveal reveal--delay-1" data-category="intl">
+          <div class="story-card__accent"></div>
+          <div class="story-card__country">Spain</div>
+          <h3 class="story-card__name">Joy Chinaza Olatunbosun</h3>
+          <p class="story-card__program">Erasmus Mundus Joint Master's</p>
+          <h4 class="story-card__title">Advancing Global Change Ecology with Erasmus Mundus</h4>
+          <p class="story-card__text">Joy, a University of Benin graduate in Animal and Environmental Biology, earned an Erasmus Mundus Joint Master's offer in Global Change Ecology at Universidad Rey Juan Carlos.</p>
+          <div class="story-card__footer">
+            <span class="story-card__uni"><i class="fa-solid fa-building-columns"></i> Univ. Rey Juan Carlos</span>
+            <a href="#" class="story-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="story-card reveal reveal--delay-2" data-category="us">
+          <div class="story-card__accent"></div>
+          <div class="story-card__country">United States</div>
+          <h3 class="story-card__name">Abdulafeez Opeyemi Tijani</h3>
+          <p class="story-card__program">First Class Graduate — OAU</p>
+          <h4 class="story-card__title">Third Time's the Charm: Persistence Pays Off</h4>
+          <p class="story-card__text">A first-class Chemical Engineering graduate who overcame multiple application setbacks with BFI mentorship to secure PhD admission at Auburn University.</p>
+          <div class="story-card__footer">
+            <span class="story-card__uni"><i class="fa-solid fa-building-columns"></i> Auburn University</span>
+            <a href="#" class="story-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="story-card reveal reveal--delay-3" data-category="ng">
+          <div class="story-card__accent"></div>
+          <div class="story-card__country">Nigeria</div>
+          <h3 class="story-card__name">Oladepo Fawaz Olaniyi</h3>
+          <p class="story-card__program">BFI Scholarship Recipient</p>
+          <h4 class="story-card__title">Building Excellence Through Support</h4>
+          <p class="story-card__text">A dedicated veterinary medicine student at the University of Ibadan whose academic journey was transformed through BFI's comprehensive support, achieving one of the best WASSCE results in his school.</p>
+          <div class="story-card__footer">
+            <span class="story-card__uni"><i class="fa-solid fa-building-columns"></i> University of Ibadan</span>
+            <a href="#" class="story-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="story-card reveal reveal--delay-1" data-category="ng">
+          <div class="story-card__accent"></div>
+          <div class="story-card__country">Nigeria</div>
+          <h3 class="story-card__name">Abdulhameed Fawaz Olamide</h3>
+          <p class="story-card__program">BFI Scholarship Recipient</p>
+          <h4 class="story-card__title">From Osun to Technical Excellence</h4>
+          <p class="story-card__text">A medical physiology student at FUTA whose journey from secondary school in Ede to one of Nigeria's premier technical universities was made possible through BFI support.</p>
+          <div class="story-card__footer">
+            <span class="story-card__uni"><i class="fa-solid fa-building-columns"></i> FUTA</span>
+            <a href="#" class="story-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+      <div class="load-more">
+        <button class="btn btn--outline-navy">Load More Stories <i class="fa-solid fa-chevron-down"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT (replaces the detail page) -->
+  <section class="spotlight" id="spotlight">
+    <div class="container">
+      <div class="spotlight__grid">
+        <div class="spotlight__visual reveal">
+          <div class="spotlight__img"><i class="fa-solid fa-user-graduate"></i></div>
+          <div class="spotlight__badge"><i class="fa-solid fa-star"></i>&nbsp; Scholar Spotlight</div>
+        </div>
+        <div class="spotlight__content reveal reveal--delay-1">
+          <div class="section-label">Featured Scholar</div>
+          <div class="spotlight__scholar-info">PhD in Aerospace Engineering · University of Florida · Multiple Award Winner</div>
+          <h2 class="section-title" style="font-size:34px;">From Agbeye to Global Recognition</h2>
+          <blockquote class="spotlight__quote">
+            "BFI's mentorship program stood out for me, especially the guidance in refining my research goals and graduate school documents. The feedback on my Statement of Purpose and CV was instrumental in my success."
+          </blockquote>
+          <p class="spotlight__text">Opeyemi's journey from a small town in Osun State to earning multiple prestigious international scholarships — including fully-funded offers from top R1 universities, King Fahd, and Erasmus Mundus — demonstrates the power of targeted mentorship combined with raw determination.</p>
+          <div class="spotlight__meta">
+            <div class="spotlight__avatar">OO</div>
+            <div>
+              <div class="spotlight__name">Opeyemi Sodiq Owolabi</div>
+              <div class="spotlight__detail">PhD, Aerospace Engineering · University of Florida</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHOLAR TESTIMONIALS -->
+  <section class="testimonial-strip">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <div class="section-label section-label--center">In Their Words</div>
+        <h2 class="section-title" style="font-size:34px;">What Our Scholars Say</h2>
+      </div>
+      <div class="testimonial-strip__grid">
+        <div class="testimonial-card reveal reveal--delay-1">
+          <div class="testimonial-card__quote">The meetings were detailed, and you can see the mentors pouring themselves out with compassion to help. BFI turned what seemed impossible into reality. I ended up with offers from two top US R1 universities on fully funded scholarships.</div>
+          <div class="testimonial-card__author">Babatunde Adedeji</div>
+          <div class="testimonial-card__role">Graduate Student, Tulane University</div>
+        </div>
+        <div class="testimonial-card reveal reveal--delay-2">
+          <div class="testimonial-card__quote">I am immensely grateful to the sponsors of the Bold Footprint Initiatives Scholarship for their unwavering support throughout my academic journey. This foundation helped me perform strongly in the UTME and secure my admission.</div>
+          <div class="testimonial-card__author">Oladepo Olaniyi</div>
+          <div class="testimonial-card__role">Veterinary Medicine, University of Ibadan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-section__title reveal">Ready to Write Your Story?</h2>
+      <p class="cta-section__text reveal reveal--delay-1">Join the scholars who turned bold ambition into global placements. Your footprint starts with one application.</p>
+      <div class="cta-section__actions reveal reveal--delay-2">
+        <a href="get-involved.html" class="btn btn--gold">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="get-involved.html#contact" class="btn btn--outline-white">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">Bold <span>Footprint</span> Initiatives</div>
+          <p class="footer__brand-text">Equipping high-potential Nigerian scholars with scholarships, mentorship, and global pathways since 2016.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Quick Links</div>
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="scholar-stories.html" class="footer__link">Scholar Stories</a>
+          <a href="programs.html" class="footer__link">Programs</a>
+          <a href="talent-of-the-year.html" class="footer__link">Talent of the Year</a>
+        </div>
+        <div>
+          <div class="footer__heading">Get Involved</div>
+          <a href="get-involved.html" class="footer__link">Apply for Scholarship</a>
+          <a href="get-involved.html#mentor" class="footer__link">Become a Mentor</a>
+          <a href="get-involved.html#donate" class="footer__link">Support Our Cause</a>
+        </div>
+        <div>
+          <div class="footer__heading">Contact</div>
+          <div class="footer__contact-item"><i class="fa-solid fa-envelope"></i> info@bfinitiatives.com</div>
+          <div class="footer__contact-item"><i class="fa-solid fa-phone"></i> (+234) 816 501 1291</div>
+          <div class="footer__contact-item"><i class="fa-solid fa-phone"></i> (+234) 810 237 7511</div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 Bold Footprint Initiatives. All rights reserved.</span>
+        <div class="footer__socials">
+          <a href="#" class="footer__social"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="footer__social"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="footer__social"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const navbar=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>{navbar.classList.toggle('nav--scrolled',window.scrollY>60)});
+
+    // Mobile toggle
+    document.getElementById('navToggle').addEventListener('click',()=>{
+      document.getElementById('navLinks').classList.toggle('nav__links--open');
+    });
+
+    // Filter tabs
+    document.querySelectorAll('.filter-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('filter-btn--active'));
+        btn.classList.add('filter-btn--active');
+        const f=btn.dataset.filter;
+        document.querySelectorAll('.story-card').forEach(card=>{
+          card.style.display=(f==='all'||card.dataset.category===f)?'flex':'none';
+        });
+      });
+    });
+
+    // Scroll reveal
+    const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('reveal--active')})},{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>

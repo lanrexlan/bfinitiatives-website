@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Postgraduate Scholarship Checklist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f8fc;
+        }
+        .progress-bar-fill {
+            transition: width 0.5s ease-in-out;
+        }
+        .check-item-wrapper:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Custom Checkbox Styling */
+        .custom-checkbox {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #d1d5db;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            flex-shrink: 0;
+        }
+        .custom-checkbox svg {
+            width: 14px;
+            height: 14px;
+            color: white;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        input:checked + .custom-checkbox {
+            background-color: #3b82f6;
+            border-color: #3b82f6;
+        }
+        input:checked + .custom-checkbox svg {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Print-specific Styles */
+        @media print {
+            body { background-color: #ffffff; }
+            body * { visibility: hidden; }
+            .printable-area, .printable-area * { visibility: visible; }
+            .printable-area { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; border: none; }
+            .no-print { display: none; }
+            .card-style { box-shadow: none; border: 1px solid #e5e7eb; break-inside: avoid; margin-bottom: 20px; }
+            .check-item-label { color: #111827 !important; }
+            input[type="checkbox"] { display: none; }
+            .custom-checkbox {
+                appearance: none; -webkit-appearance: none; -moz-appearance: none;
+                border: 2px solid #9ca3af;
+            }
+            input:checked + .custom-checkbox {
+                background-color: #3b82f6; border-color: #3b82f6;
+            }
+            input:checked + .custom-checkbox::after {
+                content: '✔'; font-size: 16px; color: white; line-height: 20px;
+            }
+            input:checked + .custom-checkbox svg { display: none; }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
+        <!-- Header -->
+        <div class="mb-10">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                 <div>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900">Scholarship Application Checklist</h1>
+                    <p class="text-gray-500 mt-2 text-lg">Your step-by-step guide to success.</p>
+                </div>
+                <button id="printButton" class="no-print mt-4 sm:mt-0 bg-blue-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-blue-700 transition-transform hover:scale-105 duration-300 flex items-center shadow-lg shadow-blue-500/20">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    Save as PDF
+                </button>
+            </div>
+             <!-- Progress Bar -->
+            <div class="mt-8 no-print bg-white rounded-2xl shadow-md p-5 border border-gray-200/80">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-lg font-bold text-blue-800">Application Progress</span>
+                    <span id="progressText" class="text-lg font-bold text-blue-800">0%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3.5">
+                    <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-indigo-600 h-3.5 rounded-full progress-bar-fill"></div>
+                </div>
+            </div>
+        </div>
+       
+        <!-- Checklist Sections -->
+        <div id="checklistContainer" class="space-y-8 printable-area">
+
+            <!-- Phase 1: Research & Planning -->
+            <section class="card-style bg-white rounded-2xl shadow-lg shadow-gray-500/10 border border-gray-200/80 overflow-hidden">
+                <div class="p-6 flex items-center space-x-5 bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-gray-200">
+                    <div class="flex-shrink-0 w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-800">Phase 1: Research & Planning</h2>
+                </div>
+                <div class="p-4 sm:p-6 space-y-2">
+                    <div class="check-item"><label><input type="checkbox">Self-Assessment: Define academic/career goals, strengths, and weaknesses.</label></div>
+                    <div class="check-item"><label><input type="checkbox">Identify Potential Countries & Universities based on your field of study.</label></div>
+                    <div class="check-item"><label><input type="checkbox">Create a long list of potential scholarships (e.g., government, university-specific, external).</label></div>
+                </div>
+            </section>
+
+            <!-- Phase 2: Document Preparation -->
+            <section class="card-style bg-white rounded-2xl shadow-lg shadow-gray-500/10 border border-gray-200/80 overflow-hidden">
+                <div class="p-6 flex items-center space-x-5 bg-gradient-to-r from-green-50 to-emerald-50 border-b border-gray-200">
+                    <div class="flex-shrink-0 w-14 h-14 rounded-full bg-green-100 flex items-center justify-center">
+                       <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-800">Phase 2: Document Preparation</h2>
+                </div>
+                <div class="p-4 sm:p-6 space-y-2">
+                    <div class="check-item"><label><input type="checkbox">Request and digitize all official academic transcripts and certificates.</label></div>
+                    <div class="check-item"><label><input type="checkbox">Prepare/update your academic Curriculum Vitae (CV) or Resume.</label></div>
+                    <div class="check-item"><label><input type="checkbox">Draft Statement of Purpose (SOP) or Personal Statement (tailor for each application).</label></div>
+                    <div class="check-item"><label><input type="checkbox">Identify and contact 2-3 referees for Letters of Recommendation (LORs).</label></div>
+                </div>
+            </section>
+
+            <!-- Phase 3: Application Submission -->
+            <section class="card-style bg-white rounded-2xl shadow-lg shadow-gray-500/10 border border-gray-200/80 overflow-hidden">
+                 <div class="p-6 flex items-center space-x-5 bg-gradient-to-r from-purple-50 to-violet-50 border-b border-gray-200">
+                    <div class="flex-shrink-0 w-14 h-14 rounded-full bg-purple-100 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-purple-600 -rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-800">Phase 3: Application Submission</h2>
+                </div>
+                <div class="p-4 sm:p-6 space-y-2">
+                    <div class="check-item"><label><input type="checkbox">Start filling out the online application forms carefully.</label></div>
+                    <div class="check-item"><label><input type="checkbox">Double-check that you've correctly uploaded all required documents.</label></div>
+                    <div class="check-item"><label><input type="checkbox">Submit the application well before the final deadline.</label></div>
+                </div>
+            </section>
+
+            <!-- Phase 4: Post-Submission -->
+            <section class="card-style bg-white rounded-2xl shadow-lg shadow-gray-500/10 border border-gray-200/80 overflow-hidden">
+                <div class="p-6 flex items-center space-x-5 bg-gradient-to-r from-amber-50 to-yellow-50 border-b border-gray-200">
+                    <div class="flex-shrink-0 w-14 h-14 rounded-full bg-amber-100 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-800">Phase 4: Post-Submission</h2>
+                </div>
+                <div class="p-4 sm:p-6 space-y-2">
+                    <div class="check-item"><label><input type="checkbox">Monitor your email and application portal regularly for updates.</label></div>
+                    <div class="check-item"><label><input type="checkbox">Prepare for potential interviews (research common questions, conduct mock interviews).</label></div>
+                    <div class="check-item"><label><input type="checkbox">Begin visa application process as soon as you accept an offer.</label></div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const printButton = document.getElementById('printButton');
+            const checkItems = document.querySelectorAll('.check-item');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            const totalCheckboxes = document.querySelectorAll('#checklistContainer input[type="checkbox"]').length;
+
+            function updateProgress() {
+                const checkedCount = document.querySelectorAll('#checklistContainer input[type="checkbox"]:checked').length;
+                const percentage = totalCheckboxes > 0 ? Math.round((checkedCount / totalCheckboxes) * 100) : 0;
+                progressBar.style.width = percentage + '%';
+                progressText.textContent = percentage + '%';
+            }
+            
+            checkItems.forEach(item => {
+                const label = item.querySelector('label');
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                if (!label || !checkbox) return;
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'check-item-wrapper flex items-center p-4 rounded-xl transition-colors duration-200 cursor-pointer';
+
+                checkbox.className = 'opacity-0 absolute h-8 w-8';
+                
+                const customCheckbox = document.createElement('div');
+                customCheckbox.className = 'custom-checkbox mr-4';
+                customCheckbox.innerHTML = `<svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>`;
+
+                const labelText = document.createElement('span');
+                labelText.className = 'check-item-label text-gray-700 select-none text-lg';
+                labelText.textContent = label.textContent;
+
+                wrapper.appendChild(checkbox);
+                wrapper.appendChild(customCheckbox);
+                wrapper.appendChild(labelText);
+                
+                item.innerHTML = '';
+                item.appendChild(wrapper);
+
+                wrapper.addEventListener('click', (e) => {
+                    if (e.target !== checkbox) {
+                         checkbox.checked = !checkbox.checked;
+                         checkbox.dispatchEvent(new Event('change'));
+                    }
+                });
+                checkbox.addEventListener('change', updateProgress);
+            });
+
+            printButton.addEventListener('click', () => window.print());
+            updateProgress();
+        });
+    </script>
+</body>
+</html>

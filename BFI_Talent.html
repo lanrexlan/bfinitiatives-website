@@ -1,0 +1,1984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/BFI_Logo.png">
+    <title>BFI Talent of the Year - Bright Future Initiatives</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <style>
+        :root {
+            --primary: #2c5282;
+            --primary-light: #3b82f6;
+            --primary-dark: #1e3a8a;
+            --secondary: #f59e0b;
+            --secondary-light: #fbbf24;
+            --secondary-dark: #d97706;
+            --accent: #6366f1;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --gold: #fbbf24;
+            --white: #ffffff;
+            --black: #000000;
+            
+            --transition-slow: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition-medium: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition-fast: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-fast);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition-fast);
+            border: 2px solid transparent;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: var(--transition-fast);
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+            border-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-dark);
+            border-color: var(--secondary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-outlined {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-outlined:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-sm {
+            padding: 70px 0;
+        }
+        
+        .section-title-wrapper {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-sm-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 25px auto 0;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-medium);
+            background-color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1001;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--primary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition-fast);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary);
+            z-index: 1001;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 1000;
+            padding: 80px 40px 40px;
+            transition: var(--transition-medium);
+            box-shadow: var(--shadow-xl);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu-panel.active {
+            right: 0;
+        }
+        
+        .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .mobile-link {
+            font-weight: 500;
+            color: var(--dark);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            display: block;
+            transition: var(--transition-fast);
+        }
+        
+        .mobile-link:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+        
+        .mobile-link.active {
+            color: var(--primary);
+        }
+        
+        .mobile-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-medium);
+            backdrop-filter: blur(5px);
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(37, 99, 235, 0.85));
+            color: var(--white);
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/Images/Talent_image.png');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.3);
+            z-index: -1;
+        }
+        
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="white" fill-opacity="1" fill-rule="evenodd"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></svg>');
+            z-index: -1;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-trophy {
+            display: inline-block;
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            animation: trophyBounce 3s ease-in-out infinite;
+        }
+        
+        @keyframes trophyBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+        }
+        
+        .hero-shape {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="white" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,122.7C384,128,480,160,576,170.7C672,181,768,171,864,154.7C960,139,1056,117,1152,117.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            z-index: 1;
+        }
+        
+        /* Award Details Section */
+        .award-details-section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .award-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .award-details-content {
+            max-width: 540px;
+        }
+        
+        .award-details-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .award-details-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .award-details-text {
+            margin-bottom: 25px;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+        
+        .award-benefits {
+            margin-top: 40px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border-radius: 10px;
+            background: var(--light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .benefit-content {
+            flex: 1;
+        }
+        
+        .benefit-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .benefit-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .award-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 450px;
+        }
+        
+        .award-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.02);
+            transition: var(--transition-medium);
+        }
+        
+        .award-image:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* Criteria Section */
+        .criteria-section {
+            padding: 100px 0;
+            background-color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .criteria-bg-shape {
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: var(--primary-light);
+            opacity: 0.05;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .criteria-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .criteria-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-medium);
+            height: 100%;
+        }
+        
+        .criteria-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .criteria-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .criteria-card:nth-child(2) .criteria-header {
+            background: var(--secondary);
+        }
+        
+        .criteria-card:nth-child(3) .criteria-header {
+            background: var(--accent);
+        }
+        
+        .criteria-card:nth-child(4) .criteria-header {
+            background: var(--success);
+        }
+        
+        .criteria-header::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .criteria-header::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .criteria-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            opacity: 0.9;
+        }
+        
+        .criteria-title {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .criteria-body {
+            padding: 30px;
+        }
+        
+        .criteria-list {
+            margin-bottom: 0;
+        }
+        
+        .criteria-item {
+            position: relative;
+            padding-left: 36px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .criteria-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .criteria-emoji {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+        
+        .criteria-text {
+            color: var(--gray);
+            line-height: 1.5;
+        }
+        
+        /* Winners Showcase */
+        .winners-section {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+        }
+        
+        .winners-title-wrapper {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .winners-title-wrapper .trophy-icon {
+            display: inline-block;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            animation: trophyBounce 3s ease-in-out infinite;
+        }
+        
+        .winners-showcase {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .winners-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .winners-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .winner-slide {
+            flex: 0 0 100%;
+            min-width: 100%;
+        }
+        
+        .winner-content {
+            display: grid;
+            grid-template-columns: 45% 55%;
+            height: 550px;
+        }
+        
+        .winner-image-container {
+            position: relative;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .winner-image-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .winner-image-container::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .winner-img-hexagon {
+            width: 280px;
+            height: 320px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hexagon-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+        
+        .hexagon-image {
+            width: calc(100% - 16px);
+            height: calc(100% - 16px);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .hexagon-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .winner-content:hover .hexagon-image img {
+            transform: scale(1.1);
+        }
+        
+        .winner-details {
+            background: var(--white);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .winner-year-badge {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            border: 5px solid var(--white);
+            box-shadow: var(--shadow-md);
+            z-index: 3;
+        }
+        
+        .winner-name {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+            margin-top: 50px;
+        }
+        
+        .winner-field {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            border-radius: 30px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+        
+        .winner-bio {
+            color: var(--gray);
+            line-height: 1.8;
+            flex-grow: 1;
+            overflow-y: auto;
+            max-height: 240px;
+            padding-right: 10px;
+        }
+        
+        .winner-bio::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .winner-bio::-webkit-scrollbar-track {
+            background: var(--light);
+            border-radius: 10px;
+        }
+        
+        .winner-bio::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 10px;
+        }
+        
+        .slide-counter {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            font-weight: 500;
+            color: var(--gray);
+        }
+        
+        .slide-counter .current {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .slide-counter .total {
+            color: var(--gray);
+        }
+        
+        .slide-counter .slash {
+            margin: 0 5px;
+            opacity: 0.5;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .indicator.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+        
+        .carousel-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            pointer-events: none;
+            z-index: 4;
+        }
+        
+        .carousel-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--white);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-fast);
+            pointer-events: auto;
+        }
+        
+        .carousel-arrow:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .progress-bar-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: var(--primary);
+            width: 0;
+            transition: width 0.5s linear;
+        }
+        
+        /* Nomination Process Section */
+        .nomination-section {
+            padding: 100px 0;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nomination-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="white" fill-opacity="1" fill-rule="evenodd"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></svg>');
+        }
+        
+        .nomination-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nomination-title {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+        
+        .nomination-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .nomination-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .nomination-step {
+            flex: 0 0 30%;
+            min-width: 250px;
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .step-description {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .nomination-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95)), url('/Images/footer-bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 80px 0 20px;
+        }
+        
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+        
+        .footer-logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+        
+        .footer-description {
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+        }
+        
+        .footer-social-link:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .footer-link:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        
+        .footer-contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .footer-contact-text {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .award-details-title {
+                font-size: 2.2rem;
+            }
+            
+            .winner-content {
+                height: 500px;
+            }
+            
+            .winner-img-hexagon {
+                width: 250px;
+                height: 280px;
+            }
+            
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .award-details-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .award-details-content {
+                max-width: 100%;
+                order: 2;
+            }
+            
+            .award-image {
+                order: 1;
+                height: 400px;
+            }
+            
+            .criteria-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .winner-content {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            
+            .winner-img-hexagon {
+                margin: 0 auto;
+            }
+            
+            .winner-year-badge {
+                top: 20px;
+                right: 20px;
+            }
+            
+            .nomination-step {
+                flex: 0 0 45%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding-top: 100px;
+                padding-bottom: 60px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .criteria-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .award-details-title {
+                font-size: 2rem;
+            }
+            
+            .nomination-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nomination-step {
+                flex: 0 0 100%;
+                max-width: 400px;
+                width: 100%;
+            }
+            
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text {
+                font-size: 18px;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .winner-name {
+                font-size: 1.8rem;
+            }
+            
+            .winner-details {
+                padding: 30px 20px;
+            }
+            
+            .winner-img-hexagon {
+                width: 200px;
+                height: 230px;
+            }
+            
+            .winner-year-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 1.3rem;
+            }
+            
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+            
+            .nomination-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><img src="/Images/BFI_Logo.png" alt="BFI Logo"></div>
+                    <div class="logo-text">Bright Future Initiatives</div>
+                </a>
+                
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="our_programs.html" class="nav-link">Our Programs</a></li>
+                    <li><a href="BFI_Talent.html" class="nav-link active">BFI Talent of the Year</a></li>
+                    <li><a href="/scholar-portal/index.php" class="nav-link">Scholar Portal</a></li>
+                    <li><a href="/admin/index.php" class="nav-link">Admin Portal</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-panel" id="mobileMenuPanel">
+        <ul class="mobile-menu">
+            <li><a href="index.html" class="mobile-link">Home</a></li>
+            <li><a href="about.html" class="mobile-link">About Us</a></li>
+            <li><a href="our_programs.html" class="mobile-link">Our Programs</a></li>
+            <li><a href="BFI_Talent.html" class="mobile-link active">BFI Talent of the Year</a></li>
+            <li><a href="/scholar-portal/index.php" class="mobile-link">Scholar Portal</a></li>
+            <li><a href="/admin/index.php" class="mobile-link">Admin Portal</a></li>
+        </ul>
+        <div class="mobile-buttons">
+            <a href="#nomination" class="btn btn-primary">Nominate for Award</a>
+            <a href="#criteria" class="btn btn-outlined">View Criteria</a>
+        </div>
+    </div>
+    
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-pattern"></div>
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-trophy">🏆</div>
+                <h1 class="hero-title">BFI Talent of the Year Award</h1>
+                <p class="hero-subtitle">A prestigious national recognition for exceptional achievement in academic excellence and professional development among Nigerian students.</p>
+                <div class="cta-button">
+                    <a href="#nomination" class="btn btn-secondary">Nominate for Award</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-shape"></div>
+    </section>
+
+    <!-- Award Details Section -->
+    <section class="award-details-section">
+        <div class="container">
+            <div class="award-details-grid">
+                <div class="award-details-content" data-aos="fade-right">
+                    <h2 class="award-details-title">About the Award</h2>
+                    <p class="award-details-text">The BFI Talent of the Year Award is our premier recognition program established to celebrate outstanding Nigerian students who demonstrate exceptional academic performance, leadership abilities, and commitment to community service.</p>
+                    <p class="award-details-text">This annual award identifies and showcases individuals who not only excel in their studies but also demonstrate the potential to become future leaders and change-makers in their fields and communities.</p>
+                    
+                    <div class="award-benefits">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3 class="benefit-title">Recognition</h3>
+                                <p class="benefit-description">National recognition through our network of educational institutions and corporate partners across Nigeria.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3 class="benefit-title">Financial Award</h3>
+                                <p class="benefit-description">Recipients receive a financial grant to support their educational journey and professional development.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3 class="benefit-title">Networking</h3>
+                                <p class="benefit-description">Access to BFI's extensive network of professionals, mentors, and alumni for career guidance and opportunities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Selection Criteria Section -->
+    <section class="criteria-section" id="criteria">
+        <div class="criteria-bg-shape"></div>
+        <div class="container">
+            <div class="section-title-wrapper">
+                <div class="section-sm-title" data-aos="fade-up">Excellence Standards</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Selection Criteria</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Our rigorous selection process evaluates candidates across four key dimensions to identify truly exceptional talent.</p>
+            </div>
+            
+            <div class="criteria-cards">
+                <div class="criteria-card" data-aos="fade-up">
+                    <div class="criteria-header">
+                        <div class="criteria-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="criteria-title">Academic Excellence</h3>
+                    </div>
+                    <div class="criteria-body">
+                        <ul class="criteria-list">
+                            <li class="criteria-item">
+                                <span class="criteria-emoji">🎓</span>
+                                <span class="criteria-text">Minimum GPA of 4.5 or equivalent academic standing</span>
+                            </li>
+                            <li class="criteria-item">
+                                <span class="criteria-emoji">📋</span>
+                                <span class="criteria-text">Strong academic recommendations from faculty</span>
+                            </li>
+                            <li class="criteria-item">
+                                <span class="criteria-emoji">📚</span>
+                                <span class="criteria-text">Research publications or academic contributions</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="criteria-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="criteria-header">
+                        <div class="criteria-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="criteria-title">Leadership & Innovation</h3>
+                    </div>
+                    <div class="criteria-body">
+                        <ul class="criteria-list">
+                            <li class="criteria-item">
+                                <span class="criteria-emoji">👥</span>
+                                <span class="criteria-text">Demonstrated leadership roles in academic or extracurricular activities</span>
+                            </li>
+                            <li class="criteria-item">
+                                <span class="criteria-emoji">💡</span>
+                                <span class="criteria-text">Innovative project experience or creative solutions</span>
+                            </li>
+                            <li class="criteria-item">
+                                <span class="criteria-emoji">🎯</span>
+                                <span class="criteria-text">Problem-solving capabilities with tangible outcomes</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="criteria-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="criteria-header">
+                        <div class="criteria-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3 class="criteria-title">Community Impact</h3>
+                    </div>
+                    <div class="criteria-body">
+                        <ul class="criteria-list">
+                            <li class="criteria-item">
+                                <span class="criteria-emoji">🤝</span>
+                                <span class="criteria-text">Volunteer work with measurable community benefits</span>
+                            </li>
+                            <li class="criteria-item">
+                                <span class="criteria-emoji">❤️</span>
+                                <span class="criteria-text">Community service initiatives or programs</span>
+                            </li>
+                            <li class="criteria-item">
+                                <span class="criteria-emoji">🌟</span>
+                                <span class="criteria-text">Social impact projects addressing local challenges</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="criteria-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="criteria-header">
+                        <div class="criteria-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="criteria-title">Professional Experience</h3>
+                    </div>
+                    <div class="criteria-body">
+                        <ul class="criteria-list">
+                            <li class="criteria-item">
+                                <span class="criteria-emoji">💼</span>
+                                <span class="criteria-text">Internship performance and recommendations</span>
+                            </li>
+                            <li class="criteria-item">
+                                <span class="criteria-emoji">📈</span>
+                                <span class="criteria-text">Work experience quality and relevance to field</span>
+                            </li>
+                            <li class="criteria-item">
+                                <span class="criteria-emoji">🏆</span>
+                                <span class="criteria-text">Professional achievements and recognitions</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Winners Showcase Section -->
+    <section class="winners-section">
+        <div class="container">
+            <div class="winners-title-wrapper">
+                <div class="trophy-icon">🏆</div>
+                <h2 class="section-title" data-aos="fade-up">Past Winners</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Meet the exceptional individuals who have been recognized as BFI Talent of the Year for their outstanding achievements.</p>
+            </div>
+            
+            <div class="winners-showcase">
+                <div class="winners-carousel">
+                    <div class="winners-track" id="winnersTrack">
+                        <!-- Winner 1 - 2023 -->
+                        <div class="winner-slide">
+                            <div class="winner-content">
+                                <div class="winner-image-container">
+                                    <div class="winner-img-hexagon">
+                                        <div class="hexagon-border"></div>
+                                        <div class="hexagon-image">
+                                            <img src="/Images/Adewale_image.jpg" alt="Adewale Akinwale">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="winner-details">
+                                    <div class="winner-year-badge">2023</div>
+                                    <h3 class="winner-name">Adewale Akinwale</h3>
+                                    <div class="winner-field">Electrical Engineering</div>
+                                    <div class="winner-bio">
+                                        <p>Adewale Akinwale is a young chap whose dedication and brilliance have set him apart as an academic star. He aced his WASSCE with seven distinctions, including A1 in General Mathematics, Further Mathematics, and Biology, showcasing his exceptional aptitude and determination.</p>
+                                        <p>His remarkable performance is a testament to his hard work, focus, and potential to achieve even greater feats in the future. As the 2023 BFI Talent of the Year, Adewale continues to inspire other students with his commitment to academic excellence.</p>
+                                    </div>
+                                    <div class="slide-counter">
+                                        <span class="current">01</span>
+                                        <span class="slash">/</span>
+                                        <span class="total">03</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Winner 2 - 2022 -->
+                        <div class="winner-slide">
+                            <div class="winner-content">
+                                <div class="winner-image-container">
+                                    <div class="winner-img-hexagon">
+                                        <div class="hexagon-border"></div>
+                                        <div class="hexagon-image">
+                                            <img src="/Images/Tijani_image.png" alt="Tijani AbdulHafiz">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="winner-details">
+                                    <div class="winner-year-badge">2022</div>
+                                    <h3 class="winner-name">Tijani AbdulHafiz</h3>
+                                    <div class="winner-field">BSc Chemical Engineering</div>
+                                    <div class="winner-bio">
+                                        <p>Abdulafeez Tijani is a first-class graduate of Chemical Engineering from Obafemi Awolowo University, whose exceptional academic journey reflects both dedication and impactful contributions.</p>
+                                        <p>He has demonstrated remarkable leadership through his mentorship of peers, promoting diversity and fostering inclusivity in STEM fields. His research pursuits include cutting-edge studies on sustainable energy systems, aligning with global goals for environmental sustainability.</p>
+                                        <p>As our 2022 winner, Tijani continues to exemplify how academic excellence can be leveraged for meaningful societal impact.</p>
+                                    </div>
+                                    <div class="slide-counter">
+                                        <span class="current">02</span>
+                                        <span class="slash">/</span>
+                                        <span class="total">03</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Winner 3 - 2021 -->
+                        <div class="winner-slide">
+                            <div class="winner-content">
+                                <div class="winner-image-container">
+                                    <div class="winner-img-hexagon">
+                                        <div class="hexagon-border"></div>
+                                        <div class="hexagon-image">
+                                            <img src="/Images/Hafsoh_image.jpg" alt="Alabere Hafsat">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="winner-details">
+                                    <div class="winner-year-badge">2021</div>
+                                    <h3 class="winner-name">Alabere Hafsat</h3>
+                                    <div class="winner-field">MRes Parasite Control, PhD Biomedical Science (in view)</div>
+                                    <div class="winner-bio">
+                                        <p>Hafsat Alabere holds a first-class degree in Microbiology from the Federal University of Technology Akure and a Master of Research in Parasite Control from Aberystwyth University, UK, supported by the Commonwealth Shared Scholarship.</p>
+                                        <p>Currently pursuing a PhD in Biomedical Sciences at West Virginia University School of Medicine, USA, her research focuses on Non-Coding RNA as potential therapeutics to rescue mitochondrial dysfunction in cardiovascular diseases.</p>
+                                        <p>Hafsat's groundbreaking contributions, including SARS-CoV-2 inhibitor discovery and advancements in malaria diagnosis, exemplify her commitment to addressing global health challenges through innovative biomedical research.</p>
+                                    </div>
+                                    <div class="slide-counter">
+                                        <span class="current">03</span>
+                                        <span class="slash">/</span>
+                                        <span class="total">03</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-arrows">
+                        <div class="carousel-arrow prev-arrow" id="prevSlide">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="carousel-arrow next-arrow" id="nextSlide">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-controls">
+                        <div class="carousel-indicators" id="carouselIndicators">
+                            <div class="indicator active" data-index="0"></div>
+                            <div class="indicator" data-index="1"></div>
+                            <div class="indicator" data-index="2"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nomination Process Section -->
+    <section class="nomination-section" id="nomination">
+        <div class="nomination-pattern"></div>
+        <div class="container">
+            <div class="nomination-content">
+                <h2 class="nomination-title" data-aos="fade-up">How to Nominate</h2>
+                <p class="nomination-text" data-aos="fade-up" data-aos-delay="100">The BFI Talent of the Year selection process is transparent and merit-based. Here's how to nominate a deserving candidate:</p>
+                
+                <div class="nomination-steps">
+                    <div class="nomination-step" data-aos="fade-up">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Submission</h3>
+                        <p class="step-description">Complete the online application form with the nominee's academic credentials, portfolio, and personal statement.</p>
+                    </div>
+                    
+                    <div class="nomination-step" data-aos="fade-up" data-aos-delay="100">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Evaluation</h3>
+                        <p class="step-description">Applications are reviewed by our selection committee against the four key criteria areas.</p>
+                    </div>
+                    
+                    <div class="nomination-step" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Selection</h3>
+                        <p class="step-description">Finalists are interviewed, and the winner is selected based on overall excellence and impact.</p>
+                    </div>
+                </div>
+                
+                <div class="nomination-buttons" data-aos="fade-up" data-aos-delay="300">
+                    <a href="talent-nomination.html" class="btn btn-secondary">Nominate Someone</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon"><img src="/Images/BFI_Logo.png" alt="BFI Logo"></div>
+                        <div class="footer-logo-text">Bright Future Initiatives</div>
+                    </div>
+                    <p class="footer-description">Empowering Nigerian students through scholarships, mentorship, and resources for academic and professional success since 2016.</p>
+                    <div class="footer-social">
+                        <a href="https://web.facebook.com/profile.php?id=61574771032448" class="footer-social-link" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/BFIniatiatives" class="footer-social-link" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/bright-future-initiative" class="footer-social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="footer-link-list">
+                        <a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a>
+                        <a href="about.html" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a>
+                        <a href="our_programs.html" class="footer-link"><i class="fas fa-chevron-right"></i> Programs</a>
+                        <a href="BFI_Talent.html" class="footer-link"><i class="fas fa-chevron-right"></i> Talent of the Year</a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            <a href="mailto:info@bfinitiatives.com">info@bfinitiatives.com</a>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            <a href="tel:+2348165011291">(+234) 816 501 1291</a><br>
+                            <a href="tel:+2348102377511">(+234) 810 237 7511</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bright Future Initiatives. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out',
+                once: true,
+                offset: 100,
+            });
+        });
+        
+        // DOM Elements
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const winnersTrack = document.getElementById('winnersTrack');
+        const prevSlide = document.getElementById('prevSlide');
+        const nextSlide = document.getElementById('nextSlide');
+        const indicators = document.querySelectorAll('.indicator');
+        const progressBar = document.getElementById('progressBar');
+        
+        // Variables
+        let currentSlide = 0;
+        const totalSlides = document.querySelectorAll('.winner-slide').length;
+        let slideInterval;
+        const slideDuration = 7000; // 7 seconds per slide
+        
+        // Event Listeners
+        menuToggle.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+        
+        prevSlide.addEventListener('click', () => {
+            goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+        });
+        
+        nextSlide.addEventListener('click', () => {
+            goToSlide((currentSlide + 1) % totalSlides);
+        });
+        
+        // Add click events to indicators
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                goToSlide(index);
+            });
+        });
+        
+        // Touch Events for Carousel
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        winnersTrack.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            clearInterval(slideInterval); // Pause auto-rotation on touch
+        }, { passive: true });
+        
+        winnersTrack.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            startSlideInterval(); // Resume auto-rotation after touch
+        }, { passive: true });
+        
+        // Add mouse events for pausing/resuming auto-rotation
+        document.querySelector('.winners-carousel').addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        document.querySelector('.winners-carousel').addEventListener('mouseleave', () => {
+            startSlideInterval();
+        });
+        
+        // Functions
+        function toggleMenu() {
+            mobileMenuPanel.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenuPanel.classList.contains('active') ? 'hidden' : 'auto';
+            
+            // Toggle icon
+            if (mobileMenuPanel.classList.contains('active')) {
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        }
+        
+        function closeMenu() {
+            mobileMenuPanel.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Swipe left: go to next slide
+                goToSlide((currentSlide + 1) % totalSlides);
+            } else if (touchEndX > touchStartX + swipeThreshold) {
+                // Swipe right: go to previous slide
+                goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+            }
+        }
+        
+        function goToSlide(index) {
+            // Reset progress bar animation
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            
+            // Update slide
+            currentSlide = index;
+            winnersTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === currentSlide);
+            });
+            
+            // Update slide counters
+            const slideCounters = document.querySelectorAll('.slide-counter .current');
+            slideCounters.forEach((counter, i) => {
+                counter.textContent = i === currentSlide ? String(currentSlide + 1).padStart(2, '0') : counter.textContent;
+            });
+            
+            // Restart progress bar animation
+            setTimeout(() => {
+                progressBar.style.transition = `width ${slideDuration}ms linear`;
+                progressBar.style.width = '100%';
+            }, 50);
+            
+            // Reset auto-rotate timer
+            clearInterval(slideInterval);
+            startSlideInterval();
+        }
+        
+        function startSlideInterval() {
+            slideInterval = setInterval(() => {
+                goToSlide((currentSlide + 1) % totalSlides);
+            }, slideDuration);
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    // Close mobile menu if open
+                    if (mobileMenuPanel.classList.contains('active')) {
+                        closeMenu();
+                    }
+                    
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start the carousel
+            goToSlide(0);
+            
+            // Set first slide progress bar
+            progressBar.style.transition = `width ${slideDuration}ms linear`;
+            progressBar.style.width = '100%';
+        });
+    </script>
+</body>
+</html>
