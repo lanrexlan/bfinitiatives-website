@@ -8,27 +8,33 @@ function sendAdminVerificationEmail($email, $first_name, $verification_token) {
     $mail = new PHPMailer(true);
 
     try {
-        // Server settings
-        $mail->isSMTP();
-        $mail->Host = 'mail.bfinitiatives.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'info@bfinitiatives.com';
-        $mail->Password = 'K5Y)T{gvZ-NS';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+        $smtpHost = getenv('BFI_SMTP_HOST') ?: '';
+        $smtpUser = getenv('BFI_SMTP_USER') ?: '';
+        $smtpPass = getenv('BFI_SMTP_PASS') ?: '';
+        $smtpPort = (int) (getenv('BFI_SMTP_PORT') ?: 587);
 
-        // Recipients
+        if ($smtpHost === '' || $smtpUser === '' || $smtpPass === '' || $smtpPort <= 0) {
+            error_log('Email service is not configured.');
+            return false;
+        }
+
+        $mail->isSMTP();
+        $mail->Host = $smtpHost;
+        $mail->SMTPAuth = true;
+        $mail->Username = $smtpUser;
+        $mail->Password = $smtpPass;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = $smtpPort;
+
         $mail->setFrom('noreply@bfinitiatives.com', 'BFI Admin Portal');
         $mail->addAddress($email, $first_name);
 
-        // Content
         $mail->isHTML(true);
         $mail->Subject = 'Verify Your BFI Admin Portal Account';
-        
+
         $verification_url = "https://bfinitiatives.com/admin/admin-verify.php?token=" . $verification_token;
-        
-        $mail->Body = "
-            <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
+
+        $mail->Body = "<div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
                 <h2>Welcome to BFI Admin Portal!</h2>
                 <p>Dear {$first_name},</p>
                 <p>Thank you for registering as an administrator. To complete your registration, please verify your email address by clicking the button below:</p>
@@ -46,31 +52,28 @@ function sendAdminVerificationEmail($email, $first_name, $verification_token) {
                 <br>
                 <p>Best regards,</p>
                 <p>The BFI Admin Team</p>
-            </div>
-        ";
-        
-        $mail->AltBody = "
-            Welcome to BFI Admin Portal!
-            
-            Dear {$first_name},
-            
-            Thank you for registering as an administrator. To complete your registration, please verify your email address by visiting this link:
-            
-            {$verification_url}
-            
-            This verification link will expire in 24 hours.
-            
-            If you didn't request this registration, please ignore this email.
-            
-            Best regards,
-            The BFI Admin Team
-        ";
+            </div>";
+
+        $mail->AltBody = "Welcome to BFI Admin Portal!
+
+Dear {$first_name},
+
+Thank you for registering as an administrator. To complete your registration, please verify your email address by visiting this link:
+
+{$verification_url}
+
+This verification link will expire in 24 hours.
+
+If you didn't request this registration, please ignore this email.
+
+Best regards,
+The BFI Admin Team";
 
         $mail->send();
         error_log("Email sent successfully to: $email");
         return true;
     } catch (Exception $e) {
-        error_log("Email sending failed: " . $mail->ErrorInfo);
+        error_log('Email sending failed.');
         return false;
     }
 }

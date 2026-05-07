@@ -1,13 +1,14 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 ini_set('log_errors', 1);
+error_reporting(E_ALL);
 
 define('INCLUDES_PATH', dirname(__FILE__) . '/includes/');
 require_once INCLUDES_PATH . 'config.php';
 require_once INCLUDES_PATH . 'db.php';
 require_once INCLUDES_PATH . 'functions.php';
+require_once INCLUDES_PATH . 'csrf.php';
 
 $error = null;
 $success = null;
@@ -21,6 +22,9 @@ try {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (!bfi_validate_csrf_post()) {
+        $error = 'Invalid request. Please refresh and try again.';
+    } else {
     $first_name = sanitize_input($_POST['first_name'] ?? '');
     $last_name = sanitize_input($_POST['last_name'] ?? '');
     $email = strtolower(sanitize_input($_POST['email'] ?? ''));
@@ -78,6 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $conn->rollBack(); $error = "An error occurred. Please try again.";
         }
     }
+}
 }
 ?>
 <!DOCTYPE html>
@@ -250,6 +255,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <?php else: ?>
 
       <form method="POST" action="admin-register.php" id="regForm">
+        <?php echo bfi_csrf_field(); ?>
         <div class="form-row">
           <div class="form-group">
             <label for="first_name" class="form-label">First Name</label>
