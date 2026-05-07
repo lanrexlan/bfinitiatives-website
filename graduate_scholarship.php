@@ -1957,6 +1957,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
 
+
+        /* Scholarship hero mobile overflow fix */
+        @media (max-width: 768px) {
+            .page-hero[class*="application-track-"] {
+                max-width: 100vw;
+                overflow-x: hidden;
+            }
+
+            .page-hero[class*="application-track-"] .page-hero-shape,
+            .page-hero[class*="application-track-"]::before,
+            .page-hero[class*="application-track-"]::after,
+            .page-hero[class*="application-track-"] .application-hero-card::before {
+                display: none !important;
+            }
+
+            .page-hero[class*="application-track-"] .page-hero-grid,
+            .page-hero[class*="application-track-"] .application-hero-card,
+            .page-hero[class*="application-track-"] .hero-metric-list,
+            .page-hero[class*="application-track-"] .hero-metric {
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                transform: none !important;
+            }
+
+            .page-hero[class*="application-track-"] .hero-metric-list {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero[class*="application-track-"] .application-hero-card,
+            .page-hero[class*="application-track-"] .hero-metric {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .page-hero[class*="application-track-"] .application-hero-card {
+                padding: 0.9rem !important;
+            }
+        }
+
     </style>
     <link rel="stylesheet" href="site.css?v=20260507">
   <link rel="stylesheet" href="/mobile-fixes.css?v=20260507b">
