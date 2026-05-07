@@ -108,10 +108,11 @@ if ($application) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="site.css?v=20260507">
+  <link rel="stylesheet" href="/mobile-fixes.css?v=20260507">
     <link rel="stylesheet" href="application-theme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script defer src="site.js"></script>
+    <script defer src="site.js?v=20260507"></script>
     <style>
         .status-page {
             padding-bottom: 44px;
