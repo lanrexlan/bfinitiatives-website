@@ -50,5 +50,5 @@ deployment:
     - if [ -d fonts ]; then /bin/cp -R fonts $DEPLOYPATH; fi
 
     # Admin and scholar portals' folders
-    - if [ -d admin ]; then /bin/cp -R admin $DEPLOYPATH; fi
-    - if [ -d scholar-portal ]; then /bin/cp -R scholar-portal $DEPLOYPATH; fi
+    - if [ -d admin ]; then /bin/cp -R admin/ $DEPLOYPATH/admin/; fi
+    - if [ -d scholar-portal ]; then /bin/cp -R scholar-portal/ $DEPLOYPATH/scholar-portal/; fi
