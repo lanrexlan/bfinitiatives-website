@@ -26,7 +26,7 @@ function sendMentorDirectEmail($user, $mentor, $message) {
     $body = "<!DOCTYPE html><html><body style='font-family:sans-serif;background:#F2F4F8;margin:0;padding:20px;'>
     <div style='max-width:560px;margin:auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);'>
       <div style='background:#0D1829;padding:28px;text-align:center;'>
-        <p style='color:rgba(200,160,88,0.8);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;'>Bright Future Initiatives · Scholar Portal</p>
+        <p style='color:rgba(200,160,88,0.8);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;'>Bold Footprint Initiatives · Scholar Portal</p>
         <h2 style='color:#E0B96C;margin:0;font-family:Georgia,serif;font-size:22px;font-weight:400;font-style:italic;'>New Mentorship Request</h2>
       </div>
       <div style='padding:28px;'>
@@ -44,7 +44,7 @@ function sendMentorDirectEmail($user, $mentor, $message) {
         <p style='color:#4A526A;font-size:13.5px;'>To respond, simply reply to this email — it will go directly to <a href='mailto:{$uemail}' style='color:#C8A058;'>{$uname}</a>.</p>
       </div>
       <div style='background:#F2F4F8;padding:16px;text-align:center;font-size:12px;color:#8A92A8;border-top:1px solid #E8E4DA;'>
-        Bright Future Initiatives · Supporting Academic Excellence Since 2016
+        Bold Footprint Initiatives · Supporting Academic Excellence Since 2016
       </div>
     </div></body></html>";
 
@@ -731,11 +731,11 @@ sort($all_expertise_tags);
 
 <!-- FOOTER -->
 <footer class="portal-footer">
-  <div class="footer-copy">&copy; <?= date('Y') ?> Bright Future Initiatives. All rights reserved.</div>
+  <div class="footer-copy">&copy; <?= date('Y') ?> Bold Footprint Initiatives. All rights reserved.</div>
   <div class="footer-links">
     <a href="/"><i class="fas fa-home" style="font-size:10px;margin-right:4px;"></i>Main Site</a>
     <a href="/about.html">About Us</a>
-    <a href="/our_programs.html">Programs</a>
+    <a href="/programs.html">Programs</a>
     <a href="/contact.html">Contact</a>
   </div>
 </footer>

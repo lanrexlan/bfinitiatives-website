@@ -168,7 +168,7 @@ HTML;
             <p style="margin: 20px 0;">You can always check your application status by logging into the <a href="https://bfinitiatives.com/check-status.php" style="color: #3498db; text-decoration: none;">BFI Mentorship Portal</a>.</p>
             <p style="margin: 20px 0;">If you have any questions, please donâ€™t hesitate to contact us at <a href="mailto:info@bfinitiatives.com" style="color: #3498db; text-decoration: none;">info@bfinitiatives.com</a>.</p>
             <div style="border-top: 1px solid #eee; padding-top: 20px; margin-top: 30px; text-align: center; font-size: 14px; color: #777;">
-                <p style="margin: 0;">Bright Future Initiatives</p>
+                <p style="margin: 0;">Bold Footprint Initiatives</p>
                 <p style="margin: 4px 0;">Ede, Osun State, Nigeria</p>
                 <p style="margin: 4px 0;">www.bfinitiatives.com</p>
             </div>
@@ -358,7 +358,7 @@ function sendDocumentFeedbackEmail($userEmail, $firstName, $documentType, $newSt
                     <tr>
                         <td style="background: #f8fafc; padding: 20px; text-align: center; border-top: 1px solid #e2e8f0;">
                             <p style="margin: 0 0 5px; font-size: 13px; color: #1e293b; font-weight: 600;">
-                                Bright Future Initiatives
+                                Bold Footprint Initiatives
                             </p>
                             <p style="margin: 0 0 5px; font-size: 12px; color: #64748b;">
                                 Empowering scholars to achieve their academic dreams
@@ -369,7 +369,7 @@ function sendDocumentFeedbackEmail($userEmail, $firstName, $documentType, $newSt
                                 <a href="https://bfinitiatives.com/contact.html" style="color: #4361ee; text-decoration: none; margin: 0 8px;">Contact Us</a>
                             </p>
                             <p style="margin: 10px 0 0; font-size: 11px; color: #94a3b8;">
-                                © ' . date('Y') . ' Bright Future Initiatives. All rights reserved.
+                                © ' . date('Y') . ' Bold Footprint Initiatives. All rights reserved.
                             </p>
                         </td>
                     </tr>
@@ -395,7 +395,7 @@ function sendDocumentFeedbackEmail($userEmail, $firstName, $documentType, $newSt
     $plainTextBody .= "View your document details: https://bfinitiatives.com/scholar-portal/dashboard.php\n\n";
     $plainTextBody .= "If you have questions, contact us at info@bfinitiatives.com\n\n";
     $plainTextBody .= "Best regards,\n";
-    $plainTextBody .= "Bright Future Initiatives Team\n";
+    $plainTextBody .= "Bold Footprint Initiatives Team\n";
     $plainTextBody .= "https://bfinitiatives.com";
 
     // Send the email using our general email function with improved settings

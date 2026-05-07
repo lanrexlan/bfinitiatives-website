@@ -86,7 +86,7 @@ function sendDocumentFeedbackEmail($email, $firstName, $documentType, $status, $
         
         // Content
         $mail->isHTML(true);
-        $mail->Subject = 'Document Review Update - Bright Future Initiatives';
+        $mail->Subject = 'Document Review Update - Bold Footprint Initiatives';
         
         // Format status for display
         $statusDisplay = ucwords(str_replace('_', ' ', $status));
@@ -211,13 +211,13 @@ function sendDocumentFeedbackEmail($email, $firstName, $documentType, $status, $
                 </div>
                 
                 <div class='footer'>
-                    <p><strong>Bright Future Initiatives</strong></p>
+                    <p><strong>Bold Footprint Initiatives</strong></p>
                     <p>Empowering scholars to achieve their academic dreams</p>
                     <p style='margin-top: 15px;'>
                         <a href='" . SITE_URL . "' style='color: #4361ee; text-decoration: none;'>Visit Website</a> | 
                         <a href='" . SITE_URL . "/contact.php' style='color: #4361ee; text-decoration: none;'>Contact Us</a>
                     </p>
-                    <p style='margin-top: 15px; font-size: 12px;'>© " . date('Y') . " Bright Future Initiatives. All rights reserved.</p>
+                    <p style='margin-top: 15px; font-size: 12px;'>© " . date('Y') . " Bold Footprint Initiatives. All rights reserved.</p>
                 </div>
             </div>
         </body>
@@ -230,7 +230,7 @@ function sendDocumentFeedbackEmail($email, $firstName, $documentType, $status, $
             . "Review Status: {$statusDisplay}\n\n"
             . (!empty($feedback) ? "Feedback:\n{$feedback}\n\n" : "")
             . "Please log in to your dashboard to view the full details.\n\n"
-            . "Best regards,\nBright Future Initiatives Team";
+            . "Best regards,\nBold Footprint Initiatives Team";
         
         $mail->send();
         return ['success' => true, 'message' => 'Email sent successfully'];

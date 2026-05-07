@@ -911,7 +911,7 @@ error_log("Final first_name value before display: " . $first_name);
     <!-- Footer -->
         <footer class="footer">
             <div class="footer-copyright">
-                © 2024 Bright Future Initiatives. All rights reserved.
+                © 2024 Bold Footprint Initiatives. All rights reserved.
             </div>
             <div class="footer-links">
                 <a href="/"><i class="fas fa-home me-2"></i>Home</a>

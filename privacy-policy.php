@@ -786,7 +786,7 @@ if (isset($_SESSION['user_id'])) {
                 <div class="welcome-background"></div>
                 <div class="welcome-content">
                     <h1 class="welcome-title">Privacy Policy</h1>
-                    <p class="welcome-subtitle">Your privacy and data protection are our top priorities at Bright Future Initiatives</p>
+                    <p class="welcome-subtitle">Your privacy and data protection are our top priorities at Bold Footprint Initiatives</p>
                     <p class="text-muted"><small>Last updated: December 2024</small></p>
                 </div>
             </div>
@@ -796,7 +796,7 @@ if (isset($_SESSION['user_id'])) {
                 <div class="privacy-section">
                     <h2><i class="fas fa-info-circle"></i>Introduction</h2>
                     <p class="privacy-text">
-                        Bright Future Initiatives ("we," "our," or "us") is committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Scholar Portal and related services.
+                        Bold Footprint Initiatives ("we," "our," or "us") is committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Scholar Portal and related services.
                     </p>
                     <div class="highlight-box">
                         <strong>Our Commitment:</strong> We are dedicated to transparency in how we handle your data and ensuring compliance with applicable data protection laws.
@@ -941,7 +941,7 @@ if (isset($_SESSION['user_id'])) {
                     <p class="privacy-text">If you have any questions about this Privacy Policy or our privacy practices, please contact us:</p>
                     
                     <div class="contact-info">
-                        <h4>Bright Future Initiatives</h4>
+                        <h4>Bold Footprint Initiatives</h4>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <span>Email: <a href="mailto:privacy@brightfuture.org">privacy@brightfuture.org</a></span>
@@ -966,12 +966,12 @@ if (isset($_SESSION['user_id'])) {
         <!-- Footer -->
         <footer class="footer">
             <div class="footer-copyright">
-                © 2024 Bright Future Initiatives. All rights reserved.
+                © 2024 Bold Footprint Initiatives. All rights reserved.
             </div>
             <div class="footer-links">
                 <a href="index.html"><i class="fas fa-home"></i>Home</a>
                 <a href="/about.html"><i class="fas fa-info-circle"></i>About Us</a>
-                <a href="/our_programs.html"><i class="fas fa-graduation-cap"></i>Programs</a>
+                <a href="/programs.html"><i class="fas fa-graduation-cap"></i>Programs</a>
                 <a href="/contact.html"><i class="fas fa-envelope"></i>Contact</a>
             </div>
         </footer>

@@ -11,7 +11,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['is_admin']) && $_SESSION['is
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Portal | Bold Footprint Initiatives</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="/Images/BFI_Logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Images/bfi-new-logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -160,7 +160,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['is_admin']) && $_SESSION['is
     <div class="nav-links">
       <span class="admin-pill"><i class="fas fa-shield-alt" style="font-size:8px;"></i> Admin Portal</span>
       <a href="/index.html" class="nav-text-link">Main Site</a>
-      <a href="/scholar-portal/index.php" class="nav-text-link">Scholar Portal</a>
+      <a href="/scholar-portal/" class="nav-text-link">Scholar Portal</a>
       <a href="admin-login.php" class="btn btn-outline-gold" style="padding:10px 22px;font-size:13px;">Sign In</a>
       <a href="admin-register.php" class="btn btn-crimson" style="padding:10px 22px;font-size:13px;">Register</a>
     </div>
