@@ -6,8 +6,39 @@ img, video, svg { max-width: 100%; height: auto; }
 :where(.hero-grid,.page-hero-inner,.split-layout,.feature-split,.story-detail,.detail-grid,.detail-pillars,.grid-2,.grid-3,.grid-4,.cards-grid,.steps-grid,.prepare-grid,.footer-grid,.form-grid,.metric-grid,.stat-strip-grid,.support-grid,.program-grid,.application-grid,.dashboard-grid,.table-wrapper,.page-hero-grid,.application-track-grid,.info-grid) > * { min-width: 0; }
 :where(.card,.story-card,.hero-card,.panel,.detail-aside,.detail-content,.application-hero-card,.application-track-card,.support-card,.feature-card,.info-card) { width: 100%; max-width: 100%; }
 
-.nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;background:transparent;border:1px solid rgba(255,255,255,.45);border-radius:10px;padding:9px;min-width:44px;min-height:44px;color:#fff}
-.nav-toggle span{display:block;width:22px;height:2px;background:#f7f2e6;border-radius:2px;transition:transform .25s ease,opacity .2s ease,background-color .2s ease}
+.nav-toggle,
+button.nav-toggle,
+[data-nav-toggle],
+#navToggle {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  max-width: 44px !important;
+  flex: 0 0 44px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 10px;
+  min-height: 44px;
+  color: #fff;
+}
+
+.nav-toggle span,
+[data-nav-toggle] span,
+#navToggle span {
+  display: block !important;
+  width: 22px !important;
+  height: 2px !important;
+  margin: 3px 0 !important;
+  background: #f7f2e6;
+  border-radius: 2px;
+  transition: transform .25s ease,opacity .2s ease,background-color .2s ease;
+}
 .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
 .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -17,13 +48,30 @@ img, video, svg { max-width: 100%; height: auto; }
 }
 
 @media (max-width: 768px){
-  .container,[class*="container"]{max-width:100%;}
+  .container{max-width:100%;}
   :where(.hero-aside,.detail-aside,.detail-content,.story-detail,.page-hero-content,.application-hero-card){max-width:100%;min-width:0}
   .table-wrapper,.table-responsive{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
   table{max-width:100%}
-  .form-grid,[class*="form-row"],[class*="form-grid"]{grid-template-columns:1fr !important}
-  input,select,textarea,button{max-width:100%}
-  input,select,textarea{width:100%}
+  .form-grid,.form-row,.application-form .row{grid-template-columns:1fr !important}
+  input,select,textarea{width:100%;max-width:100%}
+
+  .stories-page .hero-grid,
+  .stories-page .grid-3,
+  .stories-page .story-detail {grid-template-columns:1fr !important;}
+  .stories-page .story-card,
+  .stories-page .panel,
+  .stories-page .detail-content,
+  .stories-page .detail-aside {min-width:0;overflow-wrap:anywhere;}
+
+  .application-track-primary .page-hero-grid,
+  .application-track-secondary .page-hero-grid,
+  .application-track-graduate .page-hero-grid {grid-template-columns:1fr !important;align-items:stretch;}
+  .application-track-primary .page-hero-content,
+  .application-track-secondary .page-hero-content,
+  .application-track-graduate .page-hero-content,
+  .application-track-primary .application-hero-card,
+  .application-track-secondary .application-hero-card,
+  .application-track-graduate .application-hero-card {width:100% !important;max-width:100% !important;}
 }
 
 @media (max-width: 576px){
@@ -32,6 +80,35 @@ img, video, svg { max-width: 100%; height: auto; }
 }
 
 @media (max-width: 420px){
-  .btn,button,[type="submit"],[type="button"]{width:100%}
+  .form-actions .btn,
+  .form-shell .btn,
+  .contact-form .btn,
+  .application-form .btn,
+  .scholarship-form .btn,
+  .cta-buttons .btn,
+  .btn-row .btn,
+  .button-row .btn {width:100%;}
   .button-row,.btn-row,.form-actions{display:flex;flex-wrap:wrap;gap:10px}
+}
+
+@media (max-width: 768px) {
+  .nav-toggle,
+  button.nav-toggle,
+  [data-nav-toggle],
+  #navToggle {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    max-width: 44px !important;
+    flex: 0 0 44px !important;
+  }
+
+  .nav-toggle span,
+  [data-nav-toggle] span,
+  #navToggle span {
+    display: block !important;
+    width: 22px !important;
+    height: 2px !important;
+    margin: 3px 0 !important;
+  }
 }
