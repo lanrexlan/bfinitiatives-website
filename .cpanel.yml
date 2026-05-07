@@ -2,4 +2,41 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/bfinitia/public_html/
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/mkdir -p $DEPLOYPATH/admin
+    - /bin/mkdir -p $DEPLOYPATH/scholar-portal
+    - /bin/mkdir -p $DEPLOYPATH/assets
+    - /bin/mkdir -p $DEPLOYPATH/Images
+
     - /bin/cp index.html $DEPLOYPATH/index.html
+    - /bin/cp about.html $DEPLOYPATH/about.html
+    - /bin/cp achievements.html $DEPLOYPATH/achievements.html
+    - /bin/cp apply.html $DEPLOYPATH/apply.html
+    - /bin/cp contact.html $DEPLOYPATH/contact.html
+    - /bin/cp faq.html $DEPLOYPATH/faq.html
+    - /bin/cp mentor.html $DEPLOYPATH/mentor.html
+    - /bin/cp partnership.html $DEPLOYPATH/partnership.html
+    - /bin/cp programs.html $DEPLOYPATH/programs.html
+    - /bin/cp stories.html $DEPLOYPATH/stories.html
+    - /bin/cp support.html $DEPLOYPATH/support.html
+    - /bin/cp talent.html $DEPLOYPATH/talent.html
+
+    - /bin/cp site.css $DEPLOYPATH/site.css
+    - /bin/cp site.js $DEPLOYPATH/site.js
+    - /bin/cp application-theme.css $DEPLOYPATH/application-theme.css
+
+    - /bin/cp app_bootstrap.php $DEPLOYPATH/app_bootstrap.php
+    - /bin/cp check-status.php $DEPLOYPATH/check-status.php
+    - /bin/cp graduate_scholarship.php $DEPLOYPATH/graduate_scholarship.php
+    - /bin/cp primary_scholarship.php $DEPLOYPATH/primary_scholarship.php
+    - /bin/cp secondary_scholarship.php $DEPLOYPATH/secondary_scholarship.php
+    - /bin/cp privacy-policy.php $DEPLOYPATH/privacy-policy.php
+    - /bin/cp success.php $DEPLOYPATH/success.php
+    - /bin/cp process_application.php $DEPLOYPATH/process_application.php
+    - /bin/cp process_nomination.php $DEPLOYPATH/process_nomination.php
+    - /bin/cp process-form.php $DEPLOYPATH/process-form.php
+
+    - /bin/cp -R assets/. $DEPLOYPATH/assets/
+    - /bin/cp -R Images/. $DEPLOYPATH/Images/
+    - /bin/cp -R admin/. $DEPLOYPATH/admin/
+    - /bin/cp -R scholar-portal/. $DEPLOYPATH/scholar-portal/
