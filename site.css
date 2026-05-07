@@ -69,6 +69,35 @@ a {
   text-decoration: none;
 }
 
+
+p,
+li {
+  max-width: 70ch;
+}
+
+.section-header p,
+.hero-sub,
+.section-copy,
+.lead,
+.detail-content p,
+.story-card p,
+.mentor-card p,
+.feature-card p,
+.contact-card p {
+  max-width: 68ch;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #626b83;
+  opacity: 1;
+}
+
 button,
 input,
 select,
@@ -1070,10 +1099,10 @@ button {
   color: var(--gold-bright);
 }
 
-.nav-toggle {
+ .nav-toggle {
   display: none;
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   padding: 0;
   border: 0;
   border-radius: 10px;
@@ -1099,8 +1128,17 @@ button {
 }
 
 .mobile-menu a {
-  padding: 10px 4px;
-  color: rgba(255, 255, 255, 0.82);
+  padding: 12px 8px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .stat-strip {
@@ -1539,5 +1577,67 @@ button {
 
   .tab-buttons {
     border-radius: 18px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .btn,
+  .nav-link-muted,
+  .section-nav a,
+  .section-nav button {
+    min-height: 44px;
+  }
+
+  .hero-title {
+    font-size: clamp(34px, 10vw, 54px);
+    line-height: 1.14;
+  }
+
+  .hero-sub,
+  .section-copy,
+  .lead {
+    font-size: 16px;
+    line-height: 1.72;
+  }
+
+  .detail-content h3 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .btn-row .btn,
+  .hero .btn,
+  .nav-actions .btn,
+  .form-shell .btn {
+    width: 100%;
+  }
+
+  .story-card,
+  .mentor-card,
+  .feature-card,
+  .faq-card,
+  .support-card,
+  .winner-card,
+  .award-card,
+  .contact-card,
+  .panel,
+  .card-inner,
+  .hero-card {
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .mobile-menu {
+    padding: 14px;
+  }
+
+  .brand-copy {
+    font-size: 16px;
   }
 }
