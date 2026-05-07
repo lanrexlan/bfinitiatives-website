@@ -1,0 +1,38 @@
+
+# Secrets
+.env
+*.env
+config.php
+database.php
+db.php
+credentials.php
+secrets.php
+
+# Logs
+*.log
+logs/
+error_log
+
+# Backups and database dumps
+*.sql
+*.sqlite
+*.db
+*.bak
+*.zip
+*.tar
+*.tar.gz
+backups/
+
+# User uploads and private files
+uploads/
+admin/uploads/
+scholar-portal/uploads/
+documents/
+private/
+storage/
+
+# Editor/system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

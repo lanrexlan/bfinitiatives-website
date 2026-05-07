@@ -1,0 +1,104 @@
+<?php
+// Fallback data in case database connection fails
+$success_stories = [
+    [
+        'id' => 1,
+        'slug' => 'opeyemi-owolabi',
+        'full_name' => 'Opeyemi Sodiq Owolabi',
+        'photo' => 'opeyemi.jpg',
+        'university_name' => 'University of Florida',
+        'university_image' => 'uf.jpg',
+        'scholarship_name' => 'Graduate Research Assistantship Award',
+        'program' => 'PhD in Aerospace Engineering',
+        'country' => 'United States of America',
+        'start_year' => 'Fall 2025',
+        'quote' => 'BFI mentors helped me dissect and rebuild my Statement of Purpose to effectively communicate my goals and experience.',
+        'story' => 'Growing up in Lagos, I always had a passion for technology, but limited resources to pursue it at an advanced level. After completing my Master\'s degree at the University of Lagos, I was determined to continue my research in artificial intelligence, but I knew I needed more specialized training and exposure to cutting-edge research.
+
+When I discovered BFI through a friend, I was initially skeptical about my chances of securing an international scholarship. However, their methodical approach to the application process transformed my outlook. The workshops on crafting research proposals were particularly enlightening, helping me articulate my research interests in a way that resonated with the selection committee.
+
+The mock interviews organized by BFI were invaluable. They simulated the actual interview environment so effectively that when I faced the real panel, I felt prepared and confident. The feedback on my personal statement helped me convey not just my academic achievements, but also my personal journey and motivation.
+
+Securing the Graduate Research Assistantship to pursue my PhD at the University of Florida has been life-changing. I\'m currently researching applications of control systems that I hope will create meaningful impact back home.',
+        'background' => 'I am from Agbeye, Odo-Otin L.G.A., Osun State. I earned my Bachelor\'s degree in Electronic and Electrical Engineering from Obafemi Awolowo University in 2024.',
+        'motivation' => 'My passion for research, especially in control systems, has always driven me. Publishing papers during my undergraduate years fueled my curiosity and desire to explore advanced research opportunities abroad.',
+        'achievements' => 'Published research in three peer-reviewed journals
+Developed an AI diagnostic tool for tuberculosis screening
+Awarded the MIT Graduate Teaching Award
+Secured additional research funding from the Gates Foundation',
+        'advice' => 'Be intentional and give yourself enough time, treating the application like a serious project. Ask for feedback and let others review your documents. Don\'t hesitate to reach out to professors through cold emails, as they can open doors. Stay consistent, stay strategic, and make use of mentorship whenever possible.'
+    ],
+    [
+        'id' => 2,
+        'slug' => 'babatunde-adedeji',
+        'full_name' => 'Babatunde Adedeji',
+        'photo' => 'babatunde.jpg',
+        'university_name' => 'Tulane University',
+        'university_image' => 'tulane.jpg',
+        'scholarship_name' => 'Graduate Research Assistantship',
+        'program' => 'PhD in Chemical Engineering',
+        'country' => 'United States of America',
+        'start_year' => 'Fall 2025',
+        'quote' => 'The meetings were detailed, and you can see the mentors pouring themselves out with compassion to help and see the mentees\' breakthrough!',
+        'story' => 'It was a huge privilege to be one of the recipients of Bright Future Initiatives mentorship program 2024. One of my colleagues, who was also a previous recipient, invited me to apply. I applied and was selected.
+
+I finished with a second-class upper graduate of Chemical Engineering - a natural cause of concern for anyone competing for US PhD graduate assistantships. Confidence came after going through a series of training sessions by BFI\'s wonderful mentors. The results were astonishing! I ended up with offers from two top US R1 universities on fully funded scholarships (one master and one Ph.D.). I am admitted into Tulane University for chemical engineering.
+
+The meetings were detailed, and you can see the mentors pouring themselves out with compassion to help and see the mentees\' breakthrough!
+
+This is my BFI story!',
+        'background' => 'I am from Lagos State. I graduated with a second-class upper degree in Chemical Engineering from a Nigerian university.',
+        'motivation' => 'My desire to gain advanced knowledge in chemical engineering and contribute to solving global challenges motivated me to pursue education abroad. I wanted to access cutting-edge research facilities unavailable locally.',
+        'achievements' => 'Secured admission to two R1 universities with full funding
+Presented research at two international conferences
+Published a paper in a respected journal
+Developed a novel approach to sustainable chemical processes',
+        'advice' => 'Don\'t let your grade classification discourage you from applying to top programs. With the right presentation and guidance, you can highlight your strengths effectively. Seek mentorship from experienced individuals who understand the application process. Be open to feedback and willing to revise your materials multiple times to achieve excellence.'
+    ],
+    [
+        'id' => 3,
+        'slug' => 'abdulafeez-tijani',
+        'full_name' => 'Abdulafeez Opeyemi Tijani',
+        'photo' => 'abdulafeez.jpg',
+        'university_name' => 'Auburn University',
+        'university_image' => 'auburn.jpg',
+        'scholarship_name' => 'Graduate Research Assistantship',
+        'program' => 'PhD in Chemical Engineering',
+        'country' => 'United States of America',
+        'start_year' => 'August 2025',
+        'quote' => 'Thanks to BFI mentors and all my undergraduate professors at O.A.U., who never got tired of my recommendation letters for 3 consecutive applications.',
+        'story' => 'My interest in chemical engineering began when I observed the energy challenges in my community. As a first-class graduate, I was determined to contribute to sustainable energy solutions, but I knew I needed specialized education that wasn\'t available locally.
+
+Navigating the American academic system and scholarship requirements seemed overwhelming at first. I\'ve tried graduate school applications twice with little or no results before I came across Bright Future Initiative (BFI) mentorship program. BFI\'s dedicated sessions on graduate school applications clarified the process and helped me identify programs that matched my interests.
+
+The most valuable aspect of BFI\'s support was their assistance with my statement of purpose and academic CV. The workshops helped me refine my research focus on energy systems and sustainability. My mentor at BFI provided cultural insights that prepared me for academic expectations in the American system.
+
+Now at Auburn University, I\'m researching solutions for energy and environmental challenges, with a focus on technologies that can be implemented in Nigeria. The hands-on laboratory experience and industry partnerships available here have expanded my technical skills far beyond what would have been possible without this opportunity.',
+        'background' => 'I hail from Ede, Osun State, Southwestern Part of Nigeria. I graduated with a First Class Honours in Chemical Engineering from Obafemi Awolowo University(O.A.U), Ile-Ife, Osun State, Nigeria, on January 5, 2022.',
+        'motivation' => 'I was motivated to pursue international education to gain access to world-class research facilities, diverse academic perspectives, and cutting-edge training in my field(Chemical Engineering). Studying abroad, especially in the United States of America, will offer me exposure to global best practices, interdisciplinary collaboration, and the opportunity to develop solutions to real-world challenges, particularly in energy systems, sustainability, and climate change.',
+        'achievements' => 'First Class Honours graduate in Chemical Engineering
+Research experience in renewable energy systems
+Recipient of undergraduate academic excellence award
+Developed a prototype for sustainable water treatment',
+        'advice' => 'My advice is to start early, stay organized, and never underestimate the power of preparation. Take time to research programs that align with your goals, craft a strong personal statement/Statement of Purpose(SOP), and reach out to current students or mentors for guidance. Don\'t let financial or environmental limitations discourage you--there are scholarships and mentorship programs like BFI that can support you. Remain consistent, be open to feedback, and believe in your potential. With persistence and the right support, your dream of studying abroad is achievable.'
+    ]
+];
+
+// Get the selected story details if story parameter is provided
+if ($selected_story) {
+    foreach ($success_stories as $story) {
+        if ($story['slug'] === $selected_story) {
+            $story_details = $story;
+            break;
+        }
+    }
+    
+    // Get related stories (excluding the current one)
+    $related_stories = [];
+    foreach ($success_stories as $story) {
+        if ($story['slug'] !== $selected_story && count($related_stories) < 3) {
+            $related_stories[] = $story;
+        }
+    }
+}
+?>

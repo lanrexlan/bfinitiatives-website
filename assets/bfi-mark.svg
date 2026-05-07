@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Bold Footprint Initiatives brand mark</title>
+  <desc id="desc">A navy square brand mark with gold accents and the initials BFI.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D2B5C"/>
+      <stop offset="100%" stop-color="#174A8A"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4A017"/>
+      <stop offset="100%" stop-color="#F0C55A"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <path d="M26 86c18-2 29-14 33-35 8 11 21 19 40 22" fill="none" stroke="url(#gold)" stroke-linecap="round" stroke-width="9"/>
+  <path d="M34 39c8-7 18-10 29-10 15 0 28 6 38 18" fill="none" stroke="#FAFAF7" stroke-linecap="round" stroke-width="8" opacity=".92"/>
+  <circle cx="42" cy="92" r="7" fill="#F5E9DA" opacity=".85"/>
+  <circle cx="90" cy="32" r="6" fill="#D4A017" opacity=".9"/>
+  <text x="64" y="74" text-anchor="middle" font-family="Outfit, Montserrat, sans-serif" font-size="34" font-weight="800" fill="#FAFAF7" letter-spacing="1">BFI</text>
+</svg>
