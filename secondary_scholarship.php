@@ -1671,7 +1671,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     </style>
     <link rel="stylesheet" href="site.css?v=20260507">
-  <link rel="stylesheet" href="/mobile-fixes.css?v=20260507">
+  <link rel="stylesheet" href="/mobile-fixes.css?v=20260507b">
     <link rel="stylesheet" href="application-theme.css">
     <script defer src="site.js?v=20260507"></script>
 </head>

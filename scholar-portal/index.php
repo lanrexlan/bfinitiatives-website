@@ -194,7 +194,7 @@ if (isset($_SESSION['user_id'])) {
     }
 
   </style>
-  <link rel="stylesheet" href="/mobile-fixes.css?v=20260507">
+  <link rel="stylesheet" href="/mobile-fixes.css?v=20260507b">
 </head>
 <body>
 
