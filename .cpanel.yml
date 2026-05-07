@@ -2,42 +2,53 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/bfinitia/public_html/
+    - /bin/mkdir -p $DEPLOYPATH
 
-    # Main website files
-    - /bin/cp index.html $DEPLOYPATH
-    - /bin/cp about.html $DEPLOYPATH
-    - /bin/cp achievements.html $DEPLOYPATH
-    - /bin/cp apply.html $DEPLOYPATH
-    - /bin/cp apply_scholarship.html $DEPLOYPATH
-    - /bin/cp BFI_Talent.html $DEPLOYPATH
-    - /bin/cp contact.html $DEPLOYPATH
-    - /bin/cp faq.html $DEPLOYPATH
-    - /bin/cp mentor.html $DEPLOYPATH
-    - /bin/cp partnership.html $DEPLOYPATH
-    - /bin/cp programs.html $DEPLOYPATH
-    - /bin/cp stories.html $DEPLOYPATH
-    - /bin/cp success-stories.html $DEPLOYPATH
-    - /bin/cp success-stories-detail.html $DEPLOYPATH
-    - /bin/cp support.html $DEPLOYPATH
-    - /bin/cp talent.html $DEPLOYPATH
-    - /bin/cp talent-application.html $DEPLOYPATH
-    - /bin/cp talent-nomination.html $DEPLOYPATH
+    # Main website pages
+    - if [ -f index.html ]; then /bin/cp index.html $DEPLOYPATH; fi
+    - if [ -f about.html ]; then /bin/cp about.html $DEPLOYPATH; fi
+    - if [ -f achievements.html ]; then /bin/cp achievements.html $DEPLOYPATH; fi
+    - if [ -f apply.html ]; then /bin/cp apply.html $DEPLOYPATH; fi
+    - if [ -f apply_scholarship.html ]; then /bin/cp apply_scholarship.html $DEPLOYPATH; fi
+    - if [ -f BFI_Talent.html ]; then /bin/cp BFI_Talent.html $DEPLOYPATH; fi
+    - if [ -f contact.html ]; then /bin/cp contact.html $DEPLOYPATH; fi
+    - if [ -f faq.html ]; then /bin/cp faq.html $DEPLOYPATH; fi
+    - if [ -f mentor.html ]; then /bin/cp mentor.html $DEPLOYPATH; fi
+    - if [ -f partnership.html ]; then /bin/cp partnership.html $DEPLOYPATH; fi
+    - if [ -f programs.html ]; then /bin/cp programs.html $DEPLOYPATH; fi
+    - if [ -f stories.html ]; then /bin/cp stories.html $DEPLOYPATH; fi
+    - if [ -f success-stories.html ]; then /bin/cp success-stories.html $DEPLOYPATH; fi
+    - if [ -f success-stories-detail.html ]; then /bin/cp success-stories-detail.html $DEPLOYPATH; fi
+    - if [ -f support.html ]; then /bin/cp support.html $DEPLOYPATH; fi
+    - if [ -f talent.html ]; then /bin/cp talent.html $DEPLOYPATH; fi
+    - if [ -f talent-application.html ]; then /bin/cp talent-application.html $DEPLOYPATH; fi
+    - if [ -f talent-nomination.html ]; then /bin/cp talent-nomination.html $DEPLOYPATH; fi
 
     # Shared CSS and JavaScript
-    - /bin/cp site.css $DEPLOYPATH
-    - /bin/cp site.js $DEPLOYPATH
+    - if [ -f site.css ]; then /bin/cp site.css $DEPLOYPATH; fi
+    - if [ -f site.js ]; then /bin/cp site.js $DEPLOYPATH; fi
+    - if [ -f application-theme.css ]; then /bin/cp application-theme.css $DEPLOYPATH; fi
 
-    # PHP files
-    - /bin/cp check-status.php $DEPLOYPATH
-    - /bin/cp graduate_scholarship.php $DEPLOYPATH
-    - /bin/cp primary_scholarship.php $DEPLOYPATH
-    - /bin/cp secondary_scholarship.php $DEPLOYPATH
-    - /bin/cp privacy-policy.php $DEPLOYPATH
-    - /bin/cp success.php $DEPLOYPATH
+    # PHP pages and backend handlers
+    - if [ -f app_bootstrap.php ]; then /bin/cp app_bootstrap.php $DEPLOYPATH; fi
+    - if [ -f check-status.php ]; then /bin/cp check-status.php $DEPLOYPATH; fi
+    - if [ -f graduate_scholarship.php ]; then /bin/cp graduate_scholarship.php $DEPLOYPATH; fi
+    - if [ -f primary_scholarship.php ]; then /bin/cp primary_scholarship.php $DEPLOYPATH; fi
+    - if [ -f secondary_scholarship.php ]; then /bin/cp secondary_scholarship.php $DEPLOYPATH; fi
+    - if [ -f privacy-policy.php ]; then /bin/cp privacy-policy.php $DEPLOYPATH; fi
+    - if [ -f success.php ]; then /bin/cp success.php $DEPLOYPATH; fi
+    - if [ -f process_application.php ]; then /bin/cp process_application.php $DEPLOYPATH; fi
+    - if [ -f process_nomination.php ]; then /bin/cp process_nomination.php $DEPLOYPATH; fi
+    - if [ -f process-form.php ]; then /bin/cp process-form.php $DEPLOYPATH; fi
 
-    # Asset folders, only if they exist in the repo
+    # Public asset folders
+    - if [ -d assets ]; then /bin/cp -R assets $DEPLOYPATH; fi
     - if [ -d Images ]; then /bin/cp -R Images $DEPLOYPATH; fi
     - if [ -d images ]; then /bin/cp -R images $DEPLOYPATH; fi
-    - if [ -d assets ]; then /bin/cp -R assets $DEPLOYPATH; fi
     - if [ -d css ]; then /bin/cp -R css $DEPLOYPATH; fi
     - if [ -d js ]; then /bin/cp -R js $DEPLOYPATH; fi
+    - if [ -d fonts ]; then /bin/cp -R fonts $DEPLOYPATH; fi
+
+    # Admin and scholar portal folders
+    - if [ -d admin ]; then /bin/cp -R admin $DEPLOYPATH; fi
+    - if [ -d scholar-portal ]; then /bin/cp -R scholar-portal $DEPLOYPATH; fi
