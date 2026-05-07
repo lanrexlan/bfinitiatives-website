@@ -1199,12 +1199,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['schedule_session'])) 
         <!-- Footer -->
         <footer class="footer">
             <div class="footer-copyright">
-                © 2024 Bright Future Initiatives. All rights reserved.
+                © 2024 Bold Footprint Initiatives. All rights reserved.
             </div>
             <div class="footer-links">
                 <a href="/"><i class="fas fa-home me-2"></i>Home</a>
                 <a href="/about.html"><i class="fas fa-info-circle me-2"></i>About Us</a>
-                <a href="/our_programs.html"><i class="fas fa-graduation-cap me-2"></i>Programs</a>
+                <a href="/programs.html"><i class="fas fa-graduation-cap me-2"></i>Programs</a>
             </div>
         </footer>
     </div>

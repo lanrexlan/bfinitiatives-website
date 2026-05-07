@@ -405,7 +405,7 @@ try {
 <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <img src="/Images/BFI_Logo.png" alt="BFI Logo" class="navbar-logo">
+                <img src="/Images/bfi-new-logo.svg" alt="BFI Logo" class="navbar-logo">
                 BFI Admin Portal
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

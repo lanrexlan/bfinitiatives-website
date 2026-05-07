@@ -8,7 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="/Images/bfi-new-logo.svg">
     <link rel="shortcut icon" href="/Images/bfi-new-logo.svg">
-    <title>Application Submitted - Bright Future Initiatives</title>
+    <title>Application Submitted - Bold Footprint Initiatives</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -733,8 +733,8 @@ session_start();
         <div class="container">
             <div class="nav-wrapper">
                 <a href="index.html" class="logo">
-                    <div class="logo-icon"><img src="/Images/BFI_Logo.png"></div>
-                    <div class="logo-text">Bright Future Initiatives</div>
+                    <div class="logo-icon"><img src="/Images/bfi-new-logo.svg"></div>
+                    <div class="logo-text">Bold Footprint Initiatives</div>
                 </a>
                 
                 <div class="menu-toggle" id="menuToggle">
@@ -746,8 +746,8 @@ session_start();
                     <li><a href="about.html" class="nav-link">About Us</a></li>
                     <li><a href="programs.html" class="nav-link">Our Programs</a></li>
                     <li><a href="talent.html" class="nav-link">BFI Talent of the Year</a></li>
-                    <li><a href="/scholar-portal/index.php" class="nav-link">Scholar Portal</a></li>
-                    <li><a href="/admin/index.php" class="nav-link">Admin Portal</a></li>
+                    <li><a href="/scholar-portal/" class="nav-link">Scholar Portal</a></li>
+                    <li><a href="/admin/admin-login.php" class="nav-link">Admin Portal</a></li>
                 </ul>
             </div>
         </div>
@@ -760,8 +760,8 @@ session_start();
             <li><a href="about.html" class="mobile-link">About Us</a></li>
             <li><a href="programs.html" class="mobile-link">Our Programs</a></li>
             <li><a href="talent.html" class="mobile-link">BFI Talent of the Year</a></li>
-            <li><a href="/scholar-portal/index.php" class="mobile-link">Scholar Portal</a></li>
-            <li><a href="/admin/index.php" class="mobile-link">Admin Portal</a></li>
+            <li><a href="/scholar-portal/" class="mobile-link">Scholar Portal</a></li>
+            <li><a href="/admin/admin-login.php" class="mobile-link">Admin Portal</a></li>
         </ul>
         <div class="mobile-buttons">
             <a href="apply.html" class="btn btn-primary">Apply for Scholarship</a>
@@ -847,13 +847,13 @@ session_start();
             <div class="footer-content">
                 <div class="footer-logo">
                     <div class="footer-brand">
-                        <div class="footer-brand-text">Bright Future Initiatives</div>
+                        <div class="footer-brand-text">Bold Footprint Initiatives</div>
                     </div>
                     <p class="footer-slogan">Empowering dreams through education</p>
                     <div class="footer-socials">
                         <a href="https://web.facebook.com/profile.php?id=61574771032448" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://x.com/BFIniatiatives" class="social-link"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/bfinitiatives" class="social-link" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/company/bright-future-initiative" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -881,7 +881,7 @@ session_start();
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Bright Future Initiatives. All rights reserved.</p>
+                <p>&copy; 2024 Bold Footprint Initiatives. All rights reserved.</p>
             </div>
         </div>
     </footer>

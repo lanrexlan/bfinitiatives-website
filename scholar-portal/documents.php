@@ -731,11 +731,11 @@ $vault_pct   = $vault_total > 0 ? round(($vault_done/$vault_total)*100) : 0;
 
 <!-- FOOTER -->
 <footer class="portal-footer">
-  <div class="footer-copy">&copy; <?= date('Y') ?> Bright Future Initiatives. All rights reserved.</div>
+  <div class="footer-copy">&copy; <?= date('Y') ?> Bold Footprint Initiatives. All rights reserved.</div>
   <div class="footer-links">
     <a href="/"><i class="fas fa-home" style="font-size:10px;margin-right:4px;"></i>Main Site</a>
     <a href="/about.html">About Us</a>
-    <a href="/our_programs.html">Programs</a>
+    <a href="/programs.html">Programs</a>
     <a href="/contact.html">Contact</a>
   </div>
 </footer>

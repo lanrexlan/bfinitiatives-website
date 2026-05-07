@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h5>Bright Future Initiatives</h5>
+                    <h5>Bold Footprint Initiatives</h5>
                     <p>Empowering dreams through education</p>
                 </div>
                 <div class="col-md-4">
@@ -22,7 +22,7 @@
             </div>
             <div class="row mt-3">
                 <div class="col-12 text-center">
-                    <p class="mb-0">&copy; 2024 Bright Future Initiative. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2024 Bold Footprint Initiatives. All rights reserved.</p>
                 </div>
             </div>
         </div>

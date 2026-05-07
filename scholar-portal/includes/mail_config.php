@@ -29,9 +29,9 @@ function sendVerificationEmail($userEmail, $firstName, $verificationToken) {
         
         $mail->Body = "
             <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
-                <h2>Welcome to Bright Future Initiative!</h2>
+                <h2>Welcome to Bold Footprint Initiatives!</h2>
                 <p>Dear {$firstName},</p>
-                <p>Thank you for registering with Bright Future Initiative. To complete your registration, please verify your email address by clicking the button below:</p>
+                <p>Thank you for registering with Bold Footprint Initiatives. To complete your registration, please verify your email address by clicking the button below:</p>
                 <p style='text-align: center;'>
                     <a href='{$verificationLink}' 
                        style='display: inline-block; padding: 12px 24px; background-color: #3498db; 

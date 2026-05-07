@@ -2226,7 +2226,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="footer-socials">
                         <a href="https://web.facebook.com/profile.php?id=61574771032448" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://x.com/BFIniatiatives" class="social-link"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/bfinitiatives" class="social-link" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/company/bright-future-initiative" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>

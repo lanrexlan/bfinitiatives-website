@@ -154,7 +154,7 @@ try {
     // Send confirmation email to applicant
     $applicantSubject = 'Thank You for Your Mentor Application';
     $applicantMessage = "Dear $fullName,\n\n";
-    $applicantMessage .= "Thank you for your application to become a mentor with Bright Future Initiatives. ";
+    $applicantMessage .= "Thank you for your application to become a mentor with Bold Footprint Initiatives. ";
     $applicantMessage .= "We have received your application and our team will review it shortly.\n\n";
     $applicantMessage .= "We appreciate your interest in our mentorship program and will contact you soon ";
     $applicantMessage .= "regarding the next steps.\n\n";

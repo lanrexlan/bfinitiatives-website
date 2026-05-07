@@ -232,7 +232,7 @@ function sendDocumentUploadNotificationToAdmin($scholarName, $scholarEmail, $doc
                     <tr>
                         <td style="background: #f8fafc; padding: 20px; text-align: center; border-top: 1px solid #e2e8f0;">
                             <p style="margin: 0 0 5px; font-size: 13px; color: #1e293b; font-weight: 600;">
-                                Bright Future Initiatives
+                                Bold Footprint Initiatives
                             </p>
                             <p style="margin: 0 0 5px; font-size: 12px; color: #64748b;">
                                 Scholar Portal Admin System
@@ -243,7 +243,7 @@ function sendDocumentUploadNotificationToAdmin($scholarName, $scholarEmail, $doc
                                 <a href="https://bfinitiatives.com/scholar-portal/admin-document-review.php" style="color: #4361ee; text-decoration: none; margin: 0 8px;">Document Review</a>
                             </p>
                             <p style="margin: 10px 0 0; font-size: 11px; color: #94a3b8;">
-                                © ' . date('Y') . ' Bright Future Initiatives. All rights reserved.
+                                © ' . date('Y') . ' Bold Footprint Initiatives. All rights reserved.
                             </p>
                         </td>
                     </tr>
@@ -502,7 +502,7 @@ function sendDocumentUploadConfirmationToScholar($scholarEmail, $scholarName, $d
                     <tr>
                         <td style="background: #f8fafc; padding: 20px; text-align: center; border-top: 1px solid #e2e8f0;">
                             <p style="margin: 0 0 5px; font-size: 13px; color: #1e293b; font-weight: 600;">
-                                Bright Future Initiatives
+                                Bold Footprint Initiatives
                             </p>
                             <p style="margin: 0 0 5px; font-size: 12px; color: #64748b;">
                                 Empowering scholars to achieve their academic dreams
@@ -513,7 +513,7 @@ function sendDocumentUploadConfirmationToScholar($scholarEmail, $scholarName, $d
                                 <a href="https://bfinitiatives.com/contact.php" style="color: #4361ee; text-decoration: none; margin: 0 8px;">Contact Us</a>
                             </p>
                             <p style="margin: 10px 0 0; font-size: 11px; color: #94a3b8;">
-                                © ' . date('Y') . ' Bright Future Initiatives. All rights reserved.
+                                © ' . date('Y') . ' Bold Footprint Initiatives. All rights reserved.
                             </p>
                         </td>
                     </tr>
@@ -542,7 +542,7 @@ function sendDocumentUploadConfirmationToScholar($scholarEmail, $scholarName, $d
     $plainTextBody .= "View your documents: https://bfinitiatives.com/scholar-portal/documents.php\n\n";
     $plainTextBody .= "If you have questions, contact us at info@bfinitiatives.com\n\n";
     $plainTextBody .= "Best regards,\n";
-    $plainTextBody .= "Bright Future Initiatives Team";
+    $plainTextBody .= "Bold Footprint Initiatives Team";
 
     // Send the email
     return sendEmail($scholarEmail, $subject, $emailBody, $scholarName);

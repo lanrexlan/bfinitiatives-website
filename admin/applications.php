@@ -165,7 +165,7 @@ $admin_role       = ucfirst($_SESSION['admin_role'] ?? 'Administrator');
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Applications | BFI Admin Portal</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="/Images/BFI_Logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Images/bfi-new-logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -740,7 +740,7 @@ $admin_role       = ucfirst($_SESSION['admin_role'] ?? 'Administrator');
   <div class="footer-copy">&copy; 2026 Bold Footprint Initiatives. Admin Portal.</div>
   <div class="footer-links">
     <a href="/index.html"><i class="fas fa-home" style="font-size:10px;margin-right:3px;"></i> Main Site</a>
-    <a href="/scholar-portal/index.php">Scholar Portal</a>
+    <a href="/scholar-portal/">Scholar Portal</a>
     <a href="reports.php">Reports</a>
   </div>
 </footer>
