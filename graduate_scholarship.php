@@ -1879,6 +1879,84 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
 
+
+        /* Scholarship mobile card layout hotfix */
+        @media (max-width: 768px) {
+            .page-hero[class*="application-track-"] .page-hero-grid,
+            .application-section .application-intro-grid,
+            .page-hero[class*="application-track-"] .hero-metric-list {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+            }
+
+            .page-hero[class*="application-track-"] .application-hero-card,
+            .page-hero[class*="application-track-"] .hero-metric,
+            .application-section .application-aside-card,
+            .application-section .application-overview-card {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+            }
+
+            .page-hero[class*="application-track-"] .hero-metric,
+            .application-section .application-aside-card,
+            .application-section .application-overview-card {
+                padding: 1rem !important;
+                overflow: hidden;
+            }
+
+            .page-hero[class*="application-track-"] .hero-metric strong,
+            .page-hero[class*="application-track-"] .hero-metric span,
+            .application-section .application-aside-card p,
+            .application-section .application-overview-card p,
+            .application-section .application-aside-card li {
+                overflow-wrap: anywhere;
+                word-break: break-word;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero[class*="application-track-"] .application-hero-card,
+            .page-hero[class*="application-track-"] .hero-metric,
+            .application-section .application-aside-card,
+            .application-section .application-overview-card {
+                padding: 0.9rem !important;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .page-hero[class*="application-track-"] .application-hero-card h3,
+            .page-hero[class*="application-track-"] .hero-metric strong,
+            .application-section .application-aside-card h3,
+            .application-section .application-overview-card h3 {
+                font-size: clamp(1rem, 4.6vw, 1.25rem) !important;
+                line-height: 1.3;
+            }
+
+            .page-hero[class*="application-track-"] .hero-card-label {
+                letter-spacing: 0.04em !important;
+                font-size: 0.72rem !important;
+            }
+
+            .page-hero[class*="application-track-"] .hero-metric,
+            .application-section .application-aside-card,
+            .application-section .application-overview-card {
+                padding: 0.8rem !important;
+            }
+
+            .page-hero[class*="application-track-"] .hero-metric span,
+            .page-hero[class*="application-track-"] .hero-metric strong,
+            .application-section .application-aside-card p,
+            .application-section .application-overview-card p,
+            .application-section .application-aside-card li {
+                font-size: 0.94rem !important;
+                line-height: 1.55;
+            }
+        }
+
     </style>
     <link rel="stylesheet" href="site.css?v=20260507">
   <link rel="stylesheet" href="/mobile-fixes.css?v=20260507b">
