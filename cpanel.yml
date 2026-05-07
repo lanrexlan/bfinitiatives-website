@@ -1,0 +1,43 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/bfinitia/public_html/
+
+    # Main website files
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp about.html $DEPLOYPATH
+    - /bin/cp achievements.html $DEPLOYPATH
+    - /bin/cp apply.html $DEPLOYPATH
+    - /bin/cp apply_scholarship.html $DEPLOYPATH
+    - /bin/cp BFI_Talent.html $DEPLOYPATH
+    - /bin/cp contact.html $DEPLOYPATH
+    - /bin/cp faq.html $DEPLOYPATH
+    - /bin/cp mentor.html $DEPLOYPATH
+    - /bin/cp partnership.html $DEPLOYPATH
+    - /bin/cp programs.html $DEPLOYPATH
+    - /bin/cp stories.html $DEPLOYPATH
+    - /bin/cp success-stories.html $DEPLOYPATH
+    - /bin/cp success-stories-detail.html $DEPLOYPATH
+    - /bin/cp support.html $DEPLOYPATH
+    - /bin/cp talent.html $DEPLOYPATH
+    - /bin/cp talent-application.html $DEPLOYPATH
+    - /bin/cp talent-nomination.html $DEPLOYPATH
+
+    # Shared CSS and JavaScript
+    - /bin/cp site.css $DEPLOYPATH
+    - /bin/cp site.js $DEPLOYPATH
+
+    # PHP files
+    - /bin/cp check-status.php $DEPLOYPATH
+    - /bin/cp graduate_scholarship.php $DEPLOYPATH
+    - /bin/cp primary_scholarship.php $DEPLOYPATH
+    - /bin/cp secondary_scholarship.php $DEPLOYPATH
+    - /bin/cp privacy-policy.php $DEPLOYPATH
+    - /bin/cp success.php $DEPLOYPATH
+
+    # Asset folders, only if they exist in the repo
+    - if [ -d Images ]; then /bin/cp -R Images $DEPLOYPATH; fi
+    - if [ -d images ]; then /bin/cp -R images $DEPLOYPATH; fi
+    - if [ -d assets ]; then /bin/cp -R assets $DEPLOYPATH; fi
+    - if [ -d css ]; then /bin/cp -R css $DEPLOYPATH; fi
+    - if [ -d js ]; then /bin/cp -R js $DEPLOYPATH; fi
