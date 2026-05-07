@@ -15,9 +15,13 @@ header('Content-Type: application/json');
 // Include database connection
 require_once 'includes/config.php';
 require_once 'includes/db.php';
+require_once 'includes/csrf.php';
 
 // Handle user status update
 try {
+    if (!bfi_validate_csrf_post()) {
+        throw new Exception('Invalid request');
+    }
     // Validate required fields
     if (empty($_POST['user_id']) || empty($_POST['new_status'])) {
         throw new Exception('Missing required fields');

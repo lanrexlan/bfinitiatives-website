@@ -4,6 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 require_once 'includes/config.php';
 require_once 'includes/db.php';
+require_once 'includes/csrf.php';
 require_once 'includes/functions.php';
 
 
@@ -54,7 +55,13 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_token'])) {
                 if ($remember_token) {
                     $cookie_value = $user['id'] . ':' . $remember_token;
                     error_log("Setting remember token cookie: " . $cookie_value);
-                    setcookie('remember_token', $cookie_value, time() + (86400 * 30), '/', '', true, true);
+                    setcookie('remember_token', $cookie_value, [
+                        'expires' => time() + (86400 * 30),
+                        'path' => '/',
+                        'secure' => true,
+                        'httponly' => true,
+                        'samesite' => 'Lax'
+                    ]);
                     error_log("Cookie set result: " . (isset($_COOKIE['remember_token']) ? 'Yes' : 'No'));
                 }
             }
@@ -66,7 +73,13 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_token'])) {
             }
             exit();
         } else {
-            setcookie('remember_token', '', time() - 3600, '/');
+            setcookie('remember_token', '', [
+                'expires' => time() - 3600,
+                'path' => '/',
+                'secure' => true,
+                'httponly' => true,
+                'samesite' => 'Lax'
+            ]);
         }
     } catch (PDOException $e) {
         error_log("Remember token check failed: " . $e->getMessage());
@@ -88,6 +101,9 @@ if (isset($_SESSION['user_id'])) {
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (!bfi_validate_csrf_post()) {
+        $error = 'Invalid request. Please refresh and try again.';
+    } else {
     $email = trim($_POST['email']);
     $password = $_POST['password'];
     try {
@@ -124,7 +140,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (isset($_POST['remember']) && $_POST['remember'] == 'on') {
                     $remember_token = createRememberMeToken($user['id']);
                     if ($remember_token) {
-                        setcookie('remember_token', $user['id'] . ':' . $remember_token, time() + (86400 * 30), '/', '', true, true);
+                        setcookie('remember_token', $user['id'] . ':' . $remember_token, [
+                            'expires' => time() + (86400 * 30),
+                            'path' => '/',
+                            'secure' => true,
+                            'httponly' => true,
+                            'samesite' => 'Lax'
+                        ]);
                     }
                 }
                 $update_stmt = $conn->prepare("UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = $1");
@@ -146,6 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         error_log("Login error: " . $e->getMessage());
         $error = 'Database error occurred';
     }
+}
 }
 ?>
 <!DOCTYPE html>
@@ -279,6 +302,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <?php endif; ?>
 
   <form method="POST" action="login.php">
+    <?php echo bfi_csrf_field(); ?>
     <div class="form-group">
       <label class="form-label" for="email">Email Address</label>
       <div class="input-wrap">

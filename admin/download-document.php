@@ -21,7 +21,7 @@ try {
     $conn = $db->getConnection();
 
     $stmt = $conn->prepare("SELECT file_name,document_type FROM user_documents WHERE id=:id");
-    $stmt->execute([':doc_id'=>$document_id]);
+    $stmt->execute([':id'=>$document_id]);
     $document = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$document) {
@@ -30,23 +30,30 @@ try {
     }
 
     $docRoot   = rtrim($_SERVER['DOCUMENT_ROOT']??'','/\\');
-    $file_path = $docRoot.'/scholar-portal/uploads/documents/'.$document['file_name'];
+    $safe_file_name = basename($document['file_name']);
+    $uploads_dir = realpath($docRoot.'/scholar-portal/uploads/documents');
+    if ($uploads_dir === false) {
+        throw new Exception('Uploads directory unavailable');
+    }
+    $file_path = $uploads_dir . DIRECTORY_SEPARATOR . $safe_file_name;
+    $resolved_file_path = realpath($file_path);
 
     // Try alternative paths if needed
-    if (!file_exists($file_path)) {
+    if ($resolved_file_path === false || strpos($resolved_file_path, $uploads_dir . DIRECTORY_SEPARATOR) !== 0 || !is_file($resolved_file_path)) {
         $alts = [
             $docRoot.'/uploads/documents/'.$document['file_name'],
             dirname(__FILE__).'/uploads/documents/'.$document['file_name'],
             '../uploads/documents/'.$document['file_name'],
         ];
         foreach ($alts as $alt) {
-            if (file_exists($alt)) { $file_path=$alt; break; }
+            $resolved_alt = realpath($alt);
+                if ($resolved_alt && strpos($resolved_alt, $uploads_dir . DIRECTORY_SEPARATOR) === 0 && is_file($resolved_alt)) { $resolved_file_path=$resolved_alt; break; }
         }
     }
 
-    if (!file_exists($file_path)) {
-        error_log("File not found: $file_path");
-        $_SESSION['error_message'] = "File not found on server. Path checked: $file_path";
+    if ($resolved_file_path === false) {
+        error_log('Requested document file was not found.');
+        $_SESSION['error_message'] = 'File not found on server.';
         header('Location: admin-document-review.php?id='.$document_id); exit();
     }
 
@@ -57,7 +64,7 @@ try {
              ->execute([':di'=>$document_id,':ui'=>$_SESSION['admin_id']??0,':ip'=>$_SERVER['REMOTE_ADDR']]);
     } catch (Exception $e) { error_log("Log failed: ".$e->getMessage()); }
 
-    $ext = strtolower(pathinfo($file_path,PATHINFO_EXTENSION));
+    $ext = strtolower(pathinfo($resolved_file_path,PATHINFO_EXTENSION));
     $mime_map = [
         'pdf'=>'application/pdf','doc'=>'application/msword',
         'docx'=>'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
@@ -69,15 +76,15 @@ try {
     while (ob_get_level()) ob_end_clean();
     header('Content-Type: '.$content_type);
     header('Content-Disposition: attachment; filename="'.basename($document['file_name']).'"');
-    header('Content-Length: '.filesize($file_path));
+    header('Content-Length: '.filesize($resolved_file_path));
     header('Cache-Control: no-cache, must-revalidate');
     header('Expires: 0');
-    readfile($file_path);
+    readfile($resolved_file_path);
     exit;
 
 } catch (Exception $e) {
     error_log("download-document.php: ".$e->getMessage());
-    $_SESSION['error_message'] = "Download error: ".$e->getMessage();
+    $_SESSION['error_message'] = 'Unable to download document at this time.';
     header('Location: admin-document-review.php'); exit();
 }
 ?>

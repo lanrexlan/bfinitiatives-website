@@ -2,10 +2,13 @@
 session_start();
 ini_set('error_log', 'my_custom_error.log');
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+ini_set('log_errors', 1);
 
 require_once 'includes/config.php';
 require_once 'includes/db.php';
+require_once 'includes/csrf.php';
 
 if (!function_exists('isAdminLoggedIn')) {
     function isAdminLoggedIn() {
@@ -21,6 +24,9 @@ if (isAdminLoggedIn()) {
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (!bfi_validate_csrf_post()) {
+        $error = 'Invalid request. Please refresh and try again.';
+    } else {
     $email = trim($_POST['email']);
     $password = $_POST['password'];
     try {
@@ -61,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         error_log("Admin login error: " . $e->getMessage());
         $error = 'An error occurred during login. Please try again.';
     }
+}
 }
 ?>
 <!DOCTYPE html>
@@ -228,6 +235,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <div class="alert alert-info"><i class="fas fa-info-circle"></i><span>New administrators with an authorised email will be redirected to account setup on first sign-in.</span></div>
 
       <form method="POST" action="admin-login.php">
+        <?php echo bfi_csrf_field(); ?>
         <div class="form-group">
           <label for="email" class="form-label">Email Address</label>
           <div class="input-wrap">
