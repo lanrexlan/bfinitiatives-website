@@ -40,6 +40,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 [id] {
@@ -252,6 +253,22 @@ button {
 .grid-4 {
   display: grid;
   gap: 24px;
+}
+
+.grid-2 > *,
+.grid-3 > *,
+.grid-4 > *,
+.split-layout > *,
+.feature-split > *,
+.story-detail > *,
+.detail-grid > *,
+.detail-pillars > *,
+.stat-strip-grid > *,
+.metric-grid > *,
+.footer-grid > *,
+.form-grid > *,
+.hero-grid > * {
+  min-width: 0;
 }
 
 .grid-2 {
@@ -1103,13 +1120,40 @@ button {
   display: none;
   width: 46px;
   height: 46px;
-  padding: 0;
-  border: 0;
+  min-width: 46px;
+  min-height: 46px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   align-items: center;
   justify-content: center;
   color: var(--white);
+  font-size: 0;
+  line-height: 0;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--white);
+  transition: transform var(--transition), opacity var(--transition), background var(--transition);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .mobile-menu {
@@ -1531,6 +1575,24 @@ button {
   }
 }
 
+@media (max-width: 900px) {
+  .hero-grid,
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .split-layout,
+  .feature-split,
+  .story-detail,
+  .detail-grid,
+  .detail-pillars,
+  .stat-strip-grid,
+  .metric-grid,
+  .footer-grid,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 560px) {
   .section,
   .section-compact {
@@ -1542,8 +1604,8 @@ button {
   }
 
   .brand-mark {
-    width: 58px;
-    height: 58px;
+    width: 52px;
+    height: 52px;
     border-radius: 16px;
     padding: 7px;
   }
@@ -1639,5 +1701,52 @@ button {
 
   .brand-copy {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 540px) {
+  .brand {
+    min-width: 0;
+    max-width: calc(100% - 64px);
+  }
+
+  .brand-copy {
+    min-width: 0;
+    max-width: 100%;
+    font-size: 16px;
+    overflow-wrap: anywhere;
+  }
+
+  .story-showcase-head p,
+  .section-nav a,
+  .section-nav button {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-title {
+    font-size: clamp(28px, 9.5vw, 36px);
+    line-height: 1.15;
+  }
+
+  p,
+  li,
+  .hero-sub,
+  .section-copy,
+  .lead {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .eyebrow,
+  .section-nav a,
+  .section-nav button {
+    letter-spacing: 0.08em;
+  }
+
+  .brand-mark {
+    width: 48px;
+    height: 48px;
   }
 }

@@ -388,7 +388,7 @@ if ($application) {
                     <a href="contact.html" class="nav-link-muted">Contact</a>
                     <a href="check-status.php" class="btn btn-primary">Check status</a>
                 </div>
-                <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Open navigation">Menu</button>
+                <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
             </div>
             <div class="mobile-menu" data-mobile-menu>
                 <a href="about.html">About</a>

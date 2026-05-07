@@ -1620,6 +1620,55 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 max-width: 150px;
             }
         }
+
+        @media (max-width: 900px) {
+            .page-hero-grid,
+            .application-intro-grid,
+            .application-split,
+            .application-hero-card,
+            .hero-metric-list,
+            .hero-chip-row,
+            .form-grid,
+            .detail-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .page-hero-content,
+            .application-hero-card,
+            .form-card,
+            .application-aside-card,
+            .hero-metric,
+            .btn,
+            .button,
+            button[type="submit"] {
+                width: 100%;
+                max-width: 100%;
+                min-width: 0;
+            }
+
+            .page-hero-title,
+            .hero-card-label,
+            .hero-metric strong,
+            .hero-metric span {
+                overflow-wrap: anywhere;
+                word-break: break-word;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .page-hero-title {
+                font-size: clamp(1.8rem, 8.8vw, 2.2rem) !important;
+                line-height: 1.2;
+            }
+
+            .page-hero-subtitle,
+            p,
+            li {
+                font-size: 15px;
+                line-height: 1.65;
+            }
+        }
+
     </style>
     <link rel="stylesheet" href="site.css">
     <link rel="stylesheet" href="application-theme.css">
