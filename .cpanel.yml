@@ -35,10 +35,10 @@ deployment:
     - /bin/cp process_application.php $DEPLOYPATH/process_application.php
     - /bin/cp process_nomination.php $DEPLOYPATH/process_nomination.php
     - /bin/cp process-form.php $DEPLOYPATH/process-form.php
+    - /bin/cp process_contact.php $DEPLOYPATH/process_contact.php
 
     - /bin/cp -R assets/. $DEPLOYPATH/assets/
     - /bin/cp -R Images/. $DEPLOYPATH/Images/
-        - /bin/mkdir -p $DEPLOYPATH/admin
-    - /bin/mkdir -p $DEPLOYPATH/scholar-portal
+
     - /usr/bin/find admin -mindepth 1 -maxdepth 1 ! -name vendor ! -name uploads ! -name logs ! -name backups -exec /bin/cp -R {} $DEPLOYPATH/admin/ \;
     - /usr/bin/find scholar-portal -mindepth 1 -maxdepth 1 ! -name uploads ! -name logs ! -name backups -exec /bin/cp -R {} $DEPLOYPATH/scholar-portal/ \;
