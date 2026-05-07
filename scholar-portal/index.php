@@ -194,6 +194,7 @@ if (isset($_SESSION['user_id'])) {
     }
 
   </style>
+  <link rel="stylesheet" href="/mobile-fixes.css?v=20260507">
 </head>
 <body>
 
@@ -208,7 +209,7 @@ if (isset($_SESSION['user_id'])) {
       <a href="login.php" class="btn btn-outline-gold" style="padding:10px 22px;font-size:13px;">Sign In</a>
       <a href="register.php" class="btn btn-gold" style="padding:10px 22px;font-size:13px;">Register</a>
     </div>
-    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div></div>
 </nav>
 

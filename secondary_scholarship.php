@@ -1670,9 +1670,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
     </style>
-    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="site.css?v=20260507">
+  <link rel="stylesheet" href="/mobile-fixes.css?v=20260507">
     <link rel="stylesheet" href="application-theme.css">
-    <script defer src="site.js"></script>
+    <script defer src="site.js?v=20260507"></script>
 </head>
 <body>
     <nav class="nav" data-nav>
@@ -1696,7 +1697,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <a href="apply.html" class="nav-link-muted">Application tracks</a>
                     <a href="check-status.php" class="btn btn-primary">Check status</a>
                 </div>
-                <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Open navigation"><span></span><span></span><span></span></button>
+                <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
             </div>
             <div class="mobile-menu" data-mobile-menu>
                 <a href="about.html">About</a>

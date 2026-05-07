@@ -39,6 +39,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ensureFavicon();
 
+  document.querySelectorAll(".nav-toggle, [data-nav-toggle]").forEach((button) => {
+    const hasSpans = button.querySelectorAll("span").length >= 3;
+    const text = (button.textContent || "").trim().toLowerCase();
+    if (!hasSpans && (text === "menu" || text.includes("menu"))) {
+      button.textContent = "";
+      for (let i = 0; i < 3; i += 1) {
+        button.appendChild(document.createElement("span"));
+      }
+    }
+    if (!button.getAttribute("aria-label")) {
+      button.setAttribute("aria-label", "Toggle navigation menu");
+    }
+    if (!button.getAttribute("aria-expanded")) {
+      button.setAttribute("aria-expanded", "false");
+    }
+  });
+
   const nav = document.querySelector("[data-nav]");
   const toggle = document.querySelector("[data-nav-toggle]");
   const mobileMenu = document.querySelector("[data-mobile-menu]");

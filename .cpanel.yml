@@ -22,6 +22,7 @@ deployment:
     - /bin/cp talent.html $DEPLOYPATH/talent.html
 
     - /bin/cp site.css $DEPLOYPATH/site.css
+    - /bin/cp mobile-fixes.css $DEPLOYPATH/mobile-fixes.css
     - /bin/cp site.js $DEPLOYPATH/site.js
     - /bin/cp application-theme.css $DEPLOYPATH/application-theme.css
 

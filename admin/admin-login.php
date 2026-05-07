@@ -202,6 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
   </style>
+  <link rel="stylesheet" href="/mobile-fixes.css?v=20260507">
 </head>
 <body>
 <div class="page-bg"></div><div class="page-grid"></div>
