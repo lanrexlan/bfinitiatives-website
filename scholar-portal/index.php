@@ -175,6 +175,24 @@ if (isset($_SESSION['user_id'])) {
     @media(max-width:1100px){.hero-inner{grid-template-columns:1fr}.portal-cards{display:none}.journey-grid{grid-template-columns:1fr}}
     @media(max-width:768px){.nav-right{display:none}.nav-toggle{display:flex}.features-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{flex-direction:column;gap:32px}}
     @media(max-width:480px){.container{padding:0 20px}.features-grid{grid-template-columns:1fr}.hero-btns,.cta-btns{flex-direction:column}}
+  
+
+    .nav-back,.btn-submit,.password-toggle,.nav-toggle,.btn,a,input,select,textarea,button{min-height:44px}
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold-bright);outline-offset:2px}
+    .form-control::placeholder{color:rgba(255,255,255,0.55)}
+    @media(max-width:768px){
+      .nav{padding:16px}
+      .nav-logo-text{font-size:15px}
+      .form-title{font-size:28px}
+      .form-sub{font-size:14px;line-height:1.6}
+    }
+    @media(max-width:480px){
+      .main{padding:10px 10px 28px}
+      .panel-right,.right-panel{padding:28px 18px !important}
+      .form-row-inline{flex-direction:column;align-items:flex-start;gap:12px}
+      .nav > div{gap:10px !important;flex-wrap:wrap}
+    }
+
   </style>
 </head>
 <body>

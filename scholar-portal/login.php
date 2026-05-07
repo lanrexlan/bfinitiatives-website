@@ -251,6 +251,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     @media(max-width:900px){body{grid-template-columns:1fr}.left-panel{display:none}.right-panel{padding:40px 32px}}
     @media(max-width:480px){.right-panel{padding:32px 24px}}
+  
+
+    .nav-back,.btn-submit,.password-toggle,.nav-toggle,.btn,a,input,select,textarea,button{min-height:44px}
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold-bright);outline-offset:2px}
+    .form-control::placeholder{color:rgba(255,255,255,0.55)}
+    @media(max-width:768px){
+      .nav{padding:16px}
+      .nav-logo-text{font-size:15px}
+      .form-title{font-size:28px}
+      .form-sub{font-size:14px;line-height:1.6}
+    }
+    @media(max-width:480px){
+      .main{padding:10px 10px 28px}
+      .panel-right,.right-panel{padding:28px 18px !important}
+      .form-row-inline{flex-direction:column;align-items:flex-start;gap:12px}
+      .nav > div{gap:10px !important;flex-wrap:wrap}
+    }
+
   </style>
 </head>
 <body>

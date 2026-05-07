@@ -52,16 +52,28 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", syncNav, { passive: true });
 
   if (toggle && mobileMenu) {
+    if (!toggle.getAttribute("aria-label")) {
+      toggle.setAttribute("aria-label", "Toggle navigation menu");
+    }
+
+    const closeMenu = () => {
+      mobileMenu.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
     toggle.addEventListener("click", () => {
       const isOpen = mobileMenu.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(isOpen));
     });
 
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+
     mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      });
+      link.addEventListener("click", closeMenu);
     });
   }
 
