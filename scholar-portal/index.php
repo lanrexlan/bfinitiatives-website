@@ -365,7 +365,7 @@ if (isset($_SESSION['user_id'])) {
     <div class="footer-bottom">
       <p>&copy; 2026 Bold Footprint Initiatives. All rights reserved.</p>
       <div class="footer-social">
-        <a href="https://www.linkedin.com/company/bright-future-initiative/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://twitter.com/bfinitiatives" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
         <a href="https://web.facebook.com/profile.php?id=61574771032448" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
       </div>

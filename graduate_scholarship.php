@@ -2589,9 +2589,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <p class="footer-slogan">Empowering dreams through education</p>
                     <div class="footer-socials">
                         <a href="https://web.facebook.com/profile.php?id=61574771032448" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://x.com/BFIniatiatives" class="social-link"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://twitter.com/bfinitiatives" class="social-link"><i class="fab fa-x-twitter"></i></a>
                         <a href="https://www.instagram.com/bfinitiatives" class="social-link" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/company/bright-future-initiative" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a><!-- LinkedIn official URL pending verification -->
                     </div>
                 </div>
                 
@@ -2599,9 +2599,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <h4 class="footer-heading">Connect With Us</h4>
                     <ul class="footer-nav">
                         <li><a href="https://web.facebook.com/profile.php?id=61574771032448"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                        <li><a href="https://x.com/BFIniatiatives"><i class="fab fa-x-twitter"></i> Twitter</a></li>
+                        <li><a href="https://twitter.com/bfinitiatives"><i class="fab fa-x-twitter"></i> X</a></li>
                         <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                        <li><a href="https://www.linkedin.com/company/bright-future-initiative"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a> <!-- LinkedIn official URL pending verification --></li>
                     </ul>
                 </div>
                 
