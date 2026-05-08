@@ -1793,7 +1793,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     </style>
     <link rel="stylesheet" href="site.css?v=20260507">
-  <link rel="stylesheet" href="/mobile-fixes.css?v=20260507b">
+  <link rel="stylesheet" href="/mobile-fixes.css?v=20260507c">
     <link rel="stylesheet" href="application-theme.css">
     <script defer src="site.js?v=20260507"></script>
 </head>
@@ -1808,30 +1808,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="brand-copy">Bold Footprint<span>Initiatives</span></div>
                 </a>
                 <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="programs.html">Programs</a></li>
-                    <li><a href="stories.html">Stories</a></li>
-                    <li><a href="achievements.html">Achievements</a></li>
-                    <li><a href="talent.html">Talent of the Year</a></li>
-                    <li><a href="mentor.html">Mentor</a></li>
-                </ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="talent.html">Talent of the Year</a></li>
+        </ul>
                 <div class="nav-actions">
-                    <a href="apply.html" class="nav-link-muted">Application tracks</a>
-                    <a href="check-status.php" class="btn btn-primary">Check status</a>
-                </div>
+          <a href="support.html" class="btn btn-primary">Get Involved</a>
+        </div>
                 <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
             </div>
             <div class="mobile-menu" data-mobile-menu>
-        <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="programs.html">Programs</a>
         <a href="stories.html">Stories</a>
-        <a href="achievements.html">Achievements</a>
         <a href="talent.html">Talent of the Year</a>
-        <a href="mentor.html">Mentor</a>
-        <a href="apply.html">Apply</a>
-        <a href="support.html">Support</a>
+        <a href="support.html">Get Involved</a>
+        <div class="mobile-menu-divider">Portal Links</div>
+        <a href="/scholar-portal/">Scholar Portal</a>
+        <a href="/admin/admin-login.php">Admin Portal</a>
         <a href="contact.html">Contact</a>
       </div>
         </div>
@@ -2418,10 +2413,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-nav">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="programs.html">Our Programs</a></li>
-                        <li><a href="talent.html">Talent of the Year</a></li>
-                        <li><a href="mentor.html">Become a Mentor</a></li>
+                        <li><a href="achievements.html">Achievements</a></li>
+                        <li><a href="mentor.html">Mentor</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="/scholar-portal/">Scholar Portal</a></li>
+                        <li><a href="/admin/admin-login.php">Admin Portal</a></li>
                     </ul>
                 </div>
             </div>
