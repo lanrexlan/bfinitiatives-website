@@ -597,7 +597,7 @@ if ($application) {
             <li><a href="contact.html">Contact</a></li>
             <li><a href="/scholar-portal/">Scholar Portal</a></li>
             <li><a href="/admin/admin-login.php">Admin Portal</a></li>
-          
+          </ul>
                 </div>
                 <div>
                     <h4>Get Involved</h4>
