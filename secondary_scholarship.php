@@ -135,7 +135,7 @@ function sendApplicationEmail($userEmail, $firstName, $applicationId, $tempPassw
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+<body style="font-family: Arial, sans-serif; line-height: 1.72; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
     <div style="background-color: #ffffff; border-radius: 10px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
         <div style="text-align: center; margin-bottom: 30px;">
             <h1 style="color: #2c3e50; font-size: 24px; margin-bottom: 10px;">Application Confirmation</h1>
@@ -423,7 +423,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--dark);
-            line-height: 1.6;
+            line-height: 1.72;
             overflow-x: hidden;
             background-color: var(--light);
         }
@@ -659,10 +659,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         /* Page Hero */
         .page-hero {
-            background: linear-gradient(135deg, rgba(44, 82, 130, 0.9), rgba(30, 58, 138, 0.85)), url('/Images/scholarship-bg.jpeg');
+            background: linear-gradient(155deg, rgba(10, 25, 54, 0.92), rgba(23, 52, 96, 0.9)), url('/Images/scholarship-bg.jpeg');
             min-height: 30vh;
             display: flex;
             background-size: cover;
+            border-bottom: 1px solid rgba(240, 198, 106, 0.2);
             background-position: center;
             background-repeat: no-repeat;
             align-items: center;
@@ -694,6 +695,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         
         .page-hero-shape {
+            opacity: 0.35;
             position: absolute;
             bottom: -1px;
             left: 0;
