@@ -619,8 +619,8 @@ if ($application) {
                 <p>&copy; 2026 Bold Footprint Initiatives. All rights reserved.</p>
                 <div class="footer-socials">
                     <a href="https://web.facebook.com/profile.php?id=61574771032448" target="_blank" rel="noopener" aria-label="Facebook">Fb</a>
-                    <a href="https://x.com/BFIniatiatives" target="_blank" rel="noopener" aria-label="X (formerly Twitter)">X</a>
-                    <a href="https://www.linkedin.com/company/bright-future-initiative" target="_blank" rel="noopener" aria-label="LinkedIn">In</a>
+                    <a href="https://twitter.com/bfinitiatives" target="_blank" rel="noopener" aria-label="X">X</a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">In</a>
                 </div>
             </div>
         </div>
