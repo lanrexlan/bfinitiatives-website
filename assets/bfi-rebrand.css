@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
     --bfi-navy: #0d2b5c;
@@ -74,7 +74,7 @@ h6,
 .section-title,
 .logo-text,
 .footer-logo-text {
-    font-family: 'Outfit', 'Montserrat', sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
     letter-spacing: -0.03em;
 }
 
@@ -728,7 +728,7 @@ body .criteria-title,
 body .benefit-title,
 body .contact-label {
     color: var(--bfi-navy);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
 }
 
 body .category-description,
@@ -943,7 +943,7 @@ body table td {
 body table th {
     background: rgba(13, 43, 92, 0.92);
     color: var(--bfi-white);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
     font-weight: 700;
 }
 
@@ -1080,7 +1080,7 @@ body .contact-card-title,
 body .award-title,
 body .status-content h4 {
     color: var(--bfi-navy);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
 }
 
 body .faq-question i,
@@ -1103,7 +1103,7 @@ body .metric-value,
 body .stat-number,
 body .impact-number {
     color: var(--bfi-navy);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
 }
 
 body .metric-description,
@@ -1248,7 +1248,7 @@ body .hero-card-kicker {
 body .hero-card-title {
     margin: 0 0 0.75rem;
     color: var(--bfi-white);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
     font-size: clamp(1.45rem, 2.2vw, 2rem);
     line-height: 1.12;
 }
@@ -1277,7 +1277,7 @@ body .hero-proof-card {
 
 body .hero-proof-card strong {
     color: var(--bfi-navy);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
     font-size: clamp(1.6rem, 2.4vw, 2rem);
     line-height: 1;
 }
@@ -1439,7 +1439,7 @@ body .timeline-content {
 
 body .timeline-date {
     color: var(--bfi-gold);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
     font-size: 1.1rem;
     font-weight: 800;
 }
@@ -1454,7 +1454,7 @@ body .mv-title,
 body .value-title,
 body .team-role {
     color: var(--bfi-navy);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
 }
 
 body .history-title,
@@ -1592,7 +1592,7 @@ body .stats-bar {
 
 body .stat-number-home {
     color: var(--bfi-white);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
 }
 
 body .involved-card {
