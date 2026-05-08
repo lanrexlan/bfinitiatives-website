@@ -107,7 +107,7 @@ if ($application) {
     <title>Check Application Status | Bold Footprint Initiatives</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="site.css?v=20260507">
   <link rel="stylesheet" href="/mobile-fixes.css?v=20260507c">
     <link rel="stylesheet" href="application-theme.css">
